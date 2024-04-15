@@ -6,20 +6,39 @@ import static java.lang.Math.max;
 //Space complexity - O(1)
 public class checkBSTTree {
     public static void main(String args[]){
-       BinaryTree binaryTree = new BinaryTree();
-       binaryTree.root = new TreeNode(4);
-       binaryTree.root.left = new TreeNode(2);
+        BinaryTree binaryTree = new BinaryTree();
+        binaryTree.root = new TreeNode(4);
+        binaryTree.root.left = new TreeNode(2);
         binaryTree.root.right = new TreeNode(6);
         binaryTree.root.left.left = new TreeNode(1);
         binaryTree.root.left.right = new TreeNode(3);
         binaryTree.root.right.left = new TreeNode(5);
         binaryTree.root.right.right = new TreeNode(7);
+      //  binaryTree.root.left.left.left = new TreeNode(9); //added 2 extra levels to check balanced
+      //  binaryTree.root.left.left.left.left = new TreeNode(10);
         binaryTree.findAllNodes(binaryTree.root); //print All Nodes
 
         System.out.println("Is BST - "+ isBST(binaryTree.root,true));
         System.out.println("Height of tree - "+ height(binaryTree.root));
         System.out.println("Diameter of tree - "+ diameter(binaryTree.root));
+        System.out.println("Is Balanced - "+ isBalanced(binaryTree.root));
+    }
 
+//    All 3 conditions has to satisifed for Balanced
+//    1. The height of the left and right tree for any node does not differ by more than 1.
+//    2. The left subtree of that node is also balanced.
+//    3. The right subtree of that node is also balanced.
+    private static boolean isBalanced(TreeNode root) {
+       if(root==null){
+           return true;
+        }
+        int lh = height(root.left);
+        int rh = height(root.right);
+        if (Math.abs(lh - rh) <= 1 && isBalanced(root.left)
+                && isBalanced(root.right)){
+            return true;
+        }
+            return false;
     }
 
     //number of nodes on the longest path between two end nodes.
