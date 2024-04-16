@@ -1,16 +1,16 @@
 package com.ragul.demo.LinkedList;
 
 //singly LL
-public class LLNode {
+public class SLLNode {
     int data;
-    LLNode next;
+    SLLNode next;
 
-    public LLNode(int data) {
+    public SLLNode(int data) {
         this.data=data;
         next=null;
     }
 
-    public void setNext(LLNode node) {
+    public void setNext(SLLNode node) {
         this.next=node;
     }
 }

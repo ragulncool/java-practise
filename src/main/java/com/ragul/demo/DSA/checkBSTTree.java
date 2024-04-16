@@ -29,7 +29,7 @@ public class checkBSTTree {
 //    2. The left subtree of that node is also balanced.
 //    3. The right subtree of that node is also balanced.
     private static boolean isBalanced(TreeNode root) {
-       if(root==null){
+       if(root==null){ //empty tree is balanced
            return true;
         }
         int lh = height(root.left);
