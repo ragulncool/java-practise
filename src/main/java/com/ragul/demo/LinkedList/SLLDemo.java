@@ -15,9 +15,13 @@ public class SLLDemo {
         SinglyLinkedList list = new SinglyLinkedList();
         list.addData(7);
         list.addData(1);
+        list.addData(1);
+        list.addData(1);
         list.addData(3);
         list.addData(2);
+        list.addData(2);
         list.addData(8);
+        list.addData(9);
         list.addData(9);
         list.printAll();
         int length = list.length();
@@ -35,7 +39,18 @@ public class SLLDemo {
         list.revereLinkedlist();
         list.printAll();
 
+        System.out.println("====Search Element====");
+        System.out.println(list.searchElement(8));
+        System.out.println(list.searchElement(11));
+
+        System.out.println("====Remove duplicates from sorted LL====");
+        list.removeDuplicates();
+        list.printAll();
+
+
         list.covertToCircular();
         System.out.println("====Is Circular? "+ list.checkCircular());
     }
+
+
 }

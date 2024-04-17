@@ -1,4 +1,4 @@
-package com.ragul.demo.DSA;
+package com.ragul.demo.Tree;
 
 public class TreeNode {
 

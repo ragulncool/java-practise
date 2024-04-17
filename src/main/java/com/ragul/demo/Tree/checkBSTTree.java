@@ -1,4 +1,4 @@
-package com.ragul.demo.DSA;
+package com.ragul.demo.Tree;
 
 import static java.lang.Math.max;
 

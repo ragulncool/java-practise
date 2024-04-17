@@ -30,7 +30,7 @@ public class SinglyLinkedList {
     }
 
     public void deleteNthNode(int delPosition) {
-        int position = length()-delPosition;
+        int position = length()-delPosition+1; //from head
         SLLNode current = this.head;
         int i=0;
         SLLNode prev = null;
@@ -42,7 +42,7 @@ public class SinglyLinkedList {
 //               System.out.println("To be deleted "+current.data);
 //           }
 //simplified
-           if(i==position-1){
+           if(i==position){
                prev=current;
                System.out.println("Data to be deleted "+prev.next.data);
                prev.next=prev.next.next;
@@ -107,5 +107,26 @@ public class SinglyLinkedList {
             current=current.next;
         }
         current.next=head;
+    }
+
+    public boolean searchElement(int searchData) {
+        SLLNode current = head;
+        while (current.next!=null){
+            if(current.data==searchData){
+                return true;
+            }
+            current=current.next;
+        }
+        return false;
+    }
+
+    public void removeDuplicates() {
+        SLLNode current = head;
+        while (current!=null){
+            if(current.next!=null && current.data==current.next.data){
+                current.next=current.next.next; //remove 2nd duplicate from link
+            }
+            current=current.next; //subsequently check further notes and will be removed if any duplicates
+        }
     }
 }
