@@ -27,7 +27,7 @@ public class LRUCacheImpl {
             return -1;
         }else{
             deleteNode(node);
-            addToHead(node);
+            addNodeToHead(node);
             return node.data;
         }
     }
@@ -39,23 +39,24 @@ public class LRUCacheImpl {
             LRUNode newNode = new LRUNode(key, data);
             map.put(key, newNode);
             if(count<capacity){
-                addToHead(newNode);
+                addNodeToHead(newNode);
             }else{
                 deleteNode(tail);
-                addToHead(newNode);
+                addNodeToHead(newNode);
             }
         }else{
-            LRUNode existingNode = map.get(key);
-
+            LRUNode node = map.get(key); //key already exist
+            deleteNode(node);
+            node.data = data;
+            addNodeToHead(node);
         }
     }
 
-    private void addToHead(LRUNode node){
+    private void addNodeToHead(LRUNode node){
         LRUNode next = null;
-        if(head==null){ //for single node , head an dtail are same
+        if(head==null){ //for single node , head and tail are same
             tail=node;
-        }
-        if(head!=null){
+        }else{
             head.prev=node;
         }
         node.next=head;
@@ -66,7 +67,7 @@ public class LRUCacheImpl {
 
     private void deleteNode(LRUNode node){
         if(tail==null){
-            System.out.println("There are no nodes to delete. Tail is null. count: "+count);
+            //scenario will not happen
         }
         LRUNode prev = node.prev;
         LRUNode next = node.next;
