@@ -1,9 +1,11 @@
 package com.ragul.demo.Collections;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class SampleMap {
     public static void main(String args[]){
@@ -21,5 +23,20 @@ public class SampleMap {
 
         map.clear();
         map.size();
+
+        //delete
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+        Date date = new Date();
+        System.out.println(dateFormat.format(date));
+//
+//        LocalDate lt = LocalDate.parse( date, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ssXXX"));
+//        System.out.println(lt);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX");
+        sdf.format(date);
+        System.out.println();
+
     }
 }

@@ -1,5 +1,7 @@
 package com.ragul.demo.Collections;
 
+import org.apache.catalina.filters.AddDefaultCharsetFilter;
+
 public class PassByValue {
 
         public static void main(String[] args)
@@ -7,7 +9,10 @@ public class PassByValue {
             Add obj = new Add(5, 10);
             // call by value (object is passed)
             change(obj.x,obj.y);
-            //change(obj);
+            System.out.println("x = "+obj.x);
+            System.out.println("y = "+obj.y);
+
+            change(obj);
             System.out.println("x = "+obj.x);
             System.out.println("y = "+obj.y);
 
@@ -21,6 +26,12 @@ public class PassByValue {
     {
         x++;
         y++;
+    }
+
+    public static void change(Add a)
+    {
+        a.x++;
+        a.y++;
     }
 }
 class Add
