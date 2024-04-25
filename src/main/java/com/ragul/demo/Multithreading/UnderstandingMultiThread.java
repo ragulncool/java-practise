@@ -1,6 +1,6 @@
 package com.ragul.demo.Multithreading;
 
-public class DemoThread2 extends Thread {
+public class UnderstandingMultiThread extends Thread {
     @Override
     public void run() {
 
@@ -25,7 +25,7 @@ public class DemoThread2 extends Thread {
 
 class MTDemo2{
 public static void main(String args[]){
-    DemoThread2 thread=new DemoThread2();
+    UnderstandingMultiThread thread=new UnderstandingMultiThread();
     thread.start(); //start internally calls run
 }
 

@@ -24,17 +24,20 @@ public class diffCollections {
         set.add(3);
         set.add(1);
         set.add(2);
+        set.add(2);
         System.out.println("HashSet : "+set);//unpredictable order
 
         Set<Integer> set1 = new LinkedHashSet<>();
         set1.add(3);
         set1.add(1);
         set1.add(2);
+        set1.add(2);
         System.out.println("LinkedHashSet : "+set1); //insertion order
 
         Set<Integer> set2 = new TreeSet<>();
         set2.add(3);
         set2.add(1);
+        set2.add(2);
         set2.add(2);
         System.out.println("TreeSet : "+set2); //sorted
 

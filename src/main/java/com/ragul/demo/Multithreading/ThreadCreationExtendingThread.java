@@ -1,6 +1,6 @@
 package com.ragul.demo.Multithreading;
 
-public class DemoThread1 extends Thread {
+public class ThreadCreationExtendingThread extends Thread {
     @Override
     public void run() {
         System.out.println("Current thread name: "
@@ -9,7 +9,7 @@ public class DemoThread1 extends Thread {
 
 class MTDemo1{
 public static void main(String args[]){
-    DemoThread1 thread=new DemoThread1();
+    ThreadCreationExtendingThread thread=new ThreadCreationExtendingThread();
 
     thread.run(); //doesnt create a new thread. just runs on main thread itself and no multi threadings takes place
 

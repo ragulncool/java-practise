@@ -35,6 +35,6 @@ class Threadtest1{
         System.out.println("===MAKING THREAD AS DAEMON===");
         t.setDaemon(true);
         t.start();;  //daemon thread will terminate when main is terminated
-//not clear about join and yield
+        //not clear about join and yield
     }
 }

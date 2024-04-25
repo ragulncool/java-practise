@@ -1,6 +1,6 @@
 package com.ragul.demo.Multithreading;
 
-public class DemoThread implements Runnable {
+public class ThreadCreationImplemenRunnable implements Runnable {
     @Override
     public void run() {
         System.out.println("Current thread name: "
@@ -10,8 +10,8 @@ public class DemoThread implements Runnable {
 
 class MTDemo {
 public static void main(String args[]){
-    DemoThread demoThread=new DemoThread();
-    Thread thread = new Thread(demoThread);
+    ThreadCreationImplemenRunnable threadCreationImplemenRunnable =new ThreadCreationImplemenRunnable();
+    Thread thread = new Thread(threadCreationImplemenRunnable);
     thread.start();
 }
 
