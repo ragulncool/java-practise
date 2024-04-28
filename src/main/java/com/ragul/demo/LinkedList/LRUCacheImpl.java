@@ -10,7 +10,7 @@ public class LRUCacheImpl {
     LRUNode head;
     LRUNode tail;
     int capacity;
-    List<LRUNode> list = new LinkedList<>();
+    //List<LRUNode> list = new LinkedList<>();
     Map<Integer, LRUNode> map = new HashMap<>();
     int count;
 

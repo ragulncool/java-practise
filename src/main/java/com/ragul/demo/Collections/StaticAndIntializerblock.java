@@ -33,10 +33,10 @@ class StaticAndInitialzationChild{
     }
 
     public static void main(String args[]){
-      //  StaticAndInitialzationChild s=new StaticAndInitialzationChild();  change order of this line and check
+        StaticAndInitialzationChild s=new StaticAndInitialzationChild();  //change order of this line and check
         System.out.println("Inside class2 main");
 
-        StaticAndInitialzationChild s=new StaticAndInitialzationChild();
+      //  StaticAndInitialzationChild s=new StaticAndInitialzationChild();
 
     }
 }

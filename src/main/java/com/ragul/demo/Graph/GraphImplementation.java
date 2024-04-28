@@ -69,7 +69,7 @@ class Graph<T>
 
 
     //checks a graph has edge or not
-//where s and d are the two parameters that represent source(vertex) and destination (vertex)
+//where s and d are the com.ragul.demo.problems.two parameters that represent source(vertex) and destination (vertex)
     public void containsEdge(T s, T d)
     {
         if (map.get(s).contains(d))
@@ -131,7 +131,7 @@ public class GraphImplementation
         graph.countVertices();
 //counts the number of edges in the graph
         graph.countEdges(true);
-//checks whether an edge is present or not between the two specified vertices
+//checks whether an edge is present or not between the com.ragul.demo.problems.two specified vertices
         graph.containsEdge(3, 4);
         graph.containsEdge(2, 4);
 //checks whether vertex is present or not

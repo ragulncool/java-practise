@@ -1,3 +1,5 @@
+package com.ragul.demo.problems;
+
 import java.util.Arrays;
 
  //print the lexicographically smallest string of length N consisting of lower-case English alphabets

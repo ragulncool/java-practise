@@ -44,7 +44,7 @@ public class diffCollections {
         Map<Integer,String> map=new HashMap<>();
         map.put(3,"three");
         map.put(1,"one");
-        map.put(2,"two");
+        map.put(2,"com.ragul.demo.problems.two");
         map.put(3,null);
         map.put(null,null);
         System.out.println("HashMap : "+map); //unpredictable order
@@ -52,7 +52,7 @@ public class diffCollections {
         Map<Integer,String> map1=new LinkedHashMap<>();
         map1.put(3,"three");
         map1.put(1,"one");
-        map1.put(2,"two");
+        map1.put(2,"com.ragul.demo.problems.two");
         map1.put(3,null);
         map1.put(null,null);
         System.out.println("LinkedHashMap : "+map1); //insertion order
@@ -60,7 +60,7 @@ public class diffCollections {
         Map<Integer,String> map2=new TreeMap<>();
         map2.put(3,"three");
         map2.put(1,"one");
-        map2.put(2,"two");
+        map2.put(2,"com.ragul.demo.problems.two");
         map2.put(3,null);
         //map2.put(null,null); Null pointer - TreeMap doesnt allow null key
         System.out.println("TreeMap : "+map2); //sorted

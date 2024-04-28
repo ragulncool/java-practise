@@ -1,4 +1,4 @@
-package com.ragul.demo;
+package com.ragul.demo.problems;
 
 
 import java.util.Arrays;
@@ -10,7 +10,7 @@ public class CheckStringsAreClose {
     //if all char1 is repladed by char2, world should be same
 
     //-ve
-    //when length of two words are not equals
+    //when length of com.ragul.demo.problems.two words are not equals
     // when element in one is not present in another
 
       public static void main(String args[]) {

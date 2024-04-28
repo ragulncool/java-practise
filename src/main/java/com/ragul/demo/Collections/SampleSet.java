@@ -16,5 +16,9 @@ public class SampleSet {
         System.out.println(set2.containsAll(set1));
         System.out.println(set2.contains("A"));
         set2.clear();
+
+        //nodirect method to get values from set
+        List<String> list = new ArrayList<>(set1);
+        System.out.println(list.get(0));
     }
 }

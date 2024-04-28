@@ -4,6 +4,10 @@ public class SinglyLinkedList {
     //LL has only head info for traversing. Important to set it at the end of all operations
     SLLNode head;
 
+    public SLLNode returnHead(){
+        return head;
+    }
+
     public void addData(int data){
         SLLNode lLNode = new SLLNode(data);
         lLNode.setNext(this.head);
@@ -129,4 +133,40 @@ public class SinglyLinkedList {
             current=current.next; //subsequently check further notes and will be removed if any duplicates
         }
     }
+
+    //NOT WORKING
+    public void  reverseSubListOfLL(int start, int end) {
+        SLLNode current = head;
+        SLLNode prev = null;
+        int nodeNumber=1;
+        SLLNode nodebeforeReverse = null, nodeAfterEnd = null;
+        while (current!=null){
+            if(nodeNumber==start-1){
+                nodebeforeReverse = current;
+            }else if(nodeNumber==end+1){
+                nodeAfterEnd = current;
+            };
+            current=current.next;
+            nodeNumber++;
+        }
+
+        nodeNumber=1;
+        current = head;
+        prev = null;
+        while (current!=null){
+            if(nodeNumber==start){
+                current.next=nodeAfterEnd;
+            }else if(nodeNumber==end){
+                current.next=nodebeforeReverse;
+            }else if(nodeNumber>start && nodeNumber<end){
+                current.next=prev;
+            }
+
+            prev = current;
+            current=current.next;
+            nodeNumber++;
+        }
+    }
+
+
 }

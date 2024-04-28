@@ -41,7 +41,7 @@ public class checkBSTTree {
             return false;
     }
 
-    //number of nodes on the longest path between two end nodes.
+    //number of nodes on the longest path between com.ragul.demo.problems.two end nodes.
     private static int diameter(TreeNode root) {
         if(root==null){ //else null pointer will be thrown
             return 0;

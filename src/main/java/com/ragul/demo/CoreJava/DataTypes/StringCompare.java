@@ -11,7 +11,7 @@ public class StringCompare {
         System.out.println(s1.equals(s2)); //boolean
         System.out.println(s1.compareTo(s2)); //returns 0 if equals else different
 
-        System.out.println(s1==s3); //comapres memory location - true because points to same value in SCP
+        System.out.println(s1==s2); //comapres memory location - true because points to same value in SCP
         System.out.println(s1.equals(s3));
         System.out.println(s1.compareTo(s3));
 

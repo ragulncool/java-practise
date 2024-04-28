@@ -1,16 +1,16 @@
 package com.ragul.demo.Collections;
 
-import org.apache.catalina.filters.AddDefaultCharsetFilter;
-
 public class PassByValue {
 
         public static void main(String[] args)
         {
             Add obj = new Add(5, 10);
+            int z=0;
             // call by value (object is passed)
-            change(obj.x,obj.y);
+            change(obj.x,obj.y,z);
             System.out.println("x = "+obj.x);
             System.out.println("y = "+obj.y);
+            System.out.println("z = "+z); //value not chaanged to 1 since pass by value
 
             change(obj);
             System.out.println("x = "+obj.x);
@@ -22,10 +22,11 @@ public class PassByValue {
 //            add.x++;
 //            add.y++;
 //        }
-    public static void change(int x, int y)
+    public static void change(int x, int y, int z)
     {
         x++;
         y++;
+        z=z+1;
     }
 
     public static void change(Add a)

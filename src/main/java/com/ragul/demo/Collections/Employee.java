@@ -6,6 +6,29 @@ import java.util.Objects;
 
 @Data
 public class Employee {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     private int id;
 
@@ -33,15 +56,19 @@ public class Employee {
 
     @Override
     public int hashCode() {
-        int hashCode = Objects.hash(id, name);
+        int hashCode = Objects.hash(name);
         System.out.println("hashCode result : "+hashCode);
         return hashCode;
+
+//        int hashcode = 0;
+//                System.out.println("hashCode result : "+hashcode);
+//        return hashcode;
     }
 
     public Employee(int id, String name, String address) {
-        id=this.id;
-        name=this.name;
-        address=this.address;
+        this.id=id;
+        this.name=name;
+        this.address=address;
     }
 
 
