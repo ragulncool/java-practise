@@ -7,6 +7,7 @@ public class TrieTest {
         trie.insertData("Gtd");
         System.out.println(trie.contains("Gold"));
         System.out.println(trie.contains("Gtd"));
+        System.out.println(trie.getPrefix("G"));
         trie.printAll();
     }
 }

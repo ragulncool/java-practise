@@ -13,4 +13,16 @@ public class SLLNode {
     public void setNext(SLLNode node) {
         this.next=node;
     }
+
+    public SLLNode getNext() {
+        return this.next;
+    }
+
+    public int getData() {
+        return this.data;
+    }
+
+    public void setData(int data) {
+        this.data=data;
+    }
 }

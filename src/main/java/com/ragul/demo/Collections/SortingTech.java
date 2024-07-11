@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SortingTech {
     public static void main(String args[]){
@@ -20,11 +21,14 @@ public class SortingTech {
         //Collections.sort(list)-Compile error ;//or streams sorted() gives run time error //- reason: no instance(s) of type variable(s) T exist so that Employee conforms to Comparable<? super T>
 
       //  4 WAYS - USING CUSTOM COMPARATOR AND INBUILT COMPARATOR
-//        Collections.sort(list, new EmployeeComparator());
+//        Collections.sort(list, new EmployeeIdComparator());
 //        System.out.println(list);
 
-//        List<Employee> list1= list.stream().sorted(new EmployeeComparator()).collect(Collectors.toList());
+//        List<Employee> list1= list.stream().sorted(new EmployeeIdComparator()).collect(Collectors.toList());
 //        System.out.println(list1);
+
+        List<Employee> list1= list.stream().sorted(new EmployeeNameComparator()).collect(Collectors.toList());
+        System.out.println(list1);
 
 //        List<Employee> list2= list.stream().sorted(Comparator.comparingInt(Employee::getId)).collect(Collectors.toList());
 //        System.out.println(list2);
@@ -34,10 +38,18 @@ public class SortingTech {
     }
 }
 
-class EmployeeComparator implements Comparator<Employee>{
+class EmployeeIdComparator implements Comparator<Employee>{
 
     @Override
     public int compare(Employee o1, Employee o2) {
         return o1.getId()-o2.getId();
+    }
+}
+
+class EmployeeNameComparator implements Comparator<Employee>{
+
+    @Override
+    public int compare(Employee o1, Employee o2) {
+        return o1.getName().compareTo(o2.getName());
     }
 }
