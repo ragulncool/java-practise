@@ -1,5 +1,8 @@
 package com.ragul.demo.Tree;
 
+import com.ragul.demo.LinkedList.DLLNode;
+import com.ragul.demo.LinkedList.DoublyLinkedList;
+
 import java.util.*;
 
 //NOTE NEVER USE LOOP IN RECURSION
@@ -17,9 +20,18 @@ import java.util.*;
 //      2        6
 //    1  3    5     7
 //                8  9
+
+// GENERAL PROCEDURE FOR SOLVING TREE PROBLEMS
+// func(root->current)
+// if(current!=null)
+//    iterate left subtree func(current.left)
+//    iterate right subtree func(current.right)
+//    add or process both results
 public class checkBSTTree {
     static int max_level = 0;
     static List<String> pathList;
+    static DLLNode prevDLL=null;
+    static DLLNode headDLL=null;
 
     public static void main(String args[]){
         pathList=new ArrayList<>();
@@ -53,11 +65,38 @@ public class checkBSTTree {
         System.out.println("Merge trees");
         binaryTree.printAllNodes(mergedTreeRootNode);
 
-
         //     System.out.println("Find path - "+ findPath(binaryTree.root,5, new ArrayList<>(),false));
         System.out.println("Printpath: "+printPath(binaryTree.root,55, pathList));
         System.out.println("Lowest Common Ancestor - "+ findLCA(binaryTree.root,7,55));
 
+        System.out.println("BT to DLL");
+        convertBinaryTreeToDLL(binaryTree.root);
+        printDLL(headDLL);
+
+    }
+
+    private static void convertBinaryTreeToDLL(TreeNode treeNode) {
+        if(treeNode!=null){
+
+            DLLNode dllNode = new DLLNode(treeNode.data);
+            if(prevDLL==null){
+                headDLL=dllNode;
+            }else{
+                prevDLL.setNext(dllNode);
+                dllNode.setPrev(prevDLL);
+            }
+            prevDLL = dllNode;
+
+            convertBinaryTreeToDLL(treeNode.left);
+            convertBinaryTreeToDLL(treeNode.right);
+        }
+    }
+
+    private static void printDLL(DLLNode dllNode) {
+        while (dllNode.getNext()!=null){
+            System.out.println(dllNode.getData());
+            dllNode = dllNode.getNext();
+        }
     }
 
     private static int sumFromRootToLeft(TreeNode root) {
