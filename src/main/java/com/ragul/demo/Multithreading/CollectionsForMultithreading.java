@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 
-public class CollectionsForMT {
+public class CollectionsForMultithreading {
     //unsynchronized - not threadsafe
     //synchronized - threadsafe
 

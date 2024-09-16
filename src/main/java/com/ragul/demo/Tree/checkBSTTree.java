@@ -78,6 +78,9 @@ public class checkBSTTree {
     private static void convertBinaryTreeToDLL(TreeNode treeNode) {
         if(treeNode!=null){
 
+            convertBinaryTreeToDLL(treeNode.left);
+
+            //adding to DLL by In order traversal from tree
             DLLNode dllNode = new DLLNode(treeNode.data);
             if(prevDLL==null){
                 headDLL=dllNode;
@@ -87,7 +90,6 @@ public class checkBSTTree {
             }
             prevDLL = dllNode;
 
-            convertBinaryTreeToDLL(treeNode.left);
             convertBinaryTreeToDLL(treeNode.right);
         }
     }

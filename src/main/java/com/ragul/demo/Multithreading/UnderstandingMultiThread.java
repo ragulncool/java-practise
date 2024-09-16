@@ -8,6 +8,7 @@ public class UnderstandingMultiThread extends Thread {
 
             // it will sleep the main thread for 1 sec
             // ,each time the for loop runs
+            //if we comment, output is rapid fast else will produce with 1 sec delay
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

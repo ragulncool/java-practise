@@ -53,8 +53,6 @@ class Threadtest{
         System.out.println("State "+t.getState());
         System.out.println("Alive "+t.isAlive());
 
-
-
 //        System.out.println("===MAKING METHOD AS DAEMON===");
 //        t.setDaemon(true);
         //t.start() will not work since daemon will kill when main method is executed
@@ -63,7 +61,7 @@ class Threadtest{
         t2.start();
         t.join();  //ALL OTHER THREADS INCLUDING MAIN WILL WAIT UNTIL T IS COMPLETED
         System.out.println("This line will be printed after join thread is completed (after 21)");
-        System.out.println("===JOIN THREAD & TERMINATED THREAD==="); //while executing this t will have finished execution sincce t.join used
+        System.out.println("===JOIN THREAD & TERMINATED THREAD==="); //while executing this t will have finished execution after interrupting in t.join used
         System.out.println("State "+t.getState());
         System.out.println("Alive "+t.isAlive());
         System.out.println("State "+t2.getState());
