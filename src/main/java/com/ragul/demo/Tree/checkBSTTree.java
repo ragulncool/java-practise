@@ -16,10 +16,12 @@ import java.util.*;
 //Time Complexity - O(N)
 //Space complexity - O(1)
 
-//          4
-//      2        6
-//    1  3    5     7
-//                8  9
+//          6
+//      2             8
+//    1   3      7        12
+//          4          11    13
+//            5      10
+//                  9
 
 // GENERAL PROCEDURE FOR SOLVING TREE PROBLEMS
 // func(root->current)
@@ -28,28 +30,38 @@ import java.util.*;
 //    iterate right subtree func(current.right)
 //    add or process both results
 public class checkBSTTree {
-    static int max_level = 0;
+    static int max_left_level = -1; //used in printing LV of tree
+    static int max_right_level = -1; //used in printing RV of tree
+
     static List<String> pathList;
     static DLLNode prevDLL=null;
     static DLLNode headDLL=null;
 
     public static void main(String args[]){
+
+
         pathList=new ArrayList<>();
         BinaryTree binaryTree = new BinaryTree();
-        binaryTree.root = new TreeNode(4);
+        binaryTree.root = new TreeNode(6);
         binaryTree.root.left = new TreeNode(2);
-        binaryTree.root.right = new TreeNode(6);
         binaryTree.root.left.left = new TreeNode(1);
         binaryTree.root.left.right = new TreeNode(3);
-        binaryTree.root.right.left = new TreeNode(5);
-        binaryTree.root.right.right = new TreeNode(7);
-        binaryTree.root.right.right.left = new TreeNode(8);
-        binaryTree.root.right.right.right = new TreeNode(9);
+        binaryTree.root.left.right.right = new TreeNode(4);
+        binaryTree.root.left.right.right.right = new TreeNode(5);
+
+        binaryTree.root.right = new TreeNode(8);
+        binaryTree.root.right.left = new TreeNode(7);
+        binaryTree.root.right.right = new TreeNode(12);
+        binaryTree.root.right.right.left = new TreeNode(11);
+        binaryTree.root.right.right.left.left = new TreeNode(10);
+        binaryTree.root.right.right.left.left.left = new TreeNode(9);
+        binaryTree.root.right.right.right = new TreeNode(13);
       //  binaryTree.root.left.left.left = new TreeNode(9); //added 2 extra levels to check balanced
       //  binaryTree.root.left.left.left.left = new TreeNode(10);
         binaryTree.printAllNodes(binaryTree.root); //print All Nodes
 
         System.out.println("Is BST - "+ isBST(binaryTree.root,true));
+
         System.out.println("Height of tree - "+ height(binaryTree.root));
         System.out.println("Height of node 7 - "+ heightOfNode(binaryTree.root,7));
         System.out.println("Depth of tree - "+ depth(binaryTree.root));
@@ -59,8 +71,17 @@ public class checkBSTTree {
         System.out.println("Max Value In Each levels - "+ getMaxValueInEachPath(binaryTree.root));
         System.out.println("Sum of all the numbers that are formed from root to leaf paths: "+ sumFromRootToLeft(binaryTree.root));
         //421+423+465+4678+4679=10666
-        System.out.println("Left view of binary tree");
-        printLeftViewofBT(binaryTree.root, 0);
+
+
+        System.out.println("====printLeftViewofBTIncludingElementsInSameLevel - Just for understanding===");
+        printLeftViewofBTIncludingElementsInSameLevel(binaryTree.root,0);
+
+        System.out.println("=====Left view of binary tree=====");
+        printLeftViewofBT(binaryTree.root, 0,"left");
+
+        System.out.println("=====Right view of binary tree=====");
+        printRightViewofBT(binaryTree.root, 0,"right");
+
         TreeNode mergedTreeRootNode = mergeTrees(binaryTree.root, binaryTree.root);
         System.out.println("Merge trees");
         binaryTree.printAllNodes(mergedTreeRootNode);
@@ -72,6 +93,8 @@ public class checkBSTTree {
         System.out.println("BT to DLL");
         convertBinaryTreeToDLL(binaryTree.root);
         printDLL(headDLL);
+
+
 
     }
 
@@ -119,19 +142,47 @@ public class checkBSTTree {
 
 
     //print left element at each element
-    //print first element in each level, eb=ven if traversal is left or right
-    private static void printLeftViewofBT(TreeNode root, int level) {
-        TreeNode current = root;
+    //print only first element in each level in preorder (root->left->right)
+    private static void printLeftViewofBT(TreeNode current, int level, String side) {
 
         if (current!=null){
 
-            if(level>max_level){ //print only once and first element (left) in each level - root->left->right traversal
-                System.out.println(current.data);
-                max_level=level; //print only when any level in that level is not printed
+            if(level>max_left_level && side.equals("left")){ //print only once and first element (left) in each level - root->left->right traversal
+                System.out.println(current.data+ "   Level:"+level);
+                max_left_level=level; //print only when any level in that level is not printed
+            }
+//            else{ //else only for understanding
+//                System.out.println("Element "+ current.data +" skipped since already printed element from level "+level);
+//            }
+
+            printLeftViewofBT(current.left,level+1, "left");
+            printLeftViewofBT(current.right,level+1, "right"); //for Right tree, root->right-> left swap the two lines
+        }
+    }
+
+    private static void printRightViewofBT(TreeNode current, int level, String side) {
+
+        if (current!=null){
+
+            if(level>max_right_level && side.equals("right")){ //print only once and first element (right) in each level - root->right->left traversal
+                System.out.println(current.data+ "    Level:"+level);
+                max_right_level=level; //print only when any level in that level is not printed
             }
 
-            printLeftViewofBT(current.left,level+1);
-            printLeftViewofBT(current.right,level+1); //for Right tree, root->right-> left swap the two lines
+            printRightViewofBT(current.right,level+1, "right"); //for Right tree, root->right-> left swap the two lines
+            printRightViewofBT(current.left,level+1 , "left");
+
+        }
+    }
+
+    //no use - just for understanding why above code is needed
+    private static void printLeftViewofBTIncludingElementsInSameLevel(TreeNode current, int level) {
+
+        if (current!=null){
+            if(level==0)                 System.out.println(current.data); //print only left eleemnts
+
+            printLeftViewofBTIncludingElementsInSameLevel(current.left,0);
+            printLeftViewofBTIncludingElementsInSameLevel(current.right,1); //for Right tree, root->right-> left swap the two lines
 
 
         }

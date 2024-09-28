@@ -2,6 +2,11 @@ package com.ragul.demo.Graph;
 
 import java.util.*;
 class Graph<T>
+
+    //MAP< KEY , LIST>
+    //KEY - EACH VERTICE
+        // VALUE - LIST - ADJACENT VERTICES
+
 {
     //creating an object of the Map class that stores the edges of the graph
     private Map<T, List<T> > map = new HashMap<>();

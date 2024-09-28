@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class TrieNode {
 
     char value;
-    int nodenumber; //for understanding
+    int nodenumber; //for dev understanding
     HashMap<Character,TrieNode> children;
     boolean isEndOfString;
 

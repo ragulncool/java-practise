@@ -9,7 +9,7 @@ public class StringImmutability {
         s=s.concat("world");
         System.out.println(s);    //this will work
 
-        StringBuffer s1=new StringBuffer(s);
+        StringBuffer s1=new StringBuffer("stringbuffer");
         s1.append("one");
         System.out.println(s1);   //mutability
     }

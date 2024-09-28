@@ -6,9 +6,9 @@ public class BinaryTree {
 
     TreeNode root;
 //TYPE OF TRAVERSAL
-    //PRE ORDER
-    //IN ORDER
-    //POST ORDER
+    //PRE ORDER - root->left->right (I mostly use)
+    //IN ORDER left root right
+    //POST ORDER - left-right root
     public void printAllNodes(TreeNode root){
         if(root!=null){
             printAllNodes(root.left); //CHNAGE L14 TO 16 BASED ON TYPE OF TRVAERSAL IN WHICH WE WANT TO PRINT

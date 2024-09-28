@@ -4,7 +4,7 @@ public class SyncIssue {
     public static void main(String args[]) throws InterruptedException {
 
 
-        Counter counter = new Counter();
+        Counter counter = new Counter(); //counter is the shared resource across all threads
 
         SampleThread t1 = new SampleThread(counter);
         SampleThread t2 = new SampleThread(counter);
@@ -35,7 +35,7 @@ class SampleThread extends Thread{
         for (int i = 0; i < 1000; i++) {
             counter.increment();
         }
-        System.out.println("Value of Counter - " + counter.get());
+        System.out.println("Value of Counter - " + counter.get()+" Thread name: "+Thread.currentThread().getName());
     }
 }
 

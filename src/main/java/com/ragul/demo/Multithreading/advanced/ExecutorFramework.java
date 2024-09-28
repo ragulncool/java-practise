@@ -1,27 +1,46 @@
 package com.ragul.demo.Multithreading.advanced;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 public class ExecutorFramework {
 
+//    It will help in
+//    Avoiding Manual Thread management
+//    Resource management
+//    Scalability
+//    Thread reuse
+//    Error handling
+
     //Advantage
     //automatically creates thread object and calls start method
-    //whenever threads are created, there is overhead. here thread pool is used where threads are recycled instead of creating new one
+    //whenever threads are created, there is overhead. here thread pool is used where threads are recycled instead of creating new on
+
 
     //Thread pool - number of concurrently running task. Once any one completes, new task is taken by the free thread instead of creating new one
-public static void main(String args[]){
+public static void main(String args[]) throws ExecutionException, InterruptedException {
 
     //1. INITILIZATION PHASE
     //ExecutorService executorService = Executors.newFixedThreadPool(3); //3 an run simulatenously. others will wait and start once any 1 is completed
+    ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+    System.out.println("Available processors :"+Runtime.getRuntime().availableProcessors());
     //ExecutorService executorService = Executors.newCachedThreadPool(); //all will start parallely
-    ExecutorService executorService = Executors.newSingleThreadExecutor(); //only one task is executed once
+   // ExecutorService executorService = Executors.newSingleThreadExecutor(); //only one task is executed once
 
 
     //2. SUBMIT PHASE
     for(int i=1;i<=4;i++){
-        executorService.execute(new ThreadA()); // newFixedThreadPool - 4th thread will start if one thread is completed
+        executorService.execute(()->{
+            System.out.println("execute()");
+        }); // newFixedThreadPool - 4th thread will start if one thread is completed
+    }
+
+    //use submit instead of execute to return eg: status
+    for(int i=1;i<=4;i++){
+        Future<?> future = executorService.submit(()->{
+            System.out.println("submit()");
+            return 123;
+        }); // newFixedThreadPool - 4th thread will start if one thread is completed
+        System.out.println("Future return: "+future.get());
     }
 
     //3. DESTRUCTION PHASE

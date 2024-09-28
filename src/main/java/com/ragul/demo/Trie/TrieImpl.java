@@ -13,26 +13,29 @@ public class TrieImpl {
 
 
     public void insertData(String word) {
+        System.out.println("=====INSERT OPERATION for "+word+"=====");
         TrieNode current = root;
         for(int i=0;i<word.length();i++){
             char c = word.charAt(i);
             TrieNode node = current.children.get(c);
             if(node==null){
-                TrieNode newNode = new TrieNode();
-                node=newNode;
+                TrieNode newChildNode = new TrieNode();
+                node=newChildNode;
                 dummyInt++;
-                current.value=c;
+                //current.value=c;
                 current.nodenumber=dummyInt; //test
-                current.children.put(c,newNode); //inserts in memory in prev node also
+                current.children.put(c,newChildNode); //inserts in memory in prev node also
+                System.out.println("Insert Node: "+current.value+" Node not exists - new  nodeNumber:"+current.nodenumber+" children: "+current.children.keySet());
+            }else{
+                System.out.println("Insert Node: "+current.value+" Node already exists in nodeNumber:"+current.nodenumber+" children: "+current.children.keySet());
             }
-
             current=node; //traversing
         }
         current.isEndOfString=true; //here current will be i=word.length-1
-
     }
 
     public void printAll() {
+        System.out.println("=====PRINT COMPLETE TRIE=====");
         int wordsCount=0;
     //    System.out.print(root.value +"("+root.nodenumber+")"+"->");
        wordsCount =  printChild(root,wordsCount);
@@ -51,10 +54,9 @@ public class TrieImpl {
     public int printChild(TrieNode currentParent, int wordsCount){
 
         for(Character key:currentParent.children.keySet()) {
-//            System.out.print(currentParent.value +"("+currentParent.nodenumber+")"+"->"); //TRIAL
             TrieNode currentChild = currentParent.children.get(key);
+            System.out.println("Node: "+key+" nodeNumber:"+currentParent.nodenumber+" children: "+currentChild.children.keySet());
             if (currentChild.isEndOfString != true) {
-                System.out.print(currentChild.value +"("+currentChild.nodenumber+")"+"->");
                 wordsCount =  printChild(currentChild,wordsCount);
             }else{
                 wordsCount++;
@@ -62,7 +64,6 @@ public class TrieImpl {
             }
         }
         return wordsCount;
-
     }
 
     public boolean contains(String word) {

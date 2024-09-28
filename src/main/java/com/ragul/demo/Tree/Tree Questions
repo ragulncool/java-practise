@@ -1,0 +1,15 @@
+
+
+1) Print Tree nodes (any traversal - pre / inorder/ post) -
+  print only left view (LV  -first eleemnt in pre order)
+  print only leaf nodes
+
+
+
+---
+//TYPE OF TRAVERSAL
+    //PRE ORDER - root->left->right (I mostly use)
+    //IN ORDER left root right
+    //POST ORDER - left-right root
+
+    //LEAF NODE - node for which left==null and right==null
