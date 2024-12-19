@@ -1,124 +1,129 @@
 package com.ragul.demo.Graph;
 
 import java.util.*;
-class Graph<T>
+class Graph
 
     //MAP< KEY , LIST>
     //KEY - EACH VERTICE
         // VALUE - LIST - ADJACENT VERTICES
 
 {
-    //creating an object of the Map class that stores the edges of the graph
-    private Map<T, List<T> > map = new HashMap<>();
+    //stores the edges of the graph
+    private Map<Integer, List<Integer>> map = new HashMap<>();
 
-
-    //the method adds a new vertex to the graph
-    public void addNewVertex(T s)
-    {
-        map.put(s, new LinkedList<T>());
+    public void addNewVertex(Integer s) {
+        map.put(s, new LinkedList<Integer>());
     }
 
-
     //the method adds an edge between source and destination
-    public void addNewEdge(T source, T destination, boolean bidirectional)
-    {
-//
+    public void addNewEdge(Integer source, Integer destination, boolean bidirectional) {
         if (!map.containsKey(source))
             addNewVertex(source);
         if (!map.containsKey(destination))
             addNewVertex(destination);
         map.get(source).add(destination);
-        if (bidirectional == true)
-        {
+        if (bidirectional == true) {
             map.get(destination).add(source);
         }
     }
 
-
-    //the method counts the number of vertices
-    public void countVertices()
-    {
-        System.out.println("Total number of vertices: "+ map.keySet().size());
+    public void countVertices() {
+        System.out.println("Total number of vertices: " + map.keySet().size());
     }
 
-
-    //the method counts the number of edges
-    public void countEdges(boolean bidirection)
-    {
-//variable to store number of edges
+    public void countEdges(boolean bidirection) {
         int count = 0;
-        for (T v : map.keySet())
-        {
+        for (Integer v : map.keySet()) {
             count = count + map.get(v).size();
         }
-        if (bidirection == true)
-        {
+        if (bidirection == true) {
             count = count / 2;
         }
-        System.out.println("Total number of edges: "+ count);
+        System.out.println("Total number of edges: " + count);
     }
 
-
-    //checks a graph has vertex or not
-    public void containsVertex(T s)
-    {
-        if (map.containsKey(s))
-        {
-            System.out.println("The graph contains "+ s + " as a vertex.");
-        }
-        else
-        {
-            System.out.println("The graph does not contain "+ s + " as a vertex.");
+    public void containsVertex(Integer s) {
+        if (map.containsKey(s)) {
+            System.out.println("The graph contains " + s + " as a vertex.");
+        } else {
+            System.out.println("The graph does not contain " + s + " as a vertex.");
         }
     }
 
 
-    //checks a graph has edge or not
-//where s and d are the com.ragul.demo.problems.two parameters that represent source(vertex) and destination (vertex)
-    public void containsEdge(T s, T d)
-    {
-        if (map.get(s).contains(d))
-        {
-            System.out.println("The graph has an edge between "+ s + " and " + d + ".");
-        }
-        else
-        {
-            System.out.println("There is no edge between "+ s + " and " + d + ".");
+    //checks a graph has edge or not b/w source and dest
+    public void containsEdge(Integer source, Integer dest) {
+        if (map.get(source).contains(dest)) {
+            System.out.println("The graph has an edge between " + source + " and " + dest + ".");
+        } else {
+            System.out.println("There is no edge between " + source + " and " + dest + ".");
         }
     }
 
 
-    //prints the adjacencyS list of each vertex
-//here we have overridden the toString() method of the StringBuilder class
     @Override
-    public String toString()
-    {
+    public String toString() {
         StringBuilder builder = new StringBuilder();
-//foreach loop that iterates over the keys
-        for (T v : map.keySet())
-        {
+        for (Integer v : map.keySet()) {
             builder.append(v.toString() + ": ");
-//foreach loop for getting the vertices
-            for (T w : map.get(v))
-            {
+            for (Integer w : map.get(v)) {
                 builder.append(w.toString() + " ");
             }
             builder.append("\n");
         }
         return (builder.toString());
     }
+
+    public void BFS(Integer root) {
+        Queue<Integer> queue = new ArrayDeque<>();
+        List<Integer> visited = new ArrayList<>(); //queue will have element cleared. so it maintain history wthether visited
+
+        queue.add(root);
+        visited.add(root);
+
+
+        while (!queue.isEmpty()) {
+            Integer currentNode = queue.remove();
+            System.out.println("BFS Node:" + currentNode + " Queue:" + queue + " Visited:" + visited);
+
+            for (Integer node : map.get(currentNode)) {
+                if (!visited.contains(node)) {
+                    queue.add(node);
+                    visited.add(node);
+                }
+            }
+        }
+    }
+
+    public void DFS(int root) {
+        //same code as BFS except Stack is sued instead of Queue since stack will explore vertices unlike Queue which will visit
+        Stack<Integer> stack = new Stack<>();
+        List<Integer> visited = new ArrayList<>(); //stack will have element cleared. so it maintain history wthether visited
+
+        stack.push(root);
+        visited.add(root);
+
+
+        while (!stack.isEmpty()) {
+            Integer currentNode = stack.pop();
+            System.out.println("DFS Node:" + currentNode + " Stack:" + stack + " Visited:" + visited);
+
+            for (Integer node : map.get(currentNode)) {
+                if (!visited.contains(node)) {
+                    stack.push(node);
+                    visited.add(node);
+                }
+            }
+        }
+    }
 }
 
-
-//creating a class in which we have implemented the driver code
 public class GraphImplementation
 {
     public static void main(String args[])
     {
-//creating an object of the Graph class
         Graph graph=new Graph();
 
-//adding edges to the graph
         graph.addNewEdge(0, 1, true);
         graph.addNewEdge(0, 4, true);
         graph.addNewEdge(1, 2, true);
@@ -128,19 +133,18 @@ public class GraphImplementation
         graph.addNewEdge(2, 4, true);
         graph.addNewEdge(3, 0, true);
         graph.addNewEdge(2, 0, true);
+        graph.addNewEdge(3, 5, true); //for BFS, 5 will be printed last. For DFS, 5 will printed after 3 (parent)
 
 
-//prints the adjacency matrix that represents the graph
         System.out.println("Adjacency List for the graph:\n"+ graph.toString());
-//counts the number of vertices in the graph
         graph.countVertices();
-//counts the number of edges in the graph
         graph.countEdges(true);
-//checks whether an edge is present or not between the com.ragul.demo.problems.two specified vertices
         graph.containsEdge(3, 4);
         graph.containsEdge(2, 4);
-//checks whether vertex is present or not
         graph.containsVertex(3);
         graph.containsVertex(5);
+
+        graph.BFS(0);
+        graph.DFS(0);
     }
 }

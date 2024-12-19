@@ -1,5 +1,7 @@
 package com.ragul.demo.problems;
 
+import java.util.Arrays;
+
 //Given an integer array, find a maximum product of a triplet in the array.
 //
 //        Examples:
@@ -28,5 +30,9 @@ public class MaxTriplet {
             }
         }
         System.out.println(maxProduct);
+
+        //APPROACH 2
+        Arrays.sort(nums);
+        System.out.println(nums[nums.length-1]*nums[nums.length-2]*nums[nums.length-3]);
     }
 }

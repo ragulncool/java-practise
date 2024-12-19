@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class twoDArray {
 
     public static void main(String args[]){
-        int[][] a=new int[3][3];
+        int[][] a=new int[3][3]; //by default all values will be 0
 
         int[][] b = { { 1, 2, 3 }, { 4, 5, 6 } ,{7,8,9}};
         printArray(b);

@@ -1,0 +1,25 @@
+LIFO
+
+Applications
+
+Balanced parenthesis
+Reverse a word
+
+Backtracking
+   Stacks are particularly useful when the computation has to go back in reverse order.
+   This happens often in artificial intelligence applications: games, logic programs, theorem provers,
+
+   IN GAME, When you run into a dead end, walk backwards to your last option (i.e. pop the stack) and proceed from there.
+
+ calculate the value of expressions like 2 + 4 / 5 * (7–9)
+
+ The back button in a browser saves all the URLs you have visited previously in a stack.
+
+
+5 METHODS
+
+push
+pop - removes and returns the element remove
+peek
+isEmpty
+search - return -1 of object not found in stack else res[ective index

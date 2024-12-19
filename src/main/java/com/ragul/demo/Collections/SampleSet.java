@@ -12,6 +12,7 @@ public class SampleSet {
 
         set2.addAll(set1);
         set1.add("sample");
+        set1.add("sample");
         set1.size();
         System.out.println(set2.containsAll(set1));
         System.out.println(set2.contains("A"));

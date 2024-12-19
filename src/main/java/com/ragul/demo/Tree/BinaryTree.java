@@ -1,6 +1,8 @@
 package com.ragul.demo.Tree;
 
 
+import java.util.*;
+
 //LEAF NODE - node for which left==null and right==null
 public class BinaryTree {
 
@@ -18,5 +20,34 @@ public class BinaryTree {
 //                System.out.println(root.data); //PRINT ONLY LEAF NODES
             }
         }
+    }
+
+    public void printAllNodesInLevelOrder(){
+        Map<Integer, List<Integer>> levelMap = new HashMap<>();
+        printAllNodesInLevelOrder(root,1, levelMap);
+
+        for(Integer key:levelMap.keySet()){
+            List<Integer> dataList = levelMap.get(key);
+            System.out.print("Level "+key+": ");
+            for (Integer data:dataList){
+                System.out.print(data+" ");
+            }
+            System.out.println();
+        }
+    }
+
+    public Map<Integer, List<Integer>> printAllNodesInLevelOrder(TreeNode node, int level, Map<Integer, List<Integer>> levelMap){
+        if(node!=null){
+            List<Integer> levelList = new ArrayList<>();
+            if(levelMap.containsKey(level)){
+                levelList = levelMap.get(level);
+            }
+            levelList.add(node.data);
+            levelMap.put(level,levelList);
+            level = level+1;
+            levelMap = printAllNodesInLevelOrder(node.left, level, levelMap);
+            levelMap = printAllNodesInLevelOrder(node.right, level, levelMap);
+        }
+        return levelMap;
     }
 }

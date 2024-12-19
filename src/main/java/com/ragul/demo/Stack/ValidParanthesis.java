@@ -1,4 +1,4 @@
-package com.ragul.demo.problems;
+package com.ragul.demo.Stack;
 
 import java.util.Stack;
 

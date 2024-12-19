@@ -34,8 +34,6 @@ public class TicTacToe {
                 System.out.println("Player "+player+": Invalid Move. Please try again.");
             }
         }
-
-
     }
 
     private static boolean checkHasWon(char[][] board, char player) {

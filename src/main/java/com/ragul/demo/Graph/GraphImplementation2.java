@@ -11,24 +11,15 @@ public class GraphImplementation2 {
         graph.addEdge(3, 4);
         graph.removeEdge(3, 4);
 
-
         graph.printAdjacencyMatrix();
     }
-
-
-
-
-
-
 }
 class Graph2 {
-
-
 
     //stores the number of vertices
     private int vertices;
 
-    //creates a linked list for the adjacency list of the graph
+    //creates a 2d boolean array for the adjacency list of the graph
     private boolean adjlist[][];
 
     //creating a constructor of the Graph class
@@ -37,10 +28,8 @@ class Graph2 {
         this.vertices = vertices;
         this.adjlist = new boolean[vertices][vertices];
 
-//        //loop for creating the adjacency lists
-//        for (int i=0; i<count_v; ++i){
-//            adjlist[i] = new LinkedList();
-//         }
+        System.out.println("INITIAL ADJACENCY MATRIX");
+        printAdjacencyMatrix();
     }
 
     void addEdge(int src, int des) {
@@ -52,6 +41,8 @@ class Graph2 {
     }
 
     public void printAdjacencyMatrix() {
+        System.out.println(" ADJACENCY MATRIX");
+
 
         for (int i=0; i<adjlist.length; ++i){
             for (int j=0; j<adjlist.length; ++j){

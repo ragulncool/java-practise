@@ -29,7 +29,6 @@ public class sortLLby012 {
         SLLNode current = head;
         while(current!=null){
             count[current.getData()]++;
-
             current=current.getNext();
         }
         System.out.println(count[0]+" "+count[1]+" "+count[2]);
