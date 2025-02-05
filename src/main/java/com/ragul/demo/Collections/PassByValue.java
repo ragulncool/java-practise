@@ -12,16 +12,13 @@ public class PassByValue {
             System.out.println("y = "+obj.y);
             System.out.println("z = "+z); //value not chaanged to 1 since pass by value
 
-            change(obj);
+            change(obj); //achiveing pass by reference in java - pass entire object instead of param or var
             System.out.println("x = "+obj.x);
             System.out.println("y = "+obj.y);
 
         }
-//        public static void change(Add add)
-//        {
-//            add.x++;
-//            add.y++;
-//        }
+
+
     public static void change(int x, int y, int z)
     {
         x++;

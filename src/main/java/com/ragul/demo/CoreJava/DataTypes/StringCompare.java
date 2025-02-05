@@ -18,7 +18,7 @@ public class StringCompare {
         System.out.println("===STRING USING NEW KEYWORD===");
         String s4=new String("hello");
         String s5=new String("hello");
-        System.out.println(s4==s5); //false because different object in heap area
+        System.out.println(s4==s5); //false because different object in PriorityQueue area
         System.out.println(s4.equals(s5));
         System.out.println(s4.compareTo(s5));
 
