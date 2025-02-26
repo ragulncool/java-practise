@@ -1,9 +1,10 @@
-package com.ragul.demo.Collections;
+package com.ragul.demo.Collections.Hashing;
 
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -117,5 +118,11 @@ class EmployeeCollectionoperations {
         employeeMap.entrySet().stream()
                 .filter(entry -> entry.getValue().startsWith("t"))
                 .forEach(entry -> System.out.println("MAP Filter: "+entry.getKey().getName()));
+
+        System.out.println("=======LIST OF POJO TO MAP========");
+        Map<String,List<Employee>> employeeMap1 = new HashMap<>();
+        employeeMap1 = employeeSet.stream().collect(Collectors.groupingBy(Employee::getName));
+
+
     }
 }

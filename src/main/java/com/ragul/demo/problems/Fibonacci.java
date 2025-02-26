@@ -7,17 +7,28 @@ public class Fibonacci {
 
     public static void main(String args[]){
         int count = 8;
-       // printFibonacci(count);
         int prev=0;
         int current=1;
         int recursion=1;
 //        System.out.println(prev);
 //        System.out.println(current);
-        recur(prev,current,recursion,count);
+
+        long start = System.nanoTime(); //no diff in millisecs. ehcen going for nano
+        printUsingRecursion(prev,current,recursion,count); //recursion is slower
+        long end = System.nanoTime();
+        System.out.println(end-start);
+        System.out.println();
+
+         start = System.nanoTime();
+        printUsingFor(count);
+         end = System.nanoTime();
+        System.out.println(end-start);
+
+
     }
 
-    private static void recur(int prev, int current, int recursion, int count) { //slow
-        System.out.println(prev);
+    private static void printUsingRecursion(int prev, int current, int recursion, int count) { //slow
+        System.out.print(prev+" ");
         int next = 0;
         if(recursion<count){
             next = current + prev;
@@ -25,19 +36,19 @@ public class Fibonacci {
             prev=current;
             current=next;
             recursion++;
-            recur(prev,current, recursion, count);
+            printUsingRecursion(prev,current, recursion, count);
         }
     }
 
-    private static void printFibonacci(int count) {
+    private static void printUsingFor(int count) {
         int prev=0;
         int current=1;
-        System.out.println(prev);
-        System.out.println(current);
+        System.out.print(prev+" ");
+        System.out.print(current+" ");
 
-        for(int i=2;i<=6;i++){
+        for(int i=2;i<count;i++){
             int next = current + prev;
-            System.out.println(next);
+            System.out.print(next+" ");
             prev=current;
             current=next;
         }

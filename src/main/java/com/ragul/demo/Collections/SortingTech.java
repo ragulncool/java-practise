@@ -1,5 +1,7 @@
 package com.ragul.demo.Collections;
 
+import com.ragul.demo.Collections.Hashing.Employee;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
