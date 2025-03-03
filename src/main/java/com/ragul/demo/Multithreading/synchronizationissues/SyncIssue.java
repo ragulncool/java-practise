@@ -35,7 +35,7 @@ class SampleThread extends Thread{
         for (int i = 0; i < 1000; i++) {
             counter.increment();
         }
-        System.out.println("Value of Counter - " + counter.get()+" Thread name: "+Thread.currentThread().getName());
+        System.out.println("Value of Counter - " + counter.get()+" "+Thread.currentThread());
     }
 }
 

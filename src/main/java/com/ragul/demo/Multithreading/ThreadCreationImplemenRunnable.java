@@ -4,7 +4,7 @@ public class ThreadCreationImplemenRunnable implements Runnable {
     @Override
     public void run() {
         System.out.println("Current thread name: "
-                + Thread.currentThread().getName());
+                + Thread.currentThread());
     }
 }
 

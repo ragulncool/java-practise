@@ -19,7 +19,7 @@ public class UnderstandingMultiThread extends Thread {
             // thread 0.
             // printing the value of the variable
             System.out.println("Current thread name: "
-                    + Thread.currentThread().getName()+" "+i);
+                    + Thread.currentThread()+" "+i);
         }
     }
 }

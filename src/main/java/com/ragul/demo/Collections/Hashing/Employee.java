@@ -6,9 +6,15 @@ import lombok.Setter;
 import java.util.*;
 import java.util.stream.Collectors;
 
+//if equals not overriden, does reference omaprision
+//override and write custom logic to do comparion based on certain fields
+
+//if equals() is true, hashcode() should always be same
+//if hashcode() is same, equals() need not be true
+
 @Getter
 @Setter
-public class Employee {
+public class Employee implements Comparable<Employee>{
 
     private int id;
     private String name;
@@ -49,7 +55,20 @@ public class Employee {
         this.address=address;
     }
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 
+
+    @Override
+    public int compareTo(Employee o) {
+        return this.id - o.id;
+    }
 }
 
 
@@ -69,16 +88,17 @@ class EmployeeEqualsAndHasCode {
         Employee employee4 = new Employee(2,"B","chennai1");
         Employee employee5 = new Employee(3,"B","SF");
         System.out.println("ONE "+employee1.equals(employee2));
-        System.out.println("TWO "+employee2.equals(employee3)); //always true even if equals and hashcode not overriden
+        System.out.println("TWO "+employee2.equals(employee3));
         System.out.println("THREE "+employee3.equals(employee4));
         System.out.println("FOUR "+employee4.equals(employee5));
 
-        System.out.println("=======SET========");
+        System.out.println("=======SET========"); //if hashcode is same, then only check for equal
+        //if both true - data not added
         Set<Employee> employeeSet = new HashSet<>(); //set rejects duplicates while map replaces duplicate keys
         employeeSet.add(employee1);
-        employeeSet.add(employee2); //same as equals, default behvaioru
-        employeeSet.add(employee3);
-        employeeSet.add(employee4);
+       employeeSet.add(employee2); //same as equals, default behvaioru
+       employeeSet.add(employee3);
+       employeeSet.add(employee4);
         employeeSet.add(employee5);
         System.out.println(employeeSet);
 

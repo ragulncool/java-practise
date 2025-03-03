@@ -4,7 +4,7 @@ public class ThreadCreationExtendingThread extends Thread {
     @Override
     public void run() {
         System.out.println("Current thread name: "
-                + Thread.currentThread().getName());    }
+                + currentThread());    }
 }
 
 class MTDemo1{

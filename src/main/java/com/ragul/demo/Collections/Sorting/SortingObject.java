@@ -1,4 +1,4 @@
-package com.ragul.demo.Collections;
+package com.ragul.demo.Collections.Sorting;
 
 import com.ragul.demo.Collections.Hashing.Employee;
 
@@ -8,7 +8,10 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SortingTech {
+//Comparable - compareTo (single sorting seq) - inside pojo class (Employee)
+//Comparator - compare (multiple sorting seq) -EmployeeIdAscComparator / name - we can use anyone - seperate class (EmployeeIdAscComparator..)
+
+public class SortingObject {
     public static void main(String args[]){
         Employee e1=new Employee(1,"one","address1");
         Employee e2=new Employee(2,"two","address2");
@@ -20,27 +23,31 @@ public class SortingTech {
         list.add(e2);
         System.out.println(list);
 
-        //Collections.sort(list)-Compile error ;//or streams sorted() gives run time error //- reason: no instance(s) of type variable(s) T exist so that Employee conforms to Comparable<? super T>
+       //Collections.sort(list)
+      //  If no compareTO method and class doesnt implement Comparable gives below COmpile error
+                //reason: no instance(s) of type variable(s) T exist so that Employee conforms to Comparable<? super T>
+                //else srots based on compareTo
+        //LIMITATION: Defined inside method. hence only single sorting seq
 
       //  4 WAYS - USING CUSTOM COMPARATOR AND INBUILT COMPARATOR
 //        Collections.sort(list, new EmployeeIdComparator());
 //        System.out.println(list);
 
-//        List<Employee> list1= list.stream().sorted(new EmployeeIdComparator()).collect(Collectors.toList());
+//        List<Employee> list1= list.stream().sorted(new EmployeeIdAscComparator()).collect(Collectors.toList());
 //        System.out.println(list1);
 
-        List<Employee> list1= list.stream().sorted(new EmployeeNameComparator()).collect(Collectors.toList());
+        List<Employee> list1= list.stream().sorted(new EmployeeNameAscComparator()).collect(Collectors.toList());
         System.out.println(list1);
 
 //        List<Employee> list2= list.stream().sorted(Comparator.comparingInt(Employee::getId)).collect(Collectors.toList());
 //        System.out.println(list2);
 
-        Collections.sort(list,Comparator.comparingInt(Employee::getId));
+        Collections.sort(list,Comparator.comparingInt(Employee::getId)); //asc
         System.out.println(list);
     }
 }
 
-class EmployeeIdComparator implements Comparator<Employee>{
+class EmployeeIdAscComparator implements Comparator<Employee>{
 
     @Override
     public int compare(Employee o1, Employee o2) {
@@ -48,7 +55,7 @@ class EmployeeIdComparator implements Comparator<Employee>{
     }
 }
 
-class EmployeeNameComparator implements Comparator<Employee>{
+class EmployeeNameAscComparator implements Comparator<Employee>{
 
     @Override
     public int compare(Employee o1, Employee o2) {

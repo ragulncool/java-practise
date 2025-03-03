@@ -1,11 +1,13 @@
 package com.ragul.demo.Multithreading;
 
+import static java.lang.Thread.currentThread;
+
 public class ThreadCreatingUsingRnnableLamdaExp {
     public static void main(String args[]){
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                System.out.println("Thread has started");
+                System.out.println(currentThread()+ " has started");
 
             }
         };
