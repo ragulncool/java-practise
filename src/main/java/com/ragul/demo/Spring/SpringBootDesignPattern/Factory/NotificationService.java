@@ -1,4 +1,4 @@
-package com.ragul.demo.DesignPattern.SpringBootDesignPattern.Factory;
+package com.ragul.demo.Spring.SpringBootDesignPattern.Factory;
 
 public interface NotificationService {
 
