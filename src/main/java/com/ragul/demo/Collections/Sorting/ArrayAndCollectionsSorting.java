@@ -3,6 +3,7 @@ package com.ragul.demo.Collections.Sorting;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class ArrayAndCollectionsSorting {
     public static void main(String[] args) {
@@ -20,6 +21,8 @@ public class ArrayAndCollectionsSorting {
         Arrays.sort(characters);
         System.out.println("Sorted array: " + Arrays.toString(characters));
 
+//desc
+
         //collections sort
         ArrayList<String> wordsList = new ArrayList<>();
         wordsList.add("banana");
@@ -29,6 +32,9 @@ public class ArrayAndCollectionsSorting {
         System.out.println("Original list: " + wordsList);
 
         Collections.sort(wordsList);
+        System.out.println("Sorted list: " + wordsList);
+
+        Collections.sort(wordsList, Comparator.reverseOrder());
         System.out.println("Sorted list: " + wordsList);
     }
 
