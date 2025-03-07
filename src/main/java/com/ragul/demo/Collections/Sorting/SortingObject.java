@@ -44,6 +44,19 @@ public class SortingObject {
 
         Collections.sort(list,Comparator.comparingInt(Employee::getId)); //asc
         System.out.println(list);
+
+        //DOUBLE SORTING
+        //SORT BY EMPLOYEE ID desc AND EMPLOYEE NAME asc
+        Collections.sort(list,Comparator.comparing(Employee::getId).reversed()
+                .thenComparing(Employee::getName));
+        System.out.println(list);
+
+        //DOUBLE SORT USING SORTED WILL NOT WORK - IT WILL TAKE LAST SORTED
+        List<Employee> list2= list.stream().sorted(new EmployeeIdAscComparator())
+             //   .sorted(new EmployeeNameAscComparator())
+                .collect(Collectors.toList());
+        System.out.println(list2);
+
     }
 }
 
