@@ -67,6 +67,15 @@ public class DoublyLinkedList {
     }
 
 
+//    public boolean detectLoop() {
+//        DLLNode current = head;
+//        while (current!=null){
+//            if()
+//
+//                current=current.
+//        }
+//
+//    }
 }
 
 

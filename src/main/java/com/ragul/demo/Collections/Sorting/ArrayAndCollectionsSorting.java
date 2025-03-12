@@ -15,11 +15,14 @@ public class ArrayAndCollectionsSorting {
         Arrays.sort(numbers);
         System.out.println("Sorted array: " + Arrays.toString(numbers));
 
-        char[] characters = { 'o', 'i', 'e', 'u', 'a' };
+        char[] characters = { 'o', 'i', 'e', 'u', 'a' }; //Character[] change to primitive typemfor using Collections.reverseOrder
         System.out.println("Original array: " + Arrays.toString(characters));
 
         Arrays.sort(characters);
-        System.out.println("Sorted array: " + Arrays.toString(characters));
+        System.out.println("ASC Sorted array: " + Arrays.toString(characters));
+
+       // Arrays.sort(characters, Collections.reverseOrder()); -> COllections.reverseorder will work only for Primitive. hence chanhe chaar[] to CHaracter[]
+        System.out.println("DESC Sorted array: " + Arrays.toString(characters));
 
 //desc
 
@@ -32,10 +35,10 @@ public class ArrayAndCollectionsSorting {
         System.out.println("Original list: " + wordsList);
 
         Collections.sort(wordsList);
-        System.out.println("Sorted list: " + wordsList);
+        System.out.println("ASC Sorted list: " + wordsList);
 
         Collections.sort(wordsList, Comparator.reverseOrder());
-        System.out.println("Sorted list: " + wordsList);
+        System.out.println("DES Sorted list: " + wordsList);
     }
 
     //LIMITATION

@@ -1,0 +1,4 @@
+  //TODO: edge cases =0 or 1
+  //TODO: initialization - size+1, fill -1 for all
+  //TODO: calculating all states
+  //TODO: return if not valid -1 will be returned

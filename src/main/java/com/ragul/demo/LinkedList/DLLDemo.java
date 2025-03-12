@@ -17,6 +17,8 @@ public class DLLDemo {
         list.printFromHead();
         System.out.println("Print from Tail:");
         list.printFromTail();
+
+     //   System.out.println("Detect Loop in LL:"+list.detectLoop());
 //        System.out.println("After Reversing DLL:");
 //        list.reverseDLL(); //NOT WORKING
 
