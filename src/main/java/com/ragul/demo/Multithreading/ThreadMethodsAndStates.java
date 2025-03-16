@@ -31,7 +31,7 @@ class Threadtest{
         System.out.println("===MAIN THREAD (BY DEFAULT AND IT ALWAYS EXIST)===");
         Thread currentThread = Thread.currentThread();
         System.out.println("Current Thread Name - " + currentThread.getName());
-        System.out.println("Current Thread Priority - " + currentThread.getPriority());
+        System.out.println("Current Thread Priority - " + currentThread.getPriority()); // Thread.MIN_PRIORITY 1 to MAX 10
         System.out.println("Current Thread Group - " + currentThread.getThreadGroup());
         System.out.println("Current Thread Id - " + currentThread.getId());
         System.out.println("Current Thread State - " + currentThread.getState());
@@ -67,6 +67,7 @@ class Threadtest{
         System.out.println("State "+t2.getState());
         System.out.println("Alive "+t2.isAlive());
 
+        //pause current execution of any thread, execute thrrad and wait ttill that die
         t2.join(); //to clear console so that remaining thread t2 is executed
         System.out.println("===YIELD THREAD===");
         ThreadMethodsAndStates t3=new ThreadMethodsAndStates("T-NAME3");
@@ -77,6 +78,7 @@ class Threadtest{
         t4.start();
         mainRun();
         //YIELD IS NOT WORKING. ONE OF T3 /T4 / MAIN SHOULD FINISH AND ONLY THEN OHTER 2 SHOULD EXECUTE
+       // Thread.yield() is a static method that suggests the current thread temporarily pause its execution to allow other threads of the same or higher priority to execute.
         Thread.yield(); // yield method caused to pause current executing thread to give the chance for waiting thread of same priority.
         // if there is no waiting thread or all waiting thread have low priority then same thread can continue it’s execution.
         System.out.println("State "+t3.getState());

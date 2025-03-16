@@ -1,6 +1,6 @@
 package com.ragul.demo.Multithreading;
 
-public class ThreadCreationExtendingThread extends Thread {
+public class ThreadCreationExtendingThread extends Thread { //DISAD: CANNPOT EXTEND MULTIPLE CLASSES- MULTIPLE INHERITANCE IS NOT SUPPORTED
     @Override
     public void run() {
         System.out.println("Current thread name: "

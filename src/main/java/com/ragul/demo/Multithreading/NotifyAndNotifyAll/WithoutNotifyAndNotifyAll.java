@@ -16,6 +16,7 @@ public class WithoutNotifyAndNotifyAll {
                 System.out.print(i + " ");
             }
         }
+        
     public void printLetters() {
         for (char c = 'A'; c <= 'Z'; c++) { // Adjust the range as needed
                 System.out.print(c + " ");
