@@ -11,7 +11,7 @@ public class MethodReferenceDemo { //-> SHORTHAND FOR LAMDA
         //4 TYPES OF METHOD REFERENCE
 
         //1. Static Method Reference -> Reference to a Static Method
-        list.forEach(x->System.out.println(x));
+        list.forEach(x->System.out.println(x)); //using lamda
         list.forEach(System.out::println); //dont put method braces()
 
 
