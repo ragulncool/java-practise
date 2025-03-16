@@ -1,0 +1,2 @@
+The Java Platform Module System (JPMS), introduced in Java 9, is a major enhancement to the Java platform. It enables modular programming by organizing code into smaller, manageable units called modules. It aims to solve problems associated with the monolithic structure of the Java Development Kit (JDK) and large-scale applications.
+A module in JPMS is a self-contained unit of code with explicit dependencies and encapsulation boundaries. It contains a module-info.java file, which defines the module's metadata, including the packages it exports and its dependencies.

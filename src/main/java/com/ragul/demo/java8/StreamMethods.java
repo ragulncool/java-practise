@@ -1,9 +1,8 @@
-package com.ragul.demo.Collections.DeepCopyVsShallowCopy;
+package com.ragul.demo.java8;
 
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;

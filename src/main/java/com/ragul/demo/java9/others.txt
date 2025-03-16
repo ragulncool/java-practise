@@ -1,0 +1,7 @@
+New methids in Collectos eg: takewhile
+
+new methods in optional
+
+ Diamond Operator Extension
+
+ some improvement in try with resources
