@@ -1,7 +1,7 @@
 package com.ragul.demo.java8;
 
 //@FunctionalInterface - if annotatioon is used and more than 1 abstract method - will throw error
-public interface FunctionalInterfaceDemo {
+public interface FunctionalInterface_defaultStatic {
     //Default methods allow you to add new methods to interfaces without forcing all implementing classes to provide an implementation.
     //backwards compatible
     default void defaultMethod(){
@@ -21,7 +21,7 @@ public interface FunctionalInterfaceDemo {
 
 }
 
-class ChildFunctionalInterface implements FunctionalInterfaceDemo{
+class ChildFunctionalInterface implements FunctionalInterface_defaultStatic {
 
     @Override
     public void defaultMethod() {
@@ -33,9 +33,9 @@ class ChildFunctionalInterface implements FunctionalInterfaceDemo{
 class UnderstandFuncInterface{
 
     public static void main(String[] args) {
-        FunctionalInterfaceDemo functionalInterface = new FunctionalInterfaceDemo() {};
+        FunctionalInterface_defaultStatic functionalInterface = new FunctionalInterface_defaultStatic() {};
        functionalInterface.defaultMethod();
-        FunctionalInterfaceDemo.staticMethod();
+        FunctionalInterface_defaultStatic.staticMethod();
     }
 }
 

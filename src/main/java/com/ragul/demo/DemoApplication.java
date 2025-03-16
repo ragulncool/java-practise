@@ -1,4 +1,4 @@
-package com.ragul.demo.springboot;
+package com.ragul.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,7 +11,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAsync
 @EnableJpaRepositories("com.ragul.demo.springboot.*")
 @ComponentScan(basePackages = { "com.ragul.demo.springboot.*" })
-//@EntityScan("com.ragul.demo.springboot.*")
+@EntityScan("com.ragul.demo.springboot.*")
 public class DemoApplication {
 
 	public static void main(String[] args) {

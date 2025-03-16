@@ -1,4 +1,4 @@
-package com.ragul.demo.springboot;
+package com.ragul.demo.springboot.files;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
