@@ -18,8 +18,10 @@ public class Controller {
     @Autowired
     DBRepository dbRepository;
 
-     @GetMapping
-     List<Address> find(){
-         return dbRepository.findAll();
-     }
+        @GetMapping
+        List<Address> find() {
+    System.out.println("Controller method 'find' called");
+    return dbRepository.findAll();
+}
+
 }
