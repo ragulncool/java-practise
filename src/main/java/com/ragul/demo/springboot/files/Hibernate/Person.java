@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails;
 
+import java.util.List;
+
 @Data
 @Entity
 public class Person {
@@ -12,8 +14,8 @@ public class Person {
     private String id;
     private String name;
 
-    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
-    private Address address;
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL) //mappedBy @ManyToOne field in other class - to avoid creating extra table by class italed
+    private List<Address> address;
 
     // Constructors, getters, and setters
 }

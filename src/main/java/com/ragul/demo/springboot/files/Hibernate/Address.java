@@ -1,10 +1,7 @@
 package com.ragul.demo.springboot.files.Hibernate;
 
 import com.ragul.demo.springboot.files.Hibernate.Person;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.MapsId;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -13,8 +10,7 @@ public class Address {
     @Id
     private String id;
 
-    @OneToOne
-    @MapsId
+    @ManyToOne
     private Person person;
 
     private String city;
