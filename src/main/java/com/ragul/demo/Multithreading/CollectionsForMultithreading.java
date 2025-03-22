@@ -10,7 +10,7 @@ public class CollectionsForMultithreading {
     //synchronized - threadsafe
 
     public static void main(String args[]){
-        // non synchronized
+        // Non synchronized
         List l1 = new ArrayList();
         // Synchronized
         List l= Collections.synchronizedList(l1);

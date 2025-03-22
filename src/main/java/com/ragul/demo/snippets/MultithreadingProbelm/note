@@ -1,0 +1,21 @@
+if thread2 needs to wait for complete executin of t1
+
+use join
+eg: t1 1
+    t1 2
+    t1 3
+    t2 4
+    t2 5
+    t2 6
+
+
+ -----
+
+ if thread2 needs to print alternative
+
+eg: t1 1
+    t2 2
+    t1 3
+    t2 4
+
+    use wait and notify

@@ -1,13 +1,20 @@
 package com.ragul.demo.problems;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class ReverseString {
     public static void main(String args[]){
         System.out.println("===USING REVERSE METHOD IN STRINGBUFFER===");
         String s="hello world";
-        StringBuffer stringBuffer = new StringBuffer(s);
-        stringBuffer = stringBuffer.reverse();
-        System.out.println(stringBuffer);
+        System.out.println(checkPalindrome(s));
 
+        System.out.println("===USING REVERSE METHOD IN STRINGBUFFER with Streams===");
+        List<String> strings = Arrays.asList("racecar", "hello", "A man a plan a canal Panama", "world", "madam", "Java");
+        List<String> palindromes = strings.stream().filter(ReverseString::checkPalindrome).collect(Collectors.toList());
+        System.out.println(palindromes);
+        
         System.out.println("===METHOD 1 .WITHOUT USING REVERSE===");
         char[] chars = s.toCharArray();
         char[] reversedChars = new char[chars.length];
@@ -31,5 +38,11 @@ public class ReverseString {
         }
 
 
+    }
+
+    private static boolean checkPalindrome(String s) {
+        StringBuffer stringBuffer = new StringBuffer(s);
+        stringBuffer = stringBuffer.reverse();
+        return s.equals(stringBuffer.toString());
     }
 }

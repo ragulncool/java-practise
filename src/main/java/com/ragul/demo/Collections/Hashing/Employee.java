@@ -1,5 +1,6 @@
 package com.ragul.demo.Collections.Hashing;
 
+import com.ragul.demo.springboot.files.Hibernate.Person;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -137,12 +138,13 @@ class EmployeeCollectionoperations {
         employeeMap.put(employee3,"three");
         employeeMap.entrySet().stream()
                 .filter(entry -> entry.getValue().startsWith("t"))
-                .forEach(entry -> System.out.println("MAP Filter: "+entry.getKey().getName()));
+                .forEach(entry -> System.out.println("MAP Filter: key - "+entry.getKey().getName()+"   value - "+entry.getValue()));
 
         System.out.println("=======LIST OF POJO TO MAP========");
         Map<String,List<Employee>> employeeMap1 = new HashMap<>();
         employeeMap1 = employeeSet.stream().collect(Collectors.groupingBy(Employee::getName));
 
+        System.out.println(employeeMap.get(new Employee(1111,"Nonexisting","Nonexisting")));
 
     }
 }

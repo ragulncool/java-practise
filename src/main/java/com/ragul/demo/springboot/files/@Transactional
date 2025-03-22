@@ -1,0 +1,24 @@
+default:
+
+Spring’s @Transactional mechanism is designed to roll back transactions in the event of runtime exceptions.
+annotation works only for public methods and not for private methods
+
+ By default, Spring only rolls back for unchecked exceptions (`Runtime Exception` or `Error`). Checked exceptions require explicit configuration using
+ `@Transactional(rollbackFor = Exception.class)`.
+
+Do:
+handle and avoid rethropw so that no rollback
+
+Understanding Propagation
+---------------------
+The propagation setting defines how the transaction behaves when multiple transactional methods are called
+
+REQUIRED (default): Joins an existing transaction or creates a new one.
+REQUIRES_NEW: Always starts a new transaction, suspending any existing one.
+
+ Isolation Levels in Transactions
+ -----------------------
+Transaction isolation defines how data modifications made by one transaction are visible to other concurrent transactions. Spring provides several isolation levels:
+
+READ_COMMITTED (default): Prevents dirty reads.
+SERIALIZABLE: Ensures complete isolation (highest level).
