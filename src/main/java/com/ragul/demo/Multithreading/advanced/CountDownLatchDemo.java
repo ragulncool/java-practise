@@ -25,6 +25,8 @@ public class CountDownLatchDemo { //LATCH - WAIT TILL LATCH (GATE) IS OPEN. ONE 
 
         //DISAD
         // is that it's not reusable: once count reaches zero you cannot use CountDownLatch any more.
+
+
             int threadCount = 3;
             CountDownLatch latch = new CountDownLatch(threadCount); //WAIT FOR 3 TASKS
 
