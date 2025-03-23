@@ -1,5 +1,7 @@
 package com.ragul.demo.Multithreading.advanced;
 
+import lombok.SneakyThrows;
+
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -36,14 +38,31 @@ public class Locks {
             Thread.currentThread().interrupt();
         }
     }
+
+    public void understandLock() throws InterruptedException {
+        System.out.println(Thread.currentThread().getName() + " attempting to understand lock");
+        if (lock.tryLock()) {
+            try {
+                System.out.println(Thread.currentThread().getName() + " acquired the lock");
+                Thread.sleep(3000); // Simulate time taken for operation
+            } finally {
+                lock.unlock();
+                System.out.println(Thread.currentThread().getName() + " released the lock");
+            }
+        } else {
+            System.out.println(Thread.currentThread().getName() + " could not acquire the lock");
+        }
+    }
 }
  class TestLocks {
     public static void main(String[] args) throws InterruptedException {
         Locks sbi = new Locks();
         Runnable task = new Runnable() {
+            @SneakyThrows
             @Override
             public void run() {
-                sbi.withdraw(50);
+                sbi.understandLock(); //1. basic lock understanding or
+               // sbi.withdraw(50); //2. practicalApplication
             }
         };
         Thread t1 = new Thread(task, "Thread 1");
@@ -54,3 +73,4 @@ public class Locks {
         t2.start();
     }
 }
+

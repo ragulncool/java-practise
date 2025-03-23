@@ -30,17 +30,17 @@ public static void main(String args[]) throws ExecutionException, InterruptedExc
     //2. SUBMIT PHASE
     for(int i=1;i<=4;i++){
         executorService.execute(()->{
-            System.out.println("execute()");
+            System.out.println("execute()   "+Thread.currentThread().getName());
         }); // newFixedThreadPool - 4th thread will start if one thread is completed
     }
 
     //use submit instead of execute to return eg: status
     for(int i=1;i<=4;i++){
         Future<?> future = executorService.submit(()->{
-            System.out.println("submit()");
+            System.out.println("submit()    "+Thread.currentThread().getName());
             return 123;
         }); // newFixedThreadPool - 4th thread will start if one thread is completed
-        System.out.println("Future return: "+future.get());
+        System.out.println("Future return: "+future.get()+"     "+Thread.currentThread().getName());
     }
 
     //3. DESTRUCTION PHASE

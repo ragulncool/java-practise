@@ -36,13 +36,13 @@ ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntim
 
     Future<String> future =
             executorService.submit(callableTask);
-    System.out.println("submit(): "+future.get());
+    System.out.println("submit(): "+future.get()+" "+Thread.currentThread().getName());
 
     String result = executorService.invokeAny(listOfCallableTask); //causing each to run, and returns the result of a successful execution of one task (if there was a successful execution):
 
     List<Future<String>> futures = executorService.invokeAll(listOfCallableTask); // assigns a collection of tasks to an ExecutorService, causing each to run, and returns the result of all task executions in the form of a list of objects of type Future:
    for(Future future1: futures){
-       System.out.println("invokeAll(): "+future1.get());
+       System.out.println("invokeAll(): "+future1.get()+" "+Thread.currentThread().getName());
    }
 
 

@@ -1,0 +1,8 @@
+Lock lock = new ReentrantLock();
+lock.tryLock(1000, TimeUnit.MILLISECONDS)            //Acquires the lock if it is free within the given waiting time
+or
+lock.lock();                                        //Acquires the lock if it is free
+lock.unlock();                                      //Releases the lock
+
+EXECUTORS FRAMEWORK:
+Simple way to create and manage threads
