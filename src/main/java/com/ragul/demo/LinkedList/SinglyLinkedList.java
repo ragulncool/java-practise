@@ -50,6 +50,7 @@ public class SinglyLinkedList {
                prev=current;
                System.out.println("Data to be deleted "+prev.next.data);
                prev.next=prev.next.next;
+               break;
            }
            i++;
            current=current.next;

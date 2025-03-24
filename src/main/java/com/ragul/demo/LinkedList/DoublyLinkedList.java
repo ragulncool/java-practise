@@ -50,20 +50,20 @@ public class DoublyLinkedList {
 
     public void reverseDLL() {
         DLLNode current = head;
-        DLLNode prev = null;
-        DLLNode next = null;
+        DLLNode prev =null;
+        DLLNode next ;
         while(current!=null){
             next=current.next;
-            prev=current.prev;
+            prev=current.prev; //null for head
             current.prev=next;
             current.next=prev;
 
             current=next;
         }
         if (prev != null) {
-            head=prev;
+            head=current;
         }
-        System.out.println(head.data);
+        //System.out.println(head.data);
     }
 
 
