@@ -1,0 +1,14 @@
+Replace PermGen with metspace
+---------------------------
+PermGen space has to be increases manualy using JVM arguments.
+ But in Java 8, PermGen space has been replaced by Metaspace.
+ Metaspace can auto increase memory size by itself thereby reducing the chances of OutOfMemoryError.
+
+ HashMap Improvements
+ ---------------------
+ To improve performance with many collisions, Java 8 introduced the use of a red-black tree
+ instead of a linked list for buckets with 8 or more elements.
+
+ This tree structure allows for faster lookups (O(log n) instead of O(n) for a linked list) when searching for a specific key within a bucket.
+ Threshold: The threshold for switching from a linked list to a red-black tree is 8.
+ Benefits: This change improves the average time complexity of get() and put() operations in the presence of many collisions.

@@ -13,16 +13,17 @@ public class DLLDemo {
         System.out.println("After Insertion in Tail:");
         list.insertAtTail(9);
         list.insertAtTail(8);
+        list.insertAtTail(9);
         System.out.println("Print from Head:");
         list.printFromHead();
         System.out.println("Print from Tail:");
         list.printFromTail();
 
-    //    System.out.println("Detect Loop in LL:"+list.detectLoop());
         System.out.println("After Reversing DLL:");
         list.reverseDLL();
         list.printFromHead();
 
+        System.out.println("Detect Loop in LL: "+list.detectLoop()+" "+list.detectLoopUsingHashMap());
 
 
     }

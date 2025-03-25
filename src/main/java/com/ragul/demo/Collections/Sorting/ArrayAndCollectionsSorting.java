@@ -39,6 +39,8 @@ public class ArrayAndCollectionsSorting {
 
         Collections.sort(wordsList, Comparator.reverseOrder()); //ANY OF THESE 2
         Collections.reverse(wordsList);
+//        wordsList.stream().sorted().toList();
+//        wordsList.stream().sorted(Comparator.reverseOrder()).toList();
         System.out.println("DES Sorted list: " + wordsList);
 
         Collections.shuffle(wordsList);

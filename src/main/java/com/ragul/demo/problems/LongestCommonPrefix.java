@@ -26,7 +26,7 @@ public class LongestCommonPrefix {
 
             for (int i=1;i<arr.length;i++){
                     if(arr[i].substring(0,j).equals(checkPrefix)){
-                        if(i==arr.length-1){
+                        if(i==arr.length-1){ 
                             return checkPrefix;
                         }
                     continue;
