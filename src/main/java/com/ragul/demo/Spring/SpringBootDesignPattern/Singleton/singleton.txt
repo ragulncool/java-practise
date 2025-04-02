@@ -1,3 +1,7 @@
+The Singleton Pattern ensures that a class has only one instance and provides a global point of access to that instance.
+This pattern is useful for managing shared resources, like a configuration manager or a database connection,
+ ensuring only one instance is used throughout the application.
+
 
     In Spring Boot, beans are Singleton by default
 

@@ -1,0 +1,6 @@
+singleton (default)  - When we define a bean with the singleton scope, the container creates a single instance of that bean; all requests for that bean name will return the same object, which is cached
+prototype - A bean with the prototype scope will return a different instance every time it is requested from the container
+request - Scopes a single bean definition (single same instance) to the lifecycle of a single HTTP request.  That is, each HTTP request has its own instance of a bean created off the back of a single bean definition
+session - Scopes a single bean definition to the lifecycle of an HTTP Session
+application - Scopes a single bean definition to the lifecycle of a ServletContext. For application-wide resources that span multiple sessions and requests.
+websocket - Scopes a single bean definition to the lifecycle of a WebSocket.

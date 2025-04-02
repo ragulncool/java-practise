@@ -7,7 +7,7 @@ import java.util.*;
 //need to fix error - no mood but easy
 public class SplitWordsByLineWithSameLine {
     public static void main(String args[]) {
-        String[] words = {"This", "is", "an", "example", "of", "text", "justification."};
+        String[] words = {"This", "is", "an", "example2", "of", "text", "justification."};
         Map<Integer, List<String>> line = seperateWordsbyLine(words);
         printArray(line);
         printArrayInNeatFormat(line);

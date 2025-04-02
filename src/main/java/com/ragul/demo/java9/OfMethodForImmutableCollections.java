@@ -8,10 +8,10 @@ public class OfMethodForImmutableCollections {
 
 
     public static void main(String[] args) {
-        //Empty List example:
+        //Empty List example2:
         List immutableList = List.of();
 
-        //Non-Empty List example: //null cannot be added in immutable list
+        //Non-Empty List example2: //null cannot be added in immutable list
         List list2 = List.of("one", "two", "three");
 
         // Empty Map Example:

@@ -1,0 +1,6 @@
+The Proxy Pattern is a design pattern where a proxy class controls access to another object, known as the real subject. The proxy acts as an intermediary, managing requests to the real subject and potentially adding additional functionality, such as access control, logging, or lazy initialization.
+
+adds layers of control and optimization
+
+eg: One of the most common examples of the Proxy pattern in Spring is the use of dynamic proxies to provide declarative transaction management for methods in a service layer.
+ @Transactional annotation tells Spring to apply transaction management to the updateEmployee() method. When this method is invoked, Spring creates a dynamic proxy object that intercepts the method call and performs the necessary transaction management operations, such as beginning a transaction, committing the transaction, or rolling back the transaction if an exception occurs.

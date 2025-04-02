@@ -1,0 +1,9 @@
+The Observer Pattern - when one object (SUBJECT) changes, all its dependents (OBSERVERS) are notified and updated accordingly.
+ provides a mechanism for dynamic updates between objects,
+
+In this example, TemperatureSensor is the subject that notifies TemperatureDisplay when the temperature changes.
+
+is a design pattern where an object (known as the subject) maintains a list of dependent objects (known as observers) that are notified and updated automatically
+when the subject’s state changes. This pattern is useful for creating a one-to-many dependency between objects, so when one object changes, all its dependents are notified and updated accordingly.
+
+example: One of the most common examples of the Observer pattern in Spring is the use of the ApplicationEventPublisher interface to publish events to registered listeners.

@@ -1,0 +1,6 @@
+the Template Method pattern is used extensively in the implementation of various template classes.
+ These template classes provide a skeletal implementation of an algorithm or process, and allow the user to override specific parts of the algorithm or process as needed.
+
+The Template Method pattern defines the skeleton of an algorithm in an operation,
+deferring some steps to subclasses. Spring's Jdbc Template, Rest Template,
+and Jpa Template are examples.

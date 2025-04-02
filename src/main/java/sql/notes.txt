@@ -1,0 +1,11 @@
+Execution order in a query
+
+WHERE
+GROUP BY
+HAVING
+
+
+SELECT Department, AVG(Salary) AS AvgSalary
+FROM Employee
+WHERE Salary > 1000  - 1st executed
+HAVING AVG(Salary) > 1000; - result of above is executed

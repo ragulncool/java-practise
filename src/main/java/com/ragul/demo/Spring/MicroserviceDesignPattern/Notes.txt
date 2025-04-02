@@ -1,0 +1,53 @@
+SAGA
+-----
+
+ design patterns that allows for multiple transactions by giving rollback opportunities.
+
+ 2 TYPES OF APPROACH
+
+ 1. Choreography:
+ Using the choreography approach, a service will perform a transaction and then publish an event.
+  In some instances, other services will respond to those published events and perform tasks according to their coded instructions
+
+  2. Orchestration:
+  An orchestration approach will perform transactions and publish events using an object to orchestrate
+  the events, triggering other services to respond by completing their tasks.
+   The orchestrator tells the participants what local transactions to execute.
+
+   API GATEWAY PATTERN
+   ---------------
+   single entry point for all clients.
+
+   Aggregator design pattern - send and combine data from multiple services
+   ----------------------
+   An aggregator design pattern is used to collect pieces of data from various microservices and returns an aggregate for processing. Although similar to the backend-for-frontend (BFF) design pattern, an aggregator is more generic and not explicitly used for UI.
+   To complete tasks, the aggregator pattern receives a request and sends out requests to multiple services, based on the tasks it was assigned. Once every service has answered the requests, this design pattern combines the results and initiates a response to the original request.
+
+   Command query responsibility segregation (CQRS)
+   -----------------------------------------------
+   Command - Create Update Delete,   Query - Read
+   CQRS, or Command Query Responsibility Segregation, is a design pattern that separates the responsibilities of reading (queries) and writing (commands) data within an application, leading to improved performance, scalability, and maintainability.
+
+Circuit breaker design pattern -  one service is slow or fails, the circuit breaker prevents cascading failures and provides a default response to maintain system stability.
+ ------------------------------
+
+ Event Sourcing Pattern
+  ------------------------------
+ This pattern captures changes to an application state as a sequence of events. Instead of storing just the current state, it stores the state changes (events), allowing the system to reconstruct past states and audit trails.
+
+ A financial application managing transactions and accounts. By using event sourcing, the system can reconstruct account histories, track every transaction, and provide audit trails for regulatory compliance.
+
+   Asynchronous messaging
+   ---------------------
+   If a service doesn’t need to wait for a response and can continue running its code post-failure, asynchronous messaging can be used. Using this design pattern, microservices can communicate in a way that’s fast and responsive. Sometimes this pattern is referred to as event-driven communication.
+
+   Decomposition design pattern
+   ----------------------------
+   Strangler
+   ------
+
+   For converting monolithic to microservice and discard the monolithic
+
+    Sidecar Pattern
+   ---------------
+   The Sidecar pattern deploys helper components (sidecars) alongside the main microservices. These sidecars handle cross-cutting concerns like logging, monitoring, and configuration management, allowing the main services to focus on business logic.

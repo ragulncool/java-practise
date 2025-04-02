@@ -1,0 +1,4 @@
+The Decorator pattern is a design pattern that allows behavior to be added to an individual object, either statically or dynamically, without affecting the behavior of other objects from the same class
+
+In Spring, the Decorator pattern is used in several places to provide additional functionality without changing the original behavior of the objects.
+eg: Decorator pattern in Spring is the use of the HandlerInterceptor interface to provide additional behavior to HTTP request processing in a Spring MVC application.
