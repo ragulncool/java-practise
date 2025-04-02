@@ -1,0 +1,5 @@
+Future:  to get the result of the computation, you must call the get() method, which blocks the calling thread until the task is complete. This can make your application less responsive, as it waits for the computation to finish.
+CompletableFuture, you get non-blocking execution. It allows you to define what happens when the computation is done through methods like thenApply(), thenAccept(), and thenRun(). This makes your application much more responsive, as it doesn't block the main thread while waiting for the result.
+
+Future: Use Future for simple use cases where you need to execute a task in another thread and block until you retrieve the result. It's helpful for basic concurrency but lacks advanced features.
+CompletableFuture: If you need to handle more complex asynchronous workflows with non-blocking behavior, error handling, and task composition, CompletableFuture is the way to go. It offers a more complete solution for modern async programming in Java.
