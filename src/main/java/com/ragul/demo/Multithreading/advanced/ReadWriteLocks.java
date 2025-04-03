@@ -13,6 +13,11 @@ public class ReadWriteLocks {
     // the longest-waiting thread is granted the lock next. However,
     // fairness can lead to lower throughput due to the overhead of maintaining the order.
     // Non-fair locks, in contrast, allow threads to “cut in line,” potentially offering better performance but at the risk of some threads waiting indefinitely if others frequently acquire the lock.
+
+    //Normal ReentrantLock blocks all threads and allows only one thread to access the critical section either read or write
+    //Problem - when multiple read are being carried out without any write, only one read is allowed which affects performance
+//Solution - Read Write Lock - Allow multiple threads to read when no other thread is performing a write operation. There is No Need to block threads when all are in read mode.
+//However, When one of the threads is writing, block all other threads from reading and writing.
     private final Lock readLock = lock.readLock();
     private final Lock writeLock = lock.writeLock();
 

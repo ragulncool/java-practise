@@ -32,7 +32,7 @@ public class Locks {
                     System.out.println(Thread.currentThread().getName() + " insufficient balance");
                 }
             } else {
-                System.out.println(Thread.currentThread().getName() + " could not acquire the lock, will try later");
+                System.out.println(Thread.currentThread().getName() + " could not acquire the lock within timeline, will try later");
             }
         } catch (Exception e) {
             Thread.currentThread().interrupt();

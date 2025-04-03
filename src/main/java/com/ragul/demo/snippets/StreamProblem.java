@@ -12,6 +12,10 @@ public class StreamProblem {
         list = list.stream().filter(x-> x%2==1).map(x->x*2).toList();
         System.out.println(list);
 
+        //return average of even numbers
+        List<Integer> list1 = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        System.out.println(list1.stream().filter(x->x%2==0).mapToInt(x->x).average());
+
         //sort HashMap with keys and values.
         Map<Integer, String> map = Map.of(3, "three", 1, "one", 2, "two");
         map.entrySet().stream().sorted(Comparator.comparingInt(x-> x.getKey())).toList();
