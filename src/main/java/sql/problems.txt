@@ -1,0 +1,6 @@
+write a SQL query to aggregate the employee data by city and count the number of employees in each city and filter cities that start with the letter A?
+
+SELECT city, COUNT(*) AS employee_count
+FROM Employee
+WHERE city LIKE 'A%'
+GROUP BY city;

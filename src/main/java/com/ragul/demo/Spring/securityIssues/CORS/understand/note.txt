@@ -1,0 +1,11 @@
+Cross-Origin Resource Sharing (CORS)
+
+
+BROWSER CORS:
+-----------
+frontend server: frontend.com calling backend server: backend.com
+by default, The browser’s strict origin policy doesn’t prevent the client application from making requests to cross-origin sites.
+ Instead, it blocks the client application from accessing the response sent by cross-origin applications if the appropriate headers are not present. Therefore, CORS is not a typical API endpoint security mechanism.
+
+ what browser needed:
+ Access-Control-Allow-Origin header should be present in response with * or frontend.com
