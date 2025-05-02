@@ -3,4 +3,4 @@
 1. adding @CrossOrigin in class level or method level
 2. Global CORS Configuration with CorsRegistry in WebConfig (used in our application)
 
-Additional step if we use Spring security else it willr eject
+Additional step if we use Spring security else it will reject

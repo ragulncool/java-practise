@@ -23,17 +23,30 @@ import java.util.Comparator;
 //        Total amount you can rob = 2 + 9 + 1 = 12.
 public class HouseRobber {
 
+
+    //below is the non dp solution
     public static void main(String[] args) {
-        Integer nums[] = {1,2,3,1};
+        Integer nums[] = {2,7,9,3,1};
 
         Integer result[] = new Integer[nums.length+1];
         Arrays.fill(result,0);
 
+        int leftSum=0;
+        for (int i=0;i<nums.length;i=i+2){
+            leftSum = leftSum+nums[i];
+        }
+
+        int rightSum=0;
+        for (int i=1;i<nums.length;i=i+2){
+            rightSum = rightSum+nums[i];
+        }
 
 
 
-        Arrays.sort(result,Comparator.reverseOrder());
-        System.out.println(result[0]);
+        System.out.println(Math.max(leftSum,rightSum));
 
     }
 }
+
+
+

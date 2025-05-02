@@ -1,0 +1,1 @@
+For non get request in spring-secuirty, apis will throw 401 if no csrf token is passed

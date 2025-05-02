@@ -23,6 +23,7 @@ public class MemoizationDP {
 
         if(stairs==0 || stairs==1)  return 1; //edge case
 
+        //*****BELOW LINE IS MEMOIZATION - REUSING RESULTS ELSE CALCULATE AND STORE FOR FUTURE*****
         if(result[stairs]!=-1) return result[stairs]; //return if result valid for MemDP to reduce re execution
 
         return waysOfClimbing(result, stairs-1)+waysOfClimbing(result, stairs-2);

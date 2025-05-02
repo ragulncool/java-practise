@@ -1,5 +1,7 @@
 package com.ragul.demo.problems.DynamicProgramming.waysForClimbingStairs;
 
+//The person can climb either 1 stair or 2 stairs at a time
+
 //Input: n = 1
 //        Output: 1
 //        Explanation: There is only one way to climb 1 stair.

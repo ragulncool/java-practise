@@ -1,0 +1,58 @@
+  //TODO: edge cases =0 or 1
+  //TODO: initialization - size+1, fill -1 for all
+  //TODO: calculating all states
+  //TODO: return if not valid -1 will be returned
+
+  Dynamic programming is a problem-solving technique that breaks down complex problems into smaller,
+   overlapping subproblems and stores the solutions to these subproblems to avoid redundant calculations.
+   It's particularly useful for optimization problems where the optimal solution can be constructed from the optimal solutions of subproblems
+
+   memoization - caching to avoid redentant calulations
+
+
+    tabulation - (Iteration) - bottom up approach, fill the table from the base case to the final solution
+    memoization - (Recursion with caching) - top down approach, recursively break down the problem and cache the results
+    normal recursion - (Recursion without caching) -  no caching, can lead to redundant calculations
+
+
+    fib(n) = fib(n-2) + fib(n-4)
+example: fib(6) = fib(4) + fib(2)
+           fib(4) = fib(2) + fib(0)
+
+    //tabulation - execute from 0 to n
+                - for all - 0 to 5 (
+    //memoization - execute from n to 0
+                   - only for needed - 6,4,2,0
+
+
+   Example:
+   //1. recursion
+
+    int fib(int n) {
+         if (n <= 1) return n;
+         return fib(n - 2) + fib(n - 4);
+    }
+
+    //2. memoization
+    int fib(int n, int[] result) {
+         if (n <= 1) return n;
+
+         //check if already calculated
+         if (result[n] != -1) return result[n];
+         result[n] = fib(n - 2, result) + fib(n - 4, result);
+
+         return result[n];
+    }
+
+    //3. tabulation
+    int fib(int n) {
+         int[] dp = new int[n + 1];
+         dp[0] = 0;
+         dp[1] = 1;
+
+         //base cases
+         for (int i = 2; i <= n; i++) {
+             dp[i] = dp[i - 2] + dp[i - 4];
+         }
+         return dp[n];
+    }
