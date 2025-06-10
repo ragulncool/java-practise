@@ -8,19 +8,28 @@ import java.util.PriorityQueue;
 //K smallest element
 //kth largest or smallest element in an array
 
-//min PriorityQueue - stores in asc order - removes smallest element on poll
-//max PriorityQueue - stores in desc order - removes largest element on poll
+//min PriorityQueue or min Heap - stores in asc order - removes smallest element on poll
+//1
+//2 3
+//4 5 6
+
+//max PriorityQueue or max heap - stores in desc order - removes largest element on poll
 
 //Priority Queue - peek returns head / top element and poll removes head / top element
 //for small in head PQ - smallest value will be head so easy to remove
-public class KLargestElements {
+
+//peak - returns top of heap - in min heap, it is small. in max heap, it is largest
+public class KthLargestOrSmallestElements {
     public static void main(String args[]) {
             Integer[] nums = {2,5,1,4,6,8};
             int k=3;
             //printKLargestElementsUsingSort(nums,k);
+             System.out.println("===== K LARGEST ELEMENTS USING HEAP");
             printKLargestElementsUsingHeap(nums,k);
-            printKthLargestElementUsingHeap(nums,k);
-            printKthSmallestElementUsingHeap(nums,k);
+        System.out.println("===== Kth LARGEST ELEMENTS USING HEAP");
+        printKthLargestElementUsingHeap(nums,k);
+        System.out.println("===== Kth SMALLEST ELEMENTS USING HEAP");
+        printKthSmallestElementUsingHeap(nums,k);
     }
 
     private static Integer printKthSmallestElementUsingHeap(Integer[] nums, int k) {
@@ -30,7 +39,7 @@ public class KLargestElements {
             queue.add(nums[i]);
 
             if(queue.size()>k){
-                queue.poll(); //remove all largest element > k
+                queue.poll(); //remove all largest element
             }
         }
         System.out.print("kth smallest number : "+queue.peek());
@@ -42,9 +51,11 @@ public class KLargestElements {
 
         for(int i=0;i<nums.length;i++){
             queue.add(nums[i]);
+            System.out.println("ADDED "+nums[i]+" to queue, current queue : "+queue.size()); //for understandability
 
             if(queue.size()>k){
-                queue.poll(); //remove all smallest element > k
+                System.out.println("removed "+queue.poll()+" to queue, current queue : "+queue.size()); //for understandability
+               // queue.poll(); //remove all smallest element
             }
         }
         System.out.print("kth largest number : "+queue.peek());
@@ -61,10 +72,6 @@ public class KLargestElements {
                 queue.poll();
             }
         }
-
-//        for(int i=0;i< nums.length-k;i++){
-//            System.out.println("REMOVED: "+queue.poll()+" ");
-//        }
 
         while (!queue.isEmpty()){
             System.out.print(queue.poll()+" "); //pollong here for dev to understadn elements in queue

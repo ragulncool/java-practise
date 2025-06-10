@@ -1,4 +1,4 @@
-package com.ragul.demo.problems.MaxSubArray_KadaneAlgorithm;
+package com.ragul.demo.problems.MaxContinousSubArraySum_KadaneAlgorithm;
 
 public class MaxSubArraySum_Brutal_O_Npow2 {
     public static void main(String[] args) {
