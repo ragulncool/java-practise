@@ -5,11 +5,11 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 
 //similar
-//Ksmallestelement
+//K smallest element
 //kth largest or smallest element in an array
 
-//min PriorityQueue - stores in asc order - removes smalles element on poll
-//max PriorityQueue - stores in descorder - removes largest element on poll
+//min PriorityQueue - stores in asc order - removes smallest element on poll
+//max PriorityQueue - stores in desc order - removes largest element on poll
 
 //Priority Queue - peek returns head / top element and poll removes head / top element
 //for small in head PQ - smallest value will be head so easy to remove
