@@ -1,0 +1,14 @@
+Hashcode is checked, if it exists (index) -> equals is checked
+
+int keyName
+
+HASHING:
+Hash(keyname) -> returns hashcode
+hashcode modulo size -> returns index (bucket index)
+
+If two keys have the same index (same hashcode), it is called a collision.
+now equals method is used to check if the keys are equal.
+// If they are equal, the value is updated.
+// If they are not equal, the new key-value pair is added to the linked list at that index.
+
+ In most cases, HashMap provides O(1) constant-time complexity for insertion, retrieval, and deletion operations

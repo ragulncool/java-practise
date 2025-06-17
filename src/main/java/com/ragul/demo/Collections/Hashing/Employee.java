@@ -7,6 +7,8 @@ import lombok.Setter;
 import java.util.*;
 import java.util.stream.Collectors;
 
+//EQUALS AND HASHCODE IS NEEDED FOR DUPLICATE CHECKING IN COLLECTIONS LIKE SET AND MAP
+
 //if equals not overriden, does reference omaprision
 //override and write custom logic to do comparion based on certain fields
 
@@ -35,14 +37,14 @@ public class Employee implements Comparable<Employee>{
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
         boolean result = Objects.equals(this.name, employee.name);
-        System.out.println("equals result : "+result);
+        System.out.println("    equals result : "+result);
         return result;
     }
 
     @Override
     public int hashCode() {
         int hashCode = Objects.hash(name);
-        System.out.println("hashCode result : "+hashCode);
+        System.out.println("    hashCode result : "+hashCode);
         return hashCode;
 
 //        int hashcode = 0;
@@ -93,24 +95,24 @@ class EmployeeEqualsAndHasCode {
         System.out.println("THREE "+employee3.equals(employee4));
         System.out.println("FOUR "+employee4.equals(employee5));
 
-        System.out.println("=======SET========"); //if hashcode is same, then only check for equal
+        System.out.println("=======SET========"); //ONLY WHEN hashcode is same (ALREADY EXIST), then only check for equal. If satisfied, considered duplicate
         //if both true - data not added
         Set<Employee> employeeSet = new HashSet<>(); //set rejects duplicates while map replaces duplicate keys
-        employeeSet.add(employee1);
-       employeeSet.add(employee2); //same as equals, default behvaioru
-       employeeSet.add(employee3);
-       employeeSet.add(employee4);
-        employeeSet.add(employee5);
+        employeeSet.add(employee1);    System.out.println(); //sysout for readability
+       employeeSet.add(employee2);     System.out.println(); //same as equals, default behvaior
+       employeeSet.add(employee3);      System.out.println();
+       employeeSet.add(employee4);     System.out.println();
+        employeeSet.add(employee5);    System.out.println();
         System.out.println(employeeSet);
 
         System.out.println("=======MAP========");
         Map<Employee,String> employeeMap = new HashMap<>();
-        employeeMap.put(employee1,"one");
-        employeeMap.put(employee2,"two");
-        employeeMap.put(employee3,"three");
-        employeeMap.put(employee4,"four");
-        employeeMap.put(employee5,"five");
-        System.out.println(employeeMap);
+        employeeMap.put(employee1,"one");   System.out.println();
+        employeeMap.put(employee2,"two");    System.out.println();
+        employeeMap.put(employee3,"three");      System.out.println();
+        employeeMap.put(employee4,"four");           System.out.println();
+        employeeMap.put(employee5,"five");             System.out.println();
+        System.out.println(employeeMap);                 System.out.println();
     }
 }
 
@@ -124,18 +126,18 @@ class EmployeeCollectionoperations {
 
         System.out.println("=======SET========");
         Set<Employee> employeeSet = new HashSet<>(); //set rejects duplicates while map replaces duplicate keys
-        employeeSet.add(employee1);
-        employeeSet.add(employee2); //same as equals, default behvaioru
-        employeeSet.add(employee3);
+        employeeSet.add(employee1);  System.out.println();
+        employeeSet.add(employee2);  System.out.println(); //same as equals, default behvaioru
+        employeeSet.add(employee3);  System.out.println();
         employeeSet.stream()
                 .filter(employee -> employee.getAddress().startsWith("ch"))
                 .forEach(employee -> System.out.println("LIST Filter: "+employee.getName()));
 
         System.out.println("=======MAP========");
         Map<Employee,String> employeeMap = new HashMap<>();
-        employeeMap.put(employee1,"one");
-        employeeMap.put(employee2,"two");
-        employeeMap.put(employee3,"three");
+        employeeMap.put(employee1,"one");   System.out.println();
+        employeeMap.put(employee2,"two");   System.out.println();
+        employeeMap.put(employee3,"three");    System.out.println();
         employeeMap.entrySet().stream()
                 .filter(entry -> entry.getValue().startsWith("t"))
                 .forEach(entry -> System.out.println("MAP Filter: key - "+entry.getKey().getName()+"   value - "+entry.getValue()));
@@ -144,7 +146,8 @@ class EmployeeCollectionoperations {
         Map<String,List<Employee>> employeeMap1 = new HashMap<>();
         employeeMap1 = employeeSet.stream().collect(Collectors.groupingBy(Employee::getName));
 
-        System.out.println(employeeMap.get(new Employee(1111,"Nonexisting","Nonexisting")));
+        System.out.println(employeeMap.get(new Employee(1111,"Nonexisting","Nonexisting"))); System.out.println();
+        System.out.println(employeeMap.get(new Employee(99999,"B","any"))); //only name is compared as per equals method
 
     }
 }

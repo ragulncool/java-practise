@@ -23,7 +23,6 @@ public class CountOfSubArraysWithGivenSum {
 //                if (visited[c]) {
 //                   // maxlength=Math.max(windowlen,maxlength);
 //                    break;
-//
 //                } else {
 //                   // windowlen++;
 //                    maxlength = Math.max(j-i+1, maxlength); //NOTE: for single char, it will be 1
@@ -31,8 +30,6 @@ public class CountOfSubArraysWithGivenSum {
 //                }
 //            }
 //        }
-//
-//
 //        return maxlength;
 //    }
 
@@ -48,14 +45,11 @@ public class CountOfSubArraysWithGivenSum {
                return right-left+1;
            }else if(sum>givenSum){
                while (sum<givenSum) {
-
                    sum = sum - s.charAt(left);
                    left++;
                }
-
            }
            right++;
-
         }
         return -1;
     }

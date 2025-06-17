@@ -19,11 +19,16 @@ import java.util.Arrays;
 //        Input: s = "pwwkew"
 //        Output: 3
 //        Explanation: The answer is "wke", with the length of 3.
+//
 public class LongestSubstringWithoutRepeatingCharacters {
     public static void main(String args[]) {
-        String s="aaab";
-        System.out.println(brutalApproach(s));
-        System.out.println(slidingWindowApproach(s));
+        String[] s={"abcabcbb","bbbbb","pwwkew","dvdf","aab","abcabcbb","abba","abccba"};
+        for (String str : s) {
+            System.out.println("Input: " + str);
+            System.out.println("Brutal Approach: " + brutalApproach(str));
+            System.out.println("Sliding Window Approach: " + slidingWindowApproach(str));
+            System.out.println("----------------------------");
+        }
     }
 
 
@@ -48,8 +53,6 @@ public class LongestSubstringWithoutRepeatingCharacters {
                 }
             }
         }
-
-
         return maxlength;
     }
 

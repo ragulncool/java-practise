@@ -1,6 +1,6 @@
 package com.ragul.demo.problems.slidingwindowalgorithm.fixedsizewindow;
 
-public class MaxSumOfAllSubArrays {
+public class MaxSumOfAllSubArrays_SubArraySizeKGiven {
     public static void main(String args[]) {
         int[] nums= {1, 4, 2, 10, 23, 3, 1, 0, 20};
         int k=3; //subarray size
@@ -12,11 +12,16 @@ public class MaxSumOfAllSubArrays {
         int maxSum = 0;
 
         for(int i=0;i<nums.length-k+1;i++){
-            int sum=0;
+            int winSum=0;
             for(int j=0;j<k;j++){
-                sum = sum + nums[i+j];
+                winSum = winSum + nums[i+j];
             }
-            maxSum=Math.max(maxSum,sum);
+
+            //alternate - I will think like this
+//            for(int j=i, count=0;count<k;j++, count++){
+//                winSum = winSum + nums[j];
+//            }
+            maxSum=Math.max(maxSum,winSum);
         }
 
         return maxSum;
@@ -28,9 +33,11 @@ public class MaxSumOfAllSubArrays {
 
         //first window
         for(int i=0;i<k;i++){
-            windowSum=maxSum+nums[i];
-            maxSum=windowSum;
+            windowSum=windowSum+nums[i];
         }
+        maxSum=windowSum;
+
+
 
 //        //remaining  - WRONG IN MULTIPLE SITES - window index 1,2,3 and 2,3,4 are ignored
 //        for(int i=k;i<=nums.length-k+1;i++){
@@ -40,7 +47,7 @@ public class MaxSumOfAllSubArrays {
 
         //remaining windows
         for(int i=1;i<nums.length-k+1;i++){
-            windowSum = windowSum + nums[i+k-1]-nums[i-1]; //remove last element from last window and add first element from new window
+            windowSum = windowSum + nums[i-1+k]-nums[i-1]; //remove last element from last window and add first element from new window
             maxSum=Math.max(maxSum,windowSum);
         }
 
