@@ -39,6 +39,7 @@ public class checkBSTTree {
     static List<String> pathList;
     static DLLNode prevDLL = null;
     static DLLNode headDLL = null;
+    static int maxSubArraySum = 0;
 
     public static void main(String args[]) {
 
@@ -75,6 +76,9 @@ public class checkBSTTree {
         System.out.println("Max Sum From All levels - " + getMaxSumFromAllLevels(binaryTree.root));
         System.out.println("Max Value In Each levels - " + getMaxValueInEachPath(binaryTree.root));
         System.out.println("Sum of all the numbers that are formed from root to leaf paths: " + sumFromRootToLeft(binaryTree.root));
+        maxSumSubTree(binaryTree.root);
+        System.out.println("Max sum subtrees : " + maxSubArraySum);
+
         //421+423+465+4678+4679=10666
 
 
@@ -104,6 +108,17 @@ public class checkBSTTree {
 
 
 
+    }
+
+    private static int maxSumSubTree(TreeNode node) {
+        if (node==null){
+            return 0;
+        }
+        int leftSum = maxSumSubTree(node.left); //in any order - we just add up root + left + right
+        int rightSum = maxSumSubTree(node.right);
+        int currentSum = node.data + leftSum + rightSum;
+        maxSubArraySum = Math.max(currentSum,maxSubArraySum);
+         return currentSum;
     }
 
     private static void convertBinaryTreeToDLL(TreeNode treeNode) {

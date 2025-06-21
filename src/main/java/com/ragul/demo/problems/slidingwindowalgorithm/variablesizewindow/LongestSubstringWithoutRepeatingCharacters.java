@@ -24,10 +24,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
     public static void main(String args[]) {
         String[] s={"abcabcbb","bbbbb","pwwkew","dvdf","aab","abcabcbb","abba","abccba"};
         for (String str : s) {
-            System.out.println("Input: " + str);
-            System.out.println("Brutal Approach: " + brutalApproach(str));
-            System.out.println("Sliding Window Approach: " + slidingWindowApproach(str));
-            System.out.println("----------------------------");
+            System.out.println("Input: " + str+" "+brutalApproach(str)+" "+slidingWindowApproach(str));
         }
     }
 
@@ -37,17 +34,15 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
         for (int i=0;i<s.length();i++) {
             boolean[] visited = new boolean[256];
-           // int windowlen = 0; commented code are my logic
+           //int windowlen = 0; //commented code are my logic
 
             for (int j = i; j < s.length(); j++) {
                 char c = s.charAt(j);
 
                 if (visited[c]) {
-                   // maxlength=Math.max(windowlen,maxlength);
                     break;
-
                 } else {
-                   // windowlen++;
+                  // windowlen++;  maxlength=Math.max(windowlen,maxlength); //commented code are my logic
                     maxlength = Math.max(j-i+1, maxlength); //NOTE: for single char, it will be 1
                     visited[c] = true;
                 }
@@ -74,7 +69,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
                 leftC = s.charAt(left); //done to refresh else use s.charAt directly without using leftC or rightC
             }
            // windowLen++;
-         maxLen=Math.max(right-left+1,maxLen);
+            maxLen=Math.max(right-left+1,maxLen);
             visited[rightC] = true;
             right++;
         }

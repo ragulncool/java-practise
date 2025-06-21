@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 
 public class PQWithComparator {
     public static void main(String args[]){
-      //  PriorityQueue<Student> pq=new PriorityQueue<>(); //throws error if entity object is sued and if no comparable
+      //  PriorityQueueOrHeap<Student> pq=new PriorityQueueOrHeap<>(); //throws error if entity object is sued and if no comparable
 
         PriorityQueue<Student> pq = new PriorityQueue<Student>(5, new StudentComparator());
 

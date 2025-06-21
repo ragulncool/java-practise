@@ -1,4 +1,4 @@
-package com.ragul.demo.problems.PriorityQueue;
+package com.ragul.demo.problems.PriorityQueueOrHeap;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -8,12 +8,12 @@ import java.util.PriorityQueue;
 //K smallest element
 //kth largest or smallest element in an array
 
-//min PriorityQueue or min Heap - stores in asc order - removes smallest element on poll
+//min PriorityQueueOrHeap or min Heap - stores in asc order - removes smallest element on poll
 //1
 //2 3
 //4 5 6
 
-//max PriorityQueue or max heap - stores in desc order - removes largest element on poll
+//max PriorityQueueOrHeap or max heap - stores in desc order - removes largest element on poll
 
 //Priority Queue - peek returns head / top element and poll removes head / top element
 //for small in head PQ - smallest value will be head so easy to remove
