@@ -3,6 +3,8 @@ package com.ragul.demo.problems.slidingwindowalgorithm.variablesizewindow;
 //https://leetcode.com/problems/longest-substring-without-repeating-characters/description/?envType=study-plan-v2&envId=top-interview-150
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 //Example 1:
 //
@@ -20,9 +22,12 @@ import java.util.Arrays;
 //        Output: 3
 //        Explanation: The answer is "wke", with the length of 3.
 //
+
+//neat explanation
+//https://www.youtube.com/watch?v=sQJ2KH1CWg4
 public class LongestSubstringWithoutRepeatingCharacters {
     public static void main(String args[]) {
-        String[] s={"abcabcbb","bbbbb","pwwkew","dvdf","aab","abcabcbb","abba","abccba"};
+        String[] s={"abcabcbb"};//,"bbbbb","pwwkew","dvdf","aab","abcabcbb","abba","abccba"};
         for (String str : s) {
             System.out.println("Input: " + str+" "+brutalApproach(str)+" "+slidingWindowApproach(str));
         }
@@ -33,7 +38,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
         int maxlength = 0;
 
         for (int i=0;i<s.length();i++) {
-            boolean[] visited = new boolean[256];
+            boolean[] visited = new boolean[256]; //we can use Set<Char> visited = new HashSet<>(); //but this is more efficient visited.add(c) or remove(c)
            //int windowlen = 0; //commented code are my logic
 
             for (int j = i; j < s.length(); j++) {
@@ -51,27 +56,34 @@ public class LongestSubstringWithoutRepeatingCharacters {
         return maxlength;
     }
 
+   // abcabc
+    //1st windoe which doesnt contain non-repeating characters
+    //start =0 =a
+    //end =2 = c
+
     private static int slidingWindowApproach(String s) {
         int maxLen = 0, windowLen = 0;
 
-        int left=0, right =0;
-        boolean[] visited = new boolean[256];
+        int start=0, end=0;
+        //boolean[] visited = new boolean[256];
+        Set<Character> visited = new HashSet<>();
 
-        while (right<s.length()){
-            char leftC = s.charAt(left);
-            char rightC = s.charAt(right);
+        while (end<s.length()){
+            char startC = s.charAt(start);
+            char endC = s.charAt(end);
 
-            while (visited[rightC]) {
-//                maxLen=Math.max(windowLen,maxLen); //my commented logic not working
-//                windowLen=0;
-                visited[leftC] = false;
-                left++;
-                leftC = s.charAt(left); //done to refresh else use s.charAt directly without using leftC or rightC
+            //If element already visited
+            while (visited.contains(endC)) {
+                visited.remove(startC);
+
+                start++;
+                startC = s.charAt(start); //done to refresh else use s.charAt directly without using leftC or rightC
             }
-           // windowLen++;
-            maxLen=Math.max(right-left+1,maxLen);
-            visited[rightC] = true;
-            right++;
+            System.out.println("start: " + start + ", end: " + end + ", startC: " + startC + ", endC: " + endC+ "   LENGTH: " + (end - start + 1));
+            maxLen=Math.max(end-start+1,maxLen);
+            visited.add(endC);//visited[endC] = true;
+
+            end++;
         }
         return maxLen;
     }
