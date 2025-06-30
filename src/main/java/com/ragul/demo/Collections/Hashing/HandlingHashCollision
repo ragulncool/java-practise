@@ -7,14 +7,18 @@ HASHING:
 Hash(keyname) -> returns hashcode
 hashcode modulo size -> returns index (bucket index)
 
-Hash collision - equal hashcode (same index)
+Hash collision - keys with equal hashcode (same index) - CHAINING
 -------------------------------
+System.out.println("FB".hashCode());  // 2236
+System.out.println("Ea".hashCode());  // 2236
+
+
 If two keys have the same index (same hashcode), it is called a collision.
 now equals method is used to check if the keys are equal.
 // If they are equal, the value is updated.
 // If they are not equal, the new key-value pair is added to the linked list at that index (chaining).
 
-HashMap performance Improvement Changes in Java 8: (LL to Balanced tree for chaining):
+HashMap performance Improvement Changes in Java 8: (LL to Red Black tree for chaining):
 -----------------------------------------------------------------------------
  Java 7 (more hollision - retrieveal - O(n))when if you are using the HashMap for a large number of elements, it degrades the performance of HashMap significantly.
 
@@ -24,6 +28,10 @@ HashMap performance Improvement Changes in Java 8: (LL to Balanced tree for chai
 
 Solution: Java 7 (more hollision - retrieveal - O(log n))
  Java 8 hash elements use balanced trees instead of linked lists after a certain threshold is reached. Which means HashMap starts with storing Entry objects in a linked list but after the number of items in a hash becomes larger than a certain threshold. The hash will change from using a linked list to a balanced tree.
+
+If the bucket size exceeds TREEIFY_THRESHOLD (default = 8), the bucket converts to a Red-Black Tree.
+If the number of entries in a bucket falls below UNTREEIFY_THRESHOLD (default value: 6), the Red-Black Tree is converted back to a linked list to save memory.
+//these two values cannot be changed
 
  In most cases, HashMap provides O(1) constant-time complexity for insertion, retrieval, and deletion operations
 

@@ -1,15 +1,18 @@
 package com.ragul.demo.problems.slidingwindowalgorithm.variablesizewindow;
 
-//not working
 public class CountOfSubArraysWithGivenSum {
     public static void main(String args[]) {
         String s="1245634";
+        int[] arr = new int[s.length()];
+        for (int i=0;i<s.length();i++) {
+            arr[i] = s.charAt(i)-'0'; //converting char to int
+        }
         int givenSum=6;
-     //   System.out.println(brutalApproach(s));
-        System.out.println(slidingWindowApproach(s,givenSum));
+        System.out.println("Subarrays with sum " + givenSum + " are: "+slidingWindowApproach(arr,givenSum));
+     //   System.out.println(brutalApproach(arr, giveSum));
     }
 
-
+//NO TIME
 //    private static int brutalApproach(String s) {
 //        int maxlength = 0;
 //
@@ -33,25 +36,35 @@ public class CountOfSubArraysWithGivenSum {
 //        return maxlength;
 //    }
 
-    private static int slidingWindowApproach(String s, int givenSum) {
-
-        int left=0, right =0;
+    private static int slidingWindowApproach(int[] arr, int givenSum) {
+        int count=0;
+        int start=0, end =0;
         int sum=0;
 
-        while (right<s.length()){
-           sum=sum+s.charAt(right);
+        if(arr[0]>givenSum){
+            return 0; //if first element is greater than given sum, no subarray can be formed
+        }
+
+        while (end<arr.length){
 
            if(sum==givenSum){
-               return right-left+1;
-           }else if(sum>givenSum){
-               while (sum<givenSum) {
-                   sum = sum - s.charAt(left);
-                   left++;
-               }
+              count++;
+              System.out.println("Index "+start + " " + (end-1));
            }
-           right++;
+
+            sum=sum+arr[end];
+
+
+            while (sum>givenSum) {
+                  sum=sum-arr[start];
+                  start++;
+               }
+            end++;
+
         }
-        return -1;
+        return count;
+
+    }
     }
 
-}
+
