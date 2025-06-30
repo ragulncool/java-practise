@@ -8,6 +8,7 @@ public class MaxSumOfAllSubArrays_SubArraySizeKGiven {
        System.out.println(slidingWindowApproach(nums,k)); //O(n)
     }
 
+    // O(n k) Time and O(1) Space
     private static int brutalApproach(int[] nums, int k) {
         int maxSum = 0;
 
@@ -17,9 +18,9 @@ public class MaxSumOfAllSubArrays_SubArraySizeKGiven {
                 winSum = winSum + nums[i+j];
             }
 
-            //alternate - I will think like this
-//            for(int j=i, count=0;count<k;j++, count++){
+//            for(int j=i;j<=i+2;j++){
 //                winSum = winSum + nums[j];
+//                //System.out.println("i:"+i+"     j:"+j+"     winsum:"+winSum);
 //            }
             maxSum=Math.max(maxSum,winSum);
         }
@@ -27,6 +28,7 @@ public class MaxSumOfAllSubArrays_SubArraySizeKGiven {
         return maxSum;
     }
 
+    // O(n) Time and O(1) Space
     private static int slidingWindowApproach(int[] nums, int k) {
         int maxSum = 0;
         int windowSum=0;

@@ -27,7 +27,7 @@ import java.util.Set;
 //https://www.youtube.com/watch?v=sQJ2KH1CWg4
 public class LongestSubstringWithoutRepeatingCharacters {
     public static void main(String args[]) {
-        String[] s={"abcabcbb"};//,"bbbbb","pwwkew","dvdf","aab","abcabcbb","abba","abccba"};
+        String[] s={"abcabcdbb"};//,"bbbbb","pwwkew","dvdf","aab","abcabcbb","abba","abccba"};
         for (String str : s) {
             System.out.println("Input: " + str+" "+brutalApproach(str)+" "+slidingWindowApproach(str));
         }
@@ -38,18 +38,19 @@ public class LongestSubstringWithoutRepeatingCharacters {
         int maxlength = 0;
 
         for (int i=0;i<s.length();i++) {
-            boolean[] visited = new boolean[256]; //we can use Set<Char> visited = new HashSet<>(); //but this is more efficient visited.add(c) or remove(c)
-           //int windowlen = 0; //commented code are my logic
+           // boolean[] visited = new boolean[256]; //we can use Set<Char> visited = new HashSet<>(); //but this is more efficient visited.add(c) or remove(c)
+            Set<Character> visited = new HashSet<>();
+            //int windowlen = 0; //commented code are my logic
 
             for (int j = i; j < s.length(); j++) {
                 char c = s.charAt(j);
 
-                if (visited[c]) {
+                if (visited.contains(c)) {
                     break;
                 } else {
                   // windowlen++;  maxlength=Math.max(windowlen,maxlength); //commented code are my logic
                     maxlength = Math.max(j-i+1, maxlength); //NOTE: for single char, it will be 1
-                    visited[c] = true;
+                    visited.add(c);
                 }
             }
         }
@@ -89,3 +90,6 @@ public class LongestSubstringWithoutRepeatingCharacters {
     }
 
 }
+
+//abcabcdab
+

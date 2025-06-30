@@ -1,3 +1,7 @@
+Future and CompletableFuture are both used for asynchronous programming in Java
+Future is an interface that represents the result of an asynchronous computation.
+CompletableFuture is a class that implements the Future interface and provides additional features for asynchronous programming.
+
 Future:  to get the result of the computation, you must call the get() method, which blocks the calling thread until the task is complete. This can make your application less responsive, as it waits for the computation to finish.
 CompletableFuture, you get non-blocking execution. It allows you to define what happens when the computation is done through methods like thenApply(), thenAccept(), and thenRun(). This makes your application much more responsive, as it doesn't block the main thread while waiting for the result.
 

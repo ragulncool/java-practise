@@ -2,6 +2,8 @@ package com.ragul.demo.Multithreading.advanced.CompletableFutureVsFuture;
 
 import java.util.concurrent.CompletableFuture;
 
+//// CompletableFuture is a class in Java that represents a future result of an asynchronous computation.
+//// It allows you to write non-blocking code and handle the result of a computation when it becomes available.
 public class CompletableFutureExample {
     public static void main(String[] args){
 
