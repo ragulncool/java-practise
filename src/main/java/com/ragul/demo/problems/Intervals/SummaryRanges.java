@@ -22,6 +22,7 @@ public class SummaryRanges {
     }
 
 
+
     private static List<List<Integer>> findSummaryRangesBrutalApproach(int[] nums) {
         List<List<Integer>> summedranges = new ArrayList<>();
         int start = 0,end=nums[0],current,past;
