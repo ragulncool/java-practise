@@ -25,6 +25,15 @@ public class InsertInterval {
             System.out.print("[" + interval[0] + "," + interval[1] + "] ");
         }
         System.out.println(); // Expected: [1,2] [3,10] [12,16]
+
+        System.out.print("Example 3: ");
+        int[][] intervals3 = {{1, 5}};
+        int[] newInterval3 = {2, 3};
+        int[][] mergedIntervals3 = sol.insert(intervals3, newInterval3);
+        for (int[] interval : mergedIntervals3) {
+            System.out.print("[" + interval[0] + "," + interval[1] + "] ");
+        }
+        System.out.println(); // Expected: [1,5]
     }
 
     public int[][] insert(int[][] intervals, int[] newInterval) {

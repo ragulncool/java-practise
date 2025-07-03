@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class MemoizationDP {
 
     public static void main(String[] args) {
-        //intialization
+        //initialization
         int[] ways = {1,2}; //can extend to generic program using for loop
         int stairs = 3;
 
@@ -26,13 +26,15 @@ public class MemoizationDP {
         //*****BELOW LINE IS MEMOIZATION - REUSING RESULTS ELSE CALCULATE AND STORE FOR FUTURE*****
         if(result[stairs]!=-1) return result[stairs]; //return if result valid for MemDP to reduce re execution
 
-        return waysOfClimbing(result, stairs-1)+waysOfClimbing(result, stairs-2);
+        int currentResult = waysOfClimbing(result, stairs - 1) + waysOfClimbing(result, stairs - 2);
+        result[stairs]=currentResult;
+
+        return currentResult;
 //        int sum=0;
 //        for(int i=0;i<ways.length;i++){
 //            sum = sum +waysOfClimbing(result, stairs-i);
 //            return sum;
 //        }
-
     }
 
 }
