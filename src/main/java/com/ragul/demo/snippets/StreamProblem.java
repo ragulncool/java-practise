@@ -34,7 +34,16 @@ public class StreamProblem {
         map.entrySet().stream().sorted(Comparator.comparingInt(x-> x.getKey())).toList();
         System.out.println(map);
 
-        // If keys contains strings starts with uppercase letters.
+        System.out.println("GROUP STRING BY FIRST CHARAC");
+        List<String> list2 = List.of("apple", "banana", "cherry", "date","carrot");
+        Map<Character,List<String>> mapGroup = list2.stream().collect(Collectors.groupingBy(x->x.charAt(0))); //using groupingBy
+      //  Map<Character,String> mapGroup1 = list2.stream().collect(Collectors.toMap(x->x.charAt(0),x->x)); //ERROR - Duplicate key (attempted merging values x and x)
+        Map<Character,String> mapGroup2 = list2.stream().collect(Collectors.toMap(x->x.charAt(0),x->x, (x,y)->x+","+y)); //using toMap - added combine duplicates
+        System.out.println(mapGroup);
+        System.out.println(mapGroup2);
+
+
+        // If keys contains strings starts with uppercase letters.x
 
 
        // To find the first non-repeating character

@@ -12,6 +12,12 @@ public class CollectionsForMultithreading {
     public static void main(String args[]){
         // Non synchronized
         List l1 = new ArrayList();
+
+        //This is not thread-safe. ArrayList is not synchronized, and parallelStream() uses multiple threads.
+        List<String> result = new ArrayList<>();
+        List<String> input = List.of("a", "b", "c");
+        input.parallelStream().forEach(result::add);
+
         // Synchronized
         List l= Collections.synchronizedList(l1);
 

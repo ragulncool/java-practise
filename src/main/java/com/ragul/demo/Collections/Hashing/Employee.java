@@ -80,7 +80,7 @@ public class Employee implements Comparable<Employee> {
 
     //when hashcode is wrong, equals functionality is not disturbed
 //when any of these is wrong, data structure behaviour like duplicate operations are disturbed
-    class EmployeeEqualsAndHasCode {
+    public class EmployeeEqualsAndHasCode {
 
         public static void main(String[] args) {
             System.out.println("=======EQUALS========");
