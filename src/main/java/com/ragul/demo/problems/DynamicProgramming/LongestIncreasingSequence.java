@@ -21,30 +21,32 @@ package com.ragul.demo.problems.DynamicProgramming;
 //Output: 4
 //Explanation: The whole array is sorted
 
+import java.util.Arrays;
+
 public class LongestIncreasingSequence {
     public static void main(String[] args) {
         int[] arr = {10, 22, 9, 33, 21, 50, 41, 60, 80};
         int n = arr.length;
         System.out.println("Length of LIS is " + lis(arr, n));
+        System.out.println("Length of LIS is " + lis1(arr, n));
     }
 
-    private static String lis(int[] arr, int n) {
-        int[] finList = new int[n];
-        for (int i = 0; i < n; i++) {
-            finList[i] = 1;
-        }
+//O(n) time complexity, O(1) space complexity
+    private static int lis(int[] arr, int n) {
+        int count = 0;
 
-        finList[0]=arr[0];
-        for (int i=1; i<arr.length-1;i++){
+        if (arr.length>0) count=1;
+        for (int i=1; i<arr.length;i++){
             if (arr[i]>arr[i-1]){
-                finList[i]=arr[i];
+                count++;
             }else{
                 continue;
             }
         }
-        return String.valueOf(finList.length);
+        return count;
     }
 
+    //O(n^2) time complexity, O(n) space complexity
     private static String lis1(int[] arr, int n) {
         int[] lis = new int[n];
         for (int i = 0; i < n; i++) {
