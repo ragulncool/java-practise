@@ -1,0 +1,31 @@
+4. Locks and ReentrantLock (java.util.concurrent.locks):
+------------------------------------------------------
+More flexible alternative to synchronized. Supports features like:
+
+TryLock()
+Timeouts
+Interruptible locks
+
+Example:
+ReentrantLock lock = new ReentrantLock();
+lock.lock();
+try {
+    // critical section
+} finally {
+    lock.unlock();
+}
+
+5. Thread-safe Collections:
+-------------------------------------------------------
+Java provides several concurrent collection classes:
+
+ConcurrentHashMap
+CopyOnWriteArrayList
+BlockingQueue
+These are designed to be safe for multi-threaded access without external synchronization.
+
+6. Immutable Objects:
+-------------------------------------------------------
+Objects that cannot be modified after creation are inherently thread-safe.
+Example:
+String is immutable

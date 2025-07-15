@@ -1,0 +1,44 @@
+
+1.SlidingWindow
+ask subset of elements that satisfies given condition
+I/P:Array, String or Link list
+
+2. Two pointer
+iterate through sorted array or list to find pairs that satisfy a condition
+
+Fast & Slow Pointer:
+Used in linked list or array problems, this pattern is ideal for detecting cycles or finding a midpoint.
+
+Prefix Sum
+Description: Prefix Sums/Products are techniques that store cumulative sums or products up to each index, allowing for quick subarray range queries.
+
+2. Subset - similar to BFS
+when we need to find all possible subsets of a set or string
+repeated may be allowed or not
+eg: permutations, combinations
+
+3. modified Binary Search
+when we need to find an element in a sorted array or list
+eg:search in rotated sorted array, find peak element
+
+check array contains duplicate elements
+when we need to find the first or last occurrence of an element in a sorted array
+
+4. Top k elements - Heap / Priority Queue
+when we need to efficiently retrieve the k largest or smallest elements from a collection
+
+5. Binary Tree BFS
+when we need to traverse a binary tree in a breadth-first manner
+use recursion or queue to explore all nodes at the present depth prior to moving on to nodes at the next depth level
+
+6. DFS - Depth First Search - deep into branches and explore all nodes in a branch before going to next (before backtracking)
+when we need to traverse a graph or tree in a depth-first manner
+ use recursion or stack to explore as far as possible along each branch before backtracking
+
+ 7.Topological Sort (Graph): Useful in finding a linear ordering of vertices in a directed acyclic graph (DAG).
+
+13. K-way Merge: Employ this pattern to merge K sorted lists or arrays efficiently.
+
+other
+Cyclic Sort: Employed when you need to sort numbers within a defined range, it provides a neat way to ensure ordered data.
+
