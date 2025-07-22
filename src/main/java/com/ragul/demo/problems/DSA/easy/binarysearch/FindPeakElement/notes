@@ -1,0 +1,17 @@
+a probelm can have any peaks
+
+there always be a peak since -INF TO INF
+//A peak element is an element that is strictly greater than its neighbors 9left and right).
+//IMP: greater but not equal to neighbours
+//find a peak element and return its index. The array may contain multiple peaks — return any peak.
+
+SOLUTION WORKS FOR MULTIPLE PEAKS ALSO SINCE IF WE TAKE EG MID>MID+1, WE IGNORE RIGHT PEAKS ASSUMING PEAK IS ON LEFT
+
+1 2 3 4 5
+Understanding: -INF 1 2 3 4 5 -INF
+
+1 2 3 4 5
+peak: 5 since 5>4 and 5>-INF
+
+5 4 3 2 1
+peak: 5 since 5>4 and 5>-INF

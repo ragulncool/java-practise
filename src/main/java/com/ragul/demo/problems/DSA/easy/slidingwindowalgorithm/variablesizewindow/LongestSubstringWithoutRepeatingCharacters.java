@@ -25,6 +25,8 @@ import java.util.Set;
 
 //neat explanation
 //https://www.youtube.com/watch?v=sQJ2KH1CWg4
+
+
 public class LongestSubstringWithoutRepeatingCharacters {
     public static void main(String args[]) {
         String[] s={"abcabcdbb"};//,"bbbbb","pwwkew","dvdf","aab","abcabcbb","abba","abccba"};
@@ -73,13 +75,13 @@ public class LongestSubstringWithoutRepeatingCharacters {
             char startC = s.charAt(start);
             char endC = s.charAt(end);
 
-            //If element already visited
-            while (visited.contains(endC)) {
-                visited.remove(startC);
+                    //If element already visited
+                     while (visited.contains(endC)) { //increase start until duplicate is removed  eg: abcbd   s=0,e=4, s++ until value not exists in visted. hence new s=2 (c)
+                        visited.remove(startC);
 
-                start++;
-                startC = s.charAt(start); //done to refresh else use s.charAt directly without using leftC or rightC
-            }
+                         start++;
+                         startC = s.charAt(start); //done to refresh else use s.charAt directly without using leftC or rightC
+                     }
             System.out.println("start: " + start + ", end: " + end + ", startC: " + startC + ", endC: " + endC+ "   LENGTH: " + (end - start + 1));
             maxLen=Math.max(end-start+1,maxLen);
             visited.add(endC);//visited[endC] = true;

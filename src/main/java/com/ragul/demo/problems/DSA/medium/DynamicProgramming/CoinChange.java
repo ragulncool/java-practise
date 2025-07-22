@@ -1,6 +1,8 @@
 package com.ragul.demo.problems.DSA.medium.DynamicProgramming;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 //You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.
 //
@@ -28,28 +30,43 @@ public class CoinChange {
     public static void main(String[] args) {
         int[] coins = {1,2,5}; //means - these coins are present in unlimited numbers
         int amount=11;
-        System.out.println(coinChange(coins,amount));
-    }
-    public static int coinChange(int[] coins, int amount){
-        if(amount==0)return 0;// edge case: if the amount is 0
-        int maxNum = amount + 1; // an impossible value for the solution
-        int[] num_change = new int[maxNum]; // fixed-length of the array for maxNum States
-        Arrays.fill(num_change, maxNum);// fill them with the impossible number
-        num_change[0] = 0;// 0 means 0
+        System.out.println(coinChangeWithoutDP(coins,amount));
 
-        for(int i = 1; i <= amount; i ++){// from state 1 to final amount  -  amount 1 to 11
-            for(int coin: coins){// check each coin, means each potential transition - 1,2,5
-                // if the coin denomination is smaller than i
-                // and the potential sub-solution won't reach the possible maximum number
-                if(i - coin >= 0 && num_change[i - coin] <= amount){
-                    //the minimal value between current one and previously recorded one
-                    num_change[i] = Math.min(num_change[i], num_change[i-coin]+1);
-                }
+        //System.out.println(coinChange(coins,amount));
+    }
+
+
+    public static int coinChangeWithoutDP(int[] coins, int amount) {
+
+        if (amount == 0) {
+            return 0;
+        }
+        if (amount < 0) {
+            return -1; // no possible soltionm -  Cannot make change for negative amount
+        }
+
+        int minCoins = Integer.MAX_VALUE;
+
+        for (int coin : coins) {
+            int result = coinChangeWithoutDP(coins, amount - coin); // Recursive call
+            if (result != -1) { // If a valid solution is found for the subproblem
+                minCoins = Math.min(minCoins, result + 1); // Add one coin to the result
             }
         }
 
-        if(num_change[amount] == maxNum)
-            num_change[amount] = -1;// no possible solution!
-        return num_change[amount];// return the result
+        return (minCoins == Integer.MAX_VALUE) ? -1 : minCoins;
     }
+
 }
+
+//flow diagram of recursive solution
+// 1. Start with the total amount to be made.
+// 2. For each coin in the list of coins:
+//    a. Subtract the coin value from the total amount.
+//    b. Call the function recursively with the new amount.
+//    c. If the recursive call returns a valid result (not -1), update the minimum number of coins needed.
+// 3. If no valid combination is found, return -1.
+// 4. If a valid combination is found, return the minimum number of coins needed.
+// 5. If the amount is zero, return zero (base case).
+// 6. If the amount is negative, return -1 (base case).
+// 7. The function will explore all possible combinations of coins to find the minimum number needed to make the total amount.

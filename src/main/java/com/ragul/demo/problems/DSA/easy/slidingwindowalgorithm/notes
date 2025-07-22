@@ -1,0 +1,23 @@
+O(n^2) -> O(n)
+space O(1)
+
+subtract moving out and add new element -  sliding window
+
+dynamic
+window expands if charactees are unique - CORRECT WINDOW AND EXPECTED - DO OPERATOONS LIKE CALCULATING MAX LENGTH
+window shrinks if there are duplicates - WRONG WINDOW  (until duplicate is removed - start is shrinked
+
+in fixed size, window size is given
+in variable size, execute from single to max where condition is breaked like duplicate exists)
+
+count of subArray with given sum
+    //1. we can use the formula: exactly(k) = atMost(k) - atMost(k - 1).
+
+Fixed WIndow
+-------
+
+Max Sum Subarray of size K
+Examples:
+
+Input: arr[] = [100, 200, 300, 400] , k = 2
+Output: 700
