@@ -1,0 +1,61 @@
+basics of graph
+// Graph is a collection of vertices (nodes) and edges (connections between nodes)
+
+// A graph can be directed or undirected
+// Directed graph: edges have a direction (from one node to another)
+// Undirected graph: edges do not have a direction (connection between two nodes is bidirectional)
+    //all undirected graphs have cycles
+
+// Graph can be weighted or unweighted
+// Weighted graph: edges have weights (costs, distances, etc.)
+// Unweighted graph: edges do not have weights
+
+// Graph can be cyclic or acyclic
+// Cyclic graph: contains at least one cycle (a path that starts and ends at the same node)
+// Acyclic graph: does not contain any cycles
+
+// Graph can be represented in various ways:
+// 1. Adjacency Matrix: a 2D array where the cell at (i, j) indicates if there is an edge from node i to node j
+// 2. Adjacency List: an array of lists where each list contains the nodes connected to a specific node
+// 3. Edge List: a list of edges where each edge is represented as a pair of nodes
+// 4. Incidence Matrix: a matrix where rows represent edges and columns represent nodes, indicating which edges are connected to which
+
+// Graph can be traversed using various algorithms:
+// 1. Depth-First Search (DFS): explores as far as possible along each branch before backtracking
+// 2. Breadth-First Search (BFS): explores all neighbors at the present depth prior to moving on to nodes at the next depth level
+// 3. Dijkstra's Algorithm: finds the shortest path from a source node to all other nodes in a weighted graph
+// 4. Prim's Algorithm: finds a minimum spanning tree for a weighted undirected graph
+// 5. Kruskal's Algorithm: finds a minimum spanning tree for a weighted undirected graph by sorting edges
+// 6. Topological Sort: orders the nodes in a directed acyclic graph (DAG) such that for every directed edge u -> v, node u comes before node v
+// 7. Floyd-Warshall Algorithm: finds shortest paths between all pairs of nodes in a weighted graph
+
+// Graph can be used to model various real-world problems such as:
+// - Social networks (connections between people)
+// - Transportation networks (roads, flights, etc.)
+// - Computer networks (connections between devices)
+// - Dependency graphs (tasks that depend on other tasks)
+
+// Graph terminology:
+// - Vertex (node): a fundamental part of a graph, representing an entity
+// - Edge: a connection between two vertices
+// - Path: a sequence of edges that connects two vertices 1-> 2 -> 3
+// - degree of a vertex: the number of edges connected to it
+    //- In-degree: the number of edges directed towards a vertex in a directed graph
+    //- Out-degree: the number of edges directed away from a vertex in a directed graph
+// - Cycle: a path that starts and ends at the same vertex
+// - edge weight: a value associated with an edge in a weighted graph
+
+// - Connected graph: a graph where there is a path between every pair of vertices
+// - Disconnected graph: a graph where at least one pair of vertices does not have a path between them
+// - Complete graph: a graph where there is an edge between every pair of vertices
+// - Subgraph: a graph formed from a subset of the vertices and edges of another graph
+// - Spanning tree: a subgraph that includes all vertices and is a tree (connected and acyclic)
+// - Minimum spanning tree: a spanning tree with the minimum possible total edge weight
+
+
+Note:
+//Binary Tree is a special case of a graph where each node has at most two children
+
+//DAG - Directed Acyclic Graph
+
+//Total degree of a graph = 2 * number of edges. since every edge connects two vertices

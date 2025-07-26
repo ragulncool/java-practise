@@ -9,32 +9,54 @@ class Graph
 
 {
     //stores the edges of the graph
-    private Map<Integer, List<Integer>> map = new HashMap<>();
+    private Map<Integer, List<Integer>> adjList = new HashMap<>();
+    private boolean directed;
 
-    public void addNewVertex(Integer s) {
-        map.put(s, new LinkedList<Integer>());
+    public Graph(boolean directed) {
+        this.directed= directed;
+    }
+
+    public void addNewVertex(Integer v) {
+        adjList.putIfAbsent(v, new LinkedList<>());
     }
 
     //the method adds an edge between source and destination
-    public void addNewEdge(Integer source, Integer destination, boolean bidirectional) {
-        if (!map.containsKey(source))
-            addNewVertex(source);
-        if (!map.containsKey(destination))
-            addNewVertex(destination);
-        map.get(source).add(destination);
-        if (bidirectional == true) {
-            map.get(destination).add(source);
+    public void addNewEdge(Integer source, Integer destination) {
+        adjList.putIfAbsent(source, new ArrayList<>());
+        adjList.putIfAbsent(destination, new ArrayList<>());
+        adjList.get(source).add(destination);
+        if (!directed) {
+            adjList.get(destination).add(source);
+        }
+    }
+
+    // Remove an edge
+    public void removeEdge(int src, int dest) {
+        if (adjList.containsKey(src)) {
+            adjList.get(src).remove(Integer.valueOf(dest));
+        }
+        if (!directed && adjList.containsKey(dest)) {
+            adjList.get(dest).remove(Integer.valueOf(src));
+        }
+    }
+
+    // Print the adjacency list
+    public void printGraph() {
+        System.out.println("Adjacency List:");
+        for (int vertex : adjList.keySet()) {
+            System.out.print(vertex + " -> ");
+            System.out.println(adjList.get(vertex));
         }
     }
 
     public void countVertices() {
-        System.out.println("Total number of vertices: " + map.keySet().size());
+        System.out.println("Total number of vertices: " + adjList.keySet().size());
     }
 
     public void countEdges(boolean bidirection) {
         int count = 0;
-        for (Integer v : map.keySet()) {
-            count = count + map.get(v).size();
+        for (Integer v : adjList.keySet()) {
+            count = count + adjList.get(v).size();
         }
         if (bidirection == true) {
             count = count / 2;
@@ -43,7 +65,7 @@ class Graph
     }
 
     public void containsVertex(Integer s) {
-        if (map.containsKey(s)) {
+        if (adjList.containsKey(s)) {
             System.out.println("The graph contains " + s + " as a vertex.");
         } else {
             System.out.println("The graph does not contain " + s + " as a vertex.");
@@ -53,7 +75,7 @@ class Graph
 
     //checks a graph has edge or not b/w source and dest
     public void containsEdge(Integer source, Integer dest) {
-        if (map.get(source).contains(dest)) {
+        if (adjList.get(source).contains(dest)) {
             System.out.println("The graph has an edge between " + source + " and " + dest + ".");
         } else {
             System.out.println("There is no edge between " + source + " and " + dest + ".");
@@ -64,9 +86,9 @@ class Graph
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        for (Integer v : map.keySet()) {
+        for (Integer v : adjList.keySet()) {
             builder.append(v.toString() + ": ");
-            for (Integer w : map.get(v)) {
+            for (Integer w : adjList.get(v)) {
                 builder.append(w.toString() + " ");
             }
             builder.append("\n");
@@ -86,7 +108,7 @@ class Graph
             Integer currentNode = queue.remove();
             System.out.println("BFS Node:" + currentNode + " Queue:" + queue + " Visited:" + visited);
 
-            for (Integer node : map.get(currentNode)) {
+            for (Integer node : adjList.get(currentNode)) {
                 if (!visited.contains(node)) {
                     queue.add(node);
                     visited.add(node);
@@ -108,7 +130,7 @@ class Graph
             Integer currentNode = stack.pop();
             System.out.println("DFS Node:" + currentNode + " Stack:" + stack + " Visited:" + visited);
 
-            for (Integer node : map.get(currentNode)) {
+            for (Integer node : adjList.get(currentNode)) {
                 if (!visited.contains(node)) {
                     stack.push(node);
                     visited.add(node);
@@ -116,24 +138,26 @@ class Graph
             }
         }
     }
+
 }
 
-public class GraphImplementation
+public class GraphImplementationUsingAdjList
 {
     public static void main(String args[])
     {
-        Graph graph=new Graph();
+        Graph graph=new Graph(false);
 
-        graph.addNewEdge(0, 1, true);
-        graph.addNewEdge(0, 4, true);
-        graph.addNewEdge(1, 2, true);
-        graph.addNewEdge(1, 3, false);
-        graph.addNewEdge(1, 4, true);
-        graph.addNewEdge(2, 3, true);
-        graph.addNewEdge(2, 4, true);
-        graph.addNewEdge(3, 0, true);
-        graph.addNewEdge(2, 0, true);
-        graph.addNewEdge(3, 5, true); //for BFS, 5 will be printed last. For DFS, 5 will printed after 3 (parent)
+        graph.addNewEdge(0, 1);
+        graph.addNewEdge(0, 4);
+        graph.addNewEdge(1, 2);
+        graph.addNewEdge(1, 3);
+        graph.addNewEdge(1, 4);
+        graph.addNewEdge(2, 3);
+        graph.addNewEdge(2, 4);
+        graph.addNewEdge(3, 0);
+        graph.addNewEdge(2, 0);
+        graph.addNewEdge(3, 5); //for BFS, 5 will be printed last. For DFS, 5 will printed after 3 (parent)
+        graph.printGraph();
 
 
         System.out.println("Adjacency List for the graph:\n"+ graph.toString());
