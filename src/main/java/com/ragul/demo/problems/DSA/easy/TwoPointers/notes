@@ -1,0 +1,160 @@
+https://www.youtube.com/watch?v=MQmUVokbTrs - nikhil
+https://www.youtube.com/watch?v=QzZ7nmouLTI&list=PLK63NuByH5o-tqaMUHRA4r8ObRW7PWz45&index=1 - alogmasterio
+
+
+one moves one step and other moves 2 steps at a time
+
+find middle of a linked list
+   when fast pointer end=null (last node), slow pointer will be a t middle
+
+
+
+ finding cycle in a  linked list
+    if they meet somewhere -> cycle exist
+
+
+pair of values of satisfies condition
+
+
+
+    others
+    ----
+
+
+   keep 0d at left and 1s at right (partition around a conduition)
+   - swap two pointers one by one either side until both pointers meet
+
+   Dutch national flag
+   0s should be in left, 2s should be in right, remaining can be in middle
+
+
+
+
+
+ 1. CONVERGING POINTERS - both are two side. check till they meet
+
+ *string in plaindrome
+ *container with most water
+
+
+ 2. PARALLEL POINTER - start at same side
+ * sliding window
+
+
+ 3. TRIGGER BASED
+ move first untile it meets certain condition
+ then move second
+
+ find Nth node from end of LL
+ move first pointer till Nth node
+ move both pointers till first reaches last. Now second will be at nth node
+
+
+
+2 sum ii
+3sum
+trapping rain water
+
+
+
+PATTERN 1
+//1. CONVERGING POINTERS
+//pointers move towards each other from opposite ends until they meet
+
+Find Pair with Given Sum in Sorted Array
+Find Pair with Given Sum in Unsorted Array
+Find Pair with Given Sum in Sorted Linked List
+Find Pair with Given Sum in Unsorted Linked List
+
+
+
+Two Sum in sorted array  (or) Find if a pair exists in array with a given sum
+Check if array is a palindrome
+Container With Most Water (variant: max area between two lines)
+Trapping Rain Water (with modifications)
+
+
+// 2. PARALLEL POINTERS
+Sliding Window Maximum
+Sliding Window Minimum
+Longest Substring Without Repeating Characters
+Longest Substring with At Most K Distinct Characters
+Longest Substring with At Least K Repeating Characters
+Longest Substring with At Most K Distinct Characters (variant: longest substring with at least K distinct characters)
+Longest Substring with At Least K Repeating Characters (variant: longest substring with at most K distinct characters)
+// 3. TRIGGER-BASED POINTERS
+Find Nth Node from End of Linked List
+Find Middle of Linked List
+Find Cycle in Linked List
+Find Intersection of Two Linked Lists
+// Find the Start of the Cycle in Linked List
+// Find the Length of the Cycle in Linked List
+// Find the Length of the Cycle in Linked List (variant: find the start of the cycle)
+// Find the Length of the Cycle in Linked List (variant: find the length of the cycle)
+// Find the Length of the Cycle in Linked List (variant: find the start of the cycle)
+// Find the Length of the Cycle in Linked List (variant: find the length of the cycle)
+// Find the Length of the Cycle in Linked List (variant: find the start of the cycle)
+// Find the Length of the Cycle in Linked List (variant: find the length of the cycle)
+// Find the Length of the Cycle in Linked List (variant: find the start of the cycle)
+// Find the Length of the Cycle in Linked List (variant: find the length of the cycle)
+// Find the Length of the Cycle in Linked List (variant: find the start of the cycle)
+// Find the Length of the Cycle in Linked List (variant: find the length of the cycle)
+
+//4. PARTITIONING
+Partition Array Around a Condition (e.g., all 0s to the left, all 1s to the right)
+Dutch National Flag Problem (0s to the left, 2s to the right, 1s in the middle)
+// Partition Array Around a Condition (e.g., all 0s to the left, all 1s to the right) (variant: partition array around a condition)
+// Dutch National Flag Problem (0s to the left, 2s to the right, 1s in the middle) (variant: partition array around a condition)
+// Partition Array Around a Condition (e.g., all 0s to the left, all 1s to the right) (variant: partition array around a condition)
+
+//5. MERGING
+Merge Two Sorted Arrays
+Merge Two Sorted Linked Lists
+Merge K Sorted Linked Lists
+// Merge Two Sorted Arrays (variant: merge two sorted linked lists)
+// Merge Two Sorted Linked Lists (variant: merge k sorted linked lists)
+// Merge K Sorted Linked Lists (variant: merge two sorted arrays)
+// Merge K Sorted Linked Lists (variant: merge two sorted linked lists)
+// Merge K Sorted Linked Lists (variant: merge k sorted linked lists)
+// Merge K Sorted Linked Lists (variant: merge two sorted arrays)
+
+//6. INTERLEAVING
+Interleave Two Arrays
+Interleave Two Linked Lists
+Interleave Two Strings
+// Interleave Two Arrays (variant: interleave two linked lists)
+// Interleave Two Linked Lists (variant: interleave two strings)
+// Interleave Two Strings (variant: interleave two arrays)
+
+//7. COMPARING
+Compare Two Linked Lists
+Compare Two Arrays
+Compare Two Strings
+
+//8. SWAPPING
+Swap Two Nodes in a Linked List
+Swap Two Elements in an Array
+Swap Two Characters in a String
+//9. REVERSING
+Reverse a Linked List
+Reverse a String
+Reverse an Array
+// Reverse a Linked List (variant: reverse a string)
+
+//10. ROTATING
+Rotate a Linked List
+Rotate an Array
+Rotate a String
+
+//11. FINDING
+Find the Middle of a Linked List
+Find the Length of a Linked List
+Find the Nth Node from the End of a Linked List
+// Find the Kth Node from the Start of a Linked List
+
+//12. COUNTING
+Count the Number of Nodes in a Linked List
+Count the Number of Elements in an Array
+Count the Number of Characters in a String
+
+//13. SORTING

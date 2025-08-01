@@ -10,6 +10,7 @@ public class TopKFrequentElementsInArray {
         int[] nums = {1, 1, 1, 2, 2, 3};
         int k = 2;
         int[] topKFrequentElements = findTopKFrequentElements(nums, k);
+
         System.out.print("Top " + k + " frequent elements are : ");
         for (int x : topKFrequentElements) {
             System.out.print(x + " ");
@@ -17,23 +18,31 @@ public class TopKFrequentElementsInArray {
     }
 
     private static int[] findTopKFrequentElements(int[] nums, int k) {
-        Map<Integer, Integer> cnt = new HashMap<>();
-        for (int x : nums) {
-            cnt.merge(x, 1, Integer::sum);
+        Map<Integer,Integer> map = new HashMap<>();
+        for (int i=0;i<nums.length;i++){
+            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+            //  tough to understand. bettwe use as above
+            //  cnt.merge(x, 1, Integer::sum);
+            //  cnt.merge(x,1, (oldValue, newValue) -> oldValue + newValue); // count frequency of each element
         }
-        PriorityQueue<Map.Entry<Integer, Integer>> pq
-                = new PriorityQueue<>(Comparator.comparingInt(Map.Entry::getValue)); // min heap based on frequency
-        for (var e : cnt.entrySet()) {
-            pq.offer(e); // add to priority queue
-            if (pq.size() > k) {
-                pq.poll(); // remove the least frequent element
-            }
+        // min heap based on frequency
+        PriorityQueue<Map.Entry<Integer,Integer>> pq = new PriorityQueue<>((a, b) -> Integer.compare(a.getValue(), b.getValue()));
+        for (Map.Entry<Integer,Integer> entry:map.entrySet()){
+            pq.add(entry);
         }
-        //for dev
-        System.out.println("Priority Queue after processing all elements: " + pq);
-        //just for question
-        return pq.stream().mapToInt(Map.Entry::getKey).toArray(); // convert key to int array
+
+        System.out.println(pq);
+
+        if (pq.size()>k){
+            pq.poll(); // remove the least frequent element
+        }
+
+        System.out.println(pq);
+
+        return pq.stream().mapToInt(x->x.getKey()).toArray(); //if used map() will return as Object[] instead of int[]
+//        return pq.stream().mapToInt(Map.Entry::getKey).toArray(); //if used map() will return as Object[] instead of int[]
     }
+
 
 
 //    private static String findTopKFrequentElements(int[] nums, int k) {

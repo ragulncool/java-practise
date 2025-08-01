@@ -2,6 +2,7 @@ package com.ragul.demo.problems.DSA.easy.PriorityQueueOrHeap;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 //similar
@@ -33,8 +34,8 @@ public class KthLargestOrSmallestElements {
     }
 
     private static Integer printKthSmallestElementUsingHeap(Integer[] nums, int k) {
-        PriorityQueue<Integer> queue = new PriorityQueue<>((a,b)->b-a); //Large in head PQ
-
+//        PriorityQueue<Integer> queue = new PriorityQueue<>((a,b)->b-a); //Large in head PQ
+        PriorityQueue<Integer> queue = new PriorityQueue<>(Comparator.reverseOrder()); // Max heap
         for(int i=0;i<nums.length;i++){
             queue.add(nums[i]);
 

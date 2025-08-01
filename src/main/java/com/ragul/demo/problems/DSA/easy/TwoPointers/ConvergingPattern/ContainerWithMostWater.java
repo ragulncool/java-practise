@@ -1,4 +1,4 @@
-package com.ragul.demo.problems.DSA.easy.TwoPointers;
+package com.ragul.demo.problems.DSA.easy.TwoPointers.ConvergingPattern;
 
 public class ContainerWithMostWater {
     public static void main(String[] args) {
@@ -9,6 +9,7 @@ public class ContainerWithMostWater {
         int[] height1 = {1,1};
         System.out.println(maxArea(height1));
         System.out.println(maxAreaUsingBrutal(height1));
+
     }
 
     private static int maxAreaUsingBrutal(int[] height) {

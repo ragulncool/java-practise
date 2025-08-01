@@ -1,4 +1,4 @@
-package com.ragul.demo.problems.DSA.easy.TwoPointers;
+package com.ragul.demo.problems.DSA.easy.TwoPointers.ConvergingPattern;
 
 //Example 1:
 //

@@ -38,33 +38,36 @@ public class InsertInterval {
 
     public int[][] insert(int[][] intervals, int[] newInterval) {
         List<int[]> result = new ArrayList<>();
-        int i = 0;
+        int left = 0;
         int n = intervals.length;
 
         int newStart = newInterval[0];
         int newEnd = newInterval[1];
 
+        int currStart = intervals[left][0];
+        int currEnd = intervals[left][1];
+
         // Add all intervals that end before newInterval starts
-        while (i < n && intervals[i][1] < newStart) {
-            System.out.println("Adding interval before newInterval: " + intervals[i][0] + "," + intervals[i][1]);
-            result.add(intervals[i]);
-            i++;
+        while (left < n && currEnd < newStart) {
+            System.out.println("Adding interval before newInterval: " + currStart + "," + currEnd);
+            result.add(intervals[left]);
+            left++;
         }
 
         // Merge overlapping intervals with newInterval.
-        while (i < n && intervals[i][0] <= newEnd) { // here end of current > start of new and start of current <= end of new
-            newInterval[0] = Math.min(newStart, intervals[i][0]);
-            newInterval[1] = Math.max(newEnd, intervals[i][1]);
-            System.out.println("Merging interval with newInterval: " + intervals[i][0] + "," + intervals[i][1]);
-            i++;
+        while (left < n && currStart <= newEnd) { // here end of current > left of new and left of current <= end of new
+            newInterval[0] = Math.min(newStart, currStart);
+            newInterval[1] = Math.max(newEnd, currEnd);
+            System.out.println("Merging interval with newInterval: " + currStart + "," + currEnd);
+            left++;
         }
         result.add(newInterval); // Add the merged newInterval
 
-        // Add all remaining intervals that start after newInterval ends
-        while (i < n) {
-            System.out.println("Adding interval after newInterval: " + intervals[i][0] + "," + intervals[i][1]);
-            result.add(intervals[i]);
-            i++;
+        // Add all remaining intervals that left after newInterval ends
+        while (left < n) {
+            System.out.println("Adding interval after newInterval: " + currStart + "," + currEnd);
+            result.add(intervals[left]);
+            left++;
         }
 
         return result.toArray(new int[result.size()][]);
