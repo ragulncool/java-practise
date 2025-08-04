@@ -1,4 +1,4 @@
-package com.ragul.demo.problems.DSA.easy.TwoPointers.ConvergingPattern;
+package com.ragul.demo.problems.DSA.easy.TwoPointers.OppositeEnds_ConvergingPointers_ShrinkingWindow;
 
 //Example 1:
 //

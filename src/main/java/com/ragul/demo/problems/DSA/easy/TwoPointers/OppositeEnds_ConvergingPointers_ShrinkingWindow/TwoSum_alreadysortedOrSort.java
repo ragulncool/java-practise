@@ -1,15 +1,16 @@
-package com.ragul.demo.problems.DSA.easy.TwoPointers.ConvergingPattern;
+package com.ragul.demo.problems.DSA.easy.TwoPointers.OppositeEnds_ConvergingPointers_ShrinkingWindow;
 
-public class TwoSum {
+import java.util.Arrays;
+
+public class TwoSum_alreadysortedOrSort {
     public static void main(String[] args) {
         int[] nums= new int[]{2, 7, 11, 15};
         int target = 9;
+        Arrays.sort(nums);
         printArray1(BF(nums,target));
         printArray1(twoPointer(nums,target));
 
     }
-
-
 
     private static void printArray1(int[] bf) {
         if (bf[0] == -1 && bf[1] == -1) {
@@ -50,6 +51,6 @@ public class TwoSum {
                 }
             }
         }
-        return resultArr;
+        return new int[]{-1, -1};
     }
 }

@@ -1,4 +1,4 @@
-package com.ragul.demo.problems.DSA.easy.TwoPointers.ConvergingPattern;
+package com.ragul.demo.problems.DSA.easy.TwoPointers.OppositeEnds_ConvergingPointers_ShrinkingWindow;
 
 public class ContainerWithMostWater {
     public static void main(String[] args) {
@@ -35,8 +35,9 @@ public class ContainerWithMostWater {
             int width = right - left;
             int minHeight = Math.min(height[left], height[right]);
             maxArea = Math.max(maxArea, width * minHeight);
+            System.out.println("Left: " + left + " Right: " + right + " Width: " + width + " MinHeight: " + minHeight + " MaxArea: " + maxArea);
 
-            if (height[left] < height[right]) {
+            if (height[left] < height[right]) { //move the shorter line - this will help in finding a potentially taller line
                 left++;
             } else {
                 right--;

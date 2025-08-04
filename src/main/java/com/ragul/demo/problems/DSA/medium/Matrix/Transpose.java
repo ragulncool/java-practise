@@ -1,7 +1,7 @@
 package com.ragul.demo.problems.DSA.medium.Matrix;
 
 //O(n2) and space O(1) since len constant
-public class TransposeOrRotate90 {   //interchange i and j
+public class Transpose {   //interchange i and j
     public static void main(String args[]){
 //        int[][] matrix ={
 //                {1,2,3,4},
@@ -20,13 +20,11 @@ public class TransposeOrRotate90 {   //interchange i and j
 
         int len=matrix.length;
         for(int i=0;i<len;i++) {
-            for (int j = 0; j < len; j++) {
-                if(i>j){
+            for (int j = i+1; j < len; j++) {  //j>1
                     int temp;
                     temp=matrix[i][j];
                     matrix[i][j]=matrix[j][i];
                     matrix[j][i]=temp;
-                }
                 }
             }
 
