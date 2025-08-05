@@ -1,3 +1,4 @@
+// src/main/java/com/ragul/demo/problems/DSA/medium/Matrix/operations/RowWithMaxNoOfOnes.java
 package com.ragul.demo.problems.DSA.medium.Matrix.operations;
 
 //Given a m x n binary matrix mat, find the 0-indexed position of the row that contains the maximum count of ones, and the number of ones in that row.
@@ -25,48 +26,46 @@ package com.ragul.demo.problems.DSA.medium.Matrix.operations;
 //Explanation: The row indexed 1 has the maximum count of ones (2). So the answer is [1,2].
 
 
+import java.util.Arrays;
+
 //sorted
 public class RowWithMaxNoOfOnes {
     public static void main(String[] args) {
         int[][] matrix = {{0,0,1,1,1},{0,0,0,0,0},{0,1,1,1,1},{0,0,0,0,0},{0,0,1,1,1}};
-        System.out.println(brutalForce(matrix));
-        System.out.println(usingLowerbound(matrix));
+        System.out.println(Arrays.toString(brutalForce(matrix)));
+        System.out.println(Arrays.toString(usingLowerbound(matrix)));
     }
 
-
-
-    private static int brutalForce(int[][] matrix) {
-        int maxRowCount=0, indexWithMaxCount= Integer.MIN_VALUE;
-
-        for(int i=0;i<matrix.length;i++){
-            int currentRowCount=0;
-            for(int j=0;j<matrix[0].length;j++){
-                if(matrix[i][j]==1)  currentRowCount++;
+    private static int[] brutalForce(int[][] matrix) {
+        int maxRowCount = 0, indexWithMaxCount = -1;
+        for (int i = 0; i < matrix.length; i++) {
+            int currentRowCount = 0;
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] == 1) currentRowCount++;
             }
-            if(currentRowCount>maxRowCount){
+            if (currentRowCount > maxRowCount) {
                 maxRowCount = currentRowCount;
                 indexWithMaxCount = i;
             }
         }
-        return indexWithMaxCount;
+        return new int[]{indexWithMaxCount, maxRowCount};
     }
 
-    private static int usingLowerbound(int[][] matrix) {
-        int maxRowCount=0, indexWithMaxCount= Integer.MIN_VALUE;
-        for(int i=0;i<matrix.length;i++){
-            int currentRowCount= matrix[0].length - lowerBound(matrix[i], matrix[0].length, 1);
-            if(currentRowCount>maxRowCount){
+    private static int[] usingLowerbound(int[][] matrix) {
+        int maxRowCount = 0, indexWithMaxCount = -1;
+        for (int i = 0; i < matrix.length; i++) {
+            int currentRowCount = matrix[0].length - lowerBound(matrix[i], matrix[0].length, 1);
+            if (currentRowCount > maxRowCount) {
                 maxRowCount = currentRowCount;
                 indexWithMaxCount = i;
             }
         }
-        return indexWithMaxCount;
+        return new int[]{indexWithMaxCount, maxRowCount};
     }
 
-    public static int lowerBound(int []arr, int n, int x) {
+    public static int lowerBound(int[] arr, int n, int x) {
         int low = 0, high = n - 1;
         int ans = n;
-
         while (low <= high) {
             int mid = (low + high) / 2;
             // maybe an answer

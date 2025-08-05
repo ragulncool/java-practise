@@ -1,5 +1,6 @@
 package com.ragul.demo.Complexity;
 
+//O(N) - worse case - linear time complexity
 public class timeCompleixty {
     public static void main(String[] args) {
         //AP - additive - O(n
