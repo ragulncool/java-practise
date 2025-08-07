@@ -31,26 +31,35 @@ public class MaxSumOfAllSubArrays_SubArraySizeKGiven {
     // O(n) Time and O(1) Space
     private static int slidingWindowApproach(int[] nums, int k) {
         int maxSum = 0;
-        int windowSum=0;
+        int currentWindowSum=0;
+
+        if (nums == null || nums.length < k || k <= 0) return 0;
+
 
         //first window
         for(int i=0;i<k;i++){
-            windowSum=windowSum+nums[i];
+            currentWindowSum=currentWindowSum+nums[i];
         }
-        maxSum=windowSum;
+        maxSum=currentWindowSum;
 
 
 
 //        //remaining  - WRONG IN MULTIPLE SITES - window index 1,2,3 and 2,3,4 are ignored
 //        for(int i=k;i<=nums.length-k+1;i++){
-//            windowSum = windowSum + nums[i]-nums[i-k]; //remove last element from last window and add first element from new window
-//            maxSum=Math.max(maxSum,windowSum);
+//            currentWindowSum = currentWindowSum + nums[i]-nums[i-k]; //remove last element from last window and add first element from new window
+//            maxSum=Math.max(maxSum,currentWindowSum);
 //        }
 
         //remaining windows
-        for(int i=1;i<nums.length-k+1;i++){
-            windowSum = windowSum + nums[i-1+k]-nums[i-1]; //remove last element from last window and add first element from new window
-            maxSum=Math.max(maxSum,windowSum);
+//        for(int i=1;i<nums.length-k+1;i++){
+//            currentWindowSum = currentWindowSum + nums[i-1+k]-nums[i-1]; //remove last element from last window and add first element from new window
+//            maxSum=Math.max(maxSum,currentWindowSum);
+//        }
+
+        //easy way
+        for(int i=k;i<nums.length;i++){
+            currentWindowSum = currentWindowSum + nums[i]-nums[i-k]; //remove last element from last window and add first element from new window
+            maxSum=Math.max(maxSum,currentWindowSum);
         }
 
         return maxSum;
