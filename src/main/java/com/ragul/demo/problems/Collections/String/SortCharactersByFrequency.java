@@ -1,13 +1,16 @@
 package com.ragul.demo.problems.Collections.String;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.PriorityQueue;
 
 public class SortCharactersByFrequency {
     public static void main(String[] args) {
-        String s="tree";
-        System.out.println(BF1(s.toCharArray()));
+        String[] s={"tree","cccaaa","Aabb"};
+        for(int i=0;i<s.length;i++){
+            System.out.println(BF1(s[i].toCharArray()));
+        }
+
     }
 
     private static String BF1(char[] c) {
@@ -18,9 +21,23 @@ public class SortCharactersByFrequency {
             map.put(c[i],map.getOrDefault(c[i],0)+1);
         }
 
+        PriorityQueue<Character> priorityQueue = new PriorityQueue<>((a, b)->map.get(b)-map.get(a));
+
+        for (Character d:map.keySet()){
+            priorityQueue.add(d);
+        }
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        while (!priorityQueue.isEmpty()){
+           char e =  priorityQueue.poll();
+            for (int i=0;i<map.get(e);i++){
+                stringBuilder.append(e);
+            }
+        }
 
 
-       return Arrays.toString(c);
+       return stringBuilder.toString();
 
     }
 }

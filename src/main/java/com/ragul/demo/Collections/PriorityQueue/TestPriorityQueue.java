@@ -9,6 +9,14 @@ class TestPriorityQueue{
     public static void main(String args[]){
         //underdtsand diff b/w add and offer
 
+        //MIN HEAP
+//
+//                 1
+//                / \
+//                 2   4
+//                / \ /
+//                5   9 8
+
         PriorityQueue<Integer> pq =new PriorityQueue<>();
         //stored in order according to priority
         System.out.println("Min-Heap elements in ascending order:");
@@ -25,7 +33,8 @@ class TestPriorityQueue{
         System.out.println(pq.peek());//returns lowest priorty element
         pq.poll(); //
         System.out.println(pq);
-        System.out.println(pq.peek());
+        System.out.println(pq.poll());
+        System.out.println(pq.poll());
         pq.clear();
 
         // Create a Max-Heap using Collections.reverseOrder()

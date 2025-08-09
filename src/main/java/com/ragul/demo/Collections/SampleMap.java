@@ -10,6 +10,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class SampleMap {
+    //Array vs Map
+    //If we use, searching [since we search every index] and deleting O(n)
+    //while O(1) in map since we check key, insert and delete also O(1)
+
+
     public static void main(String args[]){
         Map<String,String> map = new HashMap<>();
         map.put("one","SAMPLE1");
