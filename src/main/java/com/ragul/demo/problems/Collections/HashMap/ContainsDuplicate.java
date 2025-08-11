@@ -9,6 +9,7 @@ public class ContainsDuplicate {
        System.out.println(checkCOntains(nums));
     }
 
+    //T - O(n), S - O(n)
     private static boolean checkCOntains(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for(int i=0;i<nums.length;i++){

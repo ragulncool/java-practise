@@ -13,7 +13,8 @@ public class IsomorphicString {
             System.out.println(check(s[i], t[i]));
         }
     }
-
+//T - O(m) - length of s, S - O(1)
+    //sinxec max 256 O(256)
     private static boolean check(String s, String t) {
         if (s.length() != t.length()) return false;
 

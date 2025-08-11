@@ -10,7 +10,7 @@ public class TwoSum {
             System.out.println(checkTwoSum(nums[i], target[i]));
         }
     }
-
+//  T- O(n), S - o(n)
     private static List<Integer> checkTwoSum(int[] nums, int target) {
 //        Set<Integer> set = new HashSet<>();
         Map<Integer, Integer> map = new HashMap(); //sicne we need to return indice, storing it here
