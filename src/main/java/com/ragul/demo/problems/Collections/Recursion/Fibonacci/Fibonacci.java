@@ -1,6 +1,8 @@
 package com.ragul.demo.problems.Collections.Recursion.Fibonacci;
 
 //0 1 1 2 3 5 8
+//T 2^n
+//S n
 public class Fibonacci {
     public static void main(String[] args) {
         //print diagram how n-1 and n2 called

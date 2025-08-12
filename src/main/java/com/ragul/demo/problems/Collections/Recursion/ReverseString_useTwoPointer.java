@@ -1,6 +1,6 @@
 package com.ragul.demo.problems.Collections.Recursion;
 
-
+//time O(n) - one swap per pair
 //extar memory is sued -stack
 //hence memory is always O(n)
 public class ReverseString_useTwoPointer {
@@ -13,7 +13,7 @@ public class ReverseString_useTwoPointer {
     }
 
     private static void reverseString12(int i, int j, int[] arr) {
-        if(i>j) return;
+        if(i>=j) return;
 
         int temp=arr[i];
         arr[i]=arr[j];
