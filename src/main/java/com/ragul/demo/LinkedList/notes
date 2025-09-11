@@ -1,0 +1,25 @@
+array
+
+2000 -> 2004
+
+
+
+LL
+2000 -> 3000 -> 5000
+
+reverse LL
+detect cycle  - slow fast pointer approach
+find midl element
+merge 2 sorted
+
+
+DETECT CYCLE
+------------
+slow, fast=head
+
+slow=slow.next
+fast=fast.next.next
+
+of slow==fast return true
+
+return false;

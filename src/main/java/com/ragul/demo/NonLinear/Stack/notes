@@ -1,0 +1,21 @@
+stack iplenetation
+stack using LL
+stack using queue
+valid paraynesis
+FIRST next greater element
+MIN STACK
+
+VALID PARANETHESSIS
+---------------
+
+map.put9((,)) ..
+
+if(value is (    -> put ) in stack
+
+if valud is ) close -> compare with stack.pop ->if same, continue till last
+
+return stack.len==0
+
+next greater element
+------------------
+

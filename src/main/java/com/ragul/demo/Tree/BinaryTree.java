@@ -1,6 +1,8 @@
 package com.ragul.demo.Tree;
 
 
+import org.antlr.v4.runtime.tree.Tree;
+
 import java.util.*;
 
 //LEAF NODE - node for which left==null and right==null
@@ -49,5 +51,9 @@ public class BinaryTree {
             levelMap = printAllNodesInLevelOrder(node.right, level, levelMap);
         }
         return levelMap;
+    }
+
+    void traverseNodes(TreeNode node){
+
     }
 }

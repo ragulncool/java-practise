@@ -1,0 +1,82 @@
+Blocking - wait till task is completed without doing anything
+Non blocking  - continue doing other tasks while waiting for the task to be completed
+
+Think of blocking vs non-blocking like ordering food at a restaurant:
+Blocking → You place an order and just stand there, waiting until the chef finishes cooking. You can’t do anything else.
+Non-blocking → You place an order, get a ticket, and go do other things. The waiter notifies you when the food is ready.
+
+In spring, we can implement non-blocking using:
+1. Thread Based Non Blocking - Asynchronous programming with @Async annotation - method will run in separate thread
+2. Event Based Non Blocking - Reactive programming with Project Reactor (Mono, Flux)
+
+Where to use:
+1. Logging
+2. Sending email
+3. Calling external APIs
+4. File upload
+
+✅ In summary:
+A non-blocking task lets the system continue doing useful work instead of waiting idly.
+This improves scalability, responsiveness, and resource efficiency, especially in web applications that handle many concurrent users.
+
+// Example of blocking code
+public class BlockingExample {
+    public static void main(String[] args) {
+        System.out.println("Task 1 started");
+        try {
+            Thread.sleep(3000); // Simulate a blocking operation
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Task 1 completed");
+        System.out.println("Task 2 started");
+        System.out.println("Task 2 completed");
+    }
+}
+// In this example, Task 2 waits for Task 1 to complete before starting.
+
+// Example of non-blocking code using @Async in Spring
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.stereotype.Service;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+@SpringBootApplication
+@EnableAsync
+public class NonBlockingExample {
+    public static void main(String[] args) {
+        SpringApplication.run(NonBlockingExample.class, args);
+        MyService service = new MyService();
+        service.task1();
+        service.task2();
+    }
+    @Bean
+    public Executor taskExecutor() {
+        return Executors.newCachedThreadPool();
+    }
+}
+@Service
+class MyService {
+    @Async
+    public CompletableFuture<Void> task1() {
+        System.out.println("Task 1 started");
+        try {
+            Thread.sleep(3000); // Simulate a long-running task
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Task 1 completed");
+        return CompletableFuture.completedFuture(null);
+    }
+    public void task2() {
+        System.out.println("Task 2 started");
+        System.out.println("Task 2 completed");
+    }
+}
+// In this example, Task 2 starts immediately without waiting for Task 1 to complete.
+
+

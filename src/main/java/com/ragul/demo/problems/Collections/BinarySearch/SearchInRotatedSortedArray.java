@@ -1,4 +1,4 @@
 package com.ragul.demo.problems.Collections.BinarySearch;
 
-public class SearchInROtatedSortedArray {
+public class SearchInRotatedSortedArray {
 }

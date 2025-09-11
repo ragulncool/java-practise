@@ -28,7 +28,7 @@ public class SLLDemo {
         System.out.println("\nLength is "+length);
 
         System.out.println("====After Deletion in Nth position====");
-        list.deleteNthNode(2);
+       // list.deleteNthNode(2);
         list.printAll();
 
         System.out.println("====After Deletion in mid position===="); //simialr to above
@@ -46,10 +46,13 @@ public class SLLDemo {
         System.out.println("====Remove duplicates from sorted LL====");
         list.removeDuplicates();
         list.printAll();
+        System.out.println("====Middle element "+ list.findMiddleElement());
 
 
         list.covertToCircular();
         System.out.println("====Is Circular? "+ list.checkCircular());
+
+        System.out.println("====Is Cycle? "+ list.detectCycle());
     }
 
 

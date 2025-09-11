@@ -14,13 +14,21 @@ public class SinglyLinkedList {
         this.head = lLNode;
     }
 
+//    public void addDataWithoutSettingHeadRepeatedly(int data){
+//        SLLNode lLNode = new SLLNode(data);
+//        lLNode.setNext(this.head);
+//        if(head==null){
+//            this.head = lLNode;
+//        }
+//    }
+
     public void printAll() {
         SLLNode current = this.head;
         while(current!=null){
-            System.out.println(" "+current.data);
+            System.out.print(" "+current.data);
             current=current.next;
         }
-
+      System.out.println();
     }
 
     public int length() {
@@ -76,7 +84,7 @@ public class SinglyLinkedList {
 
             //swap prev and current
             prev = current;
-            current=next;
+            current=next; //or simple current=current.next
         }
         head=prev; //Linked list knows only head
     }
@@ -101,9 +109,10 @@ public class SinglyLinkedList {
         // 1. Non Circular List - current==null
         // 2. Circular List - current==head
         while(current!=null && current!=head){
-          current=current.next;
+            if (current==head) return true;
+               current=current.next;
         }
-        return current==head;
+        return false;
     }
 
     public void covertToCircular() {
@@ -133,6 +142,40 @@ public class SinglyLinkedList {
             }
             current=current.next; //subsequently check further notes and will be removed if any duplicates
         }
+    }
+
+    public boolean detectCycle(){
+
+        SLLNode slow = head;
+        SLLNode fast = head;
+
+        while (fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow==fast) {
+                System.out.println("CYCLE detected at "+slow.getData());
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public int findMiddleElement(){
+        if (head == null) {
+            throw new IllegalStateException("List is empty");
+        }
+
+        SLLNode slow = head;
+        SLLNode fast = head;
+
+        while (fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow.data;
     }
 
     //NOT WORKING

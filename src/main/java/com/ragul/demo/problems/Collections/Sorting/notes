@@ -1,0 +1,73 @@
+SORTING VISUALIZER
+
+Bubble - compare each other
+--------------------
+
+5 4 6 3 2
+
+1=> 4 5   6 3 2
+2=> 4   5 6   3 2
+3=> 4 5   3 6   2
+4=>  4 5 3    2 6
+
+
+
+int j=0 to n-1-i
+
+i=1, j=0
+1=> 4 5 3 2 6
+    4 3 5 2 6
+    4 3 2 5 6
+
+j= 0 t n-1-2
+i=2, j=0
+3 4 2 5 6
+3 2 4 5 6
+
+i=3
+2 3 4 5 6
+
+
+SELECTION SORT - select smallest element and put it in respective index
+-------------
+keep smallest in front
+
+min=a[i]
+
+i=0
+for j=0=i+1>
+    find min
+swap
+
+
+eg:
+i=0
+   min=0 idx
+   actual min = 4
+   swap [0,4]
+
+
+ INSERTION SORT  PICK ELEMENT AND INSERT IN CORRECT POSITION
+ ------------
+RIGHT TO LEFT
+ 5 4 6 3 2
+
+ ASSUME FIRST ELEMENT IN CORRECT POSITION
+
+I=1 COMPARE AND KEEP I
+
+MERGE SORT - DIVIDE TO SINGLE ELEMENT, SORT AND COMBINE WITH EACH
+-------
+DIVIDE AND CONQUER
+
+
+REARRANGE SORT
+-------
+
+5 4 2 6 8 1 0 9
+
+TAKE FIRST ELEMENT AS PIVOT
+
+I = SECODN ELEMENT IDX 1, J=LAST ELEMET
+
+

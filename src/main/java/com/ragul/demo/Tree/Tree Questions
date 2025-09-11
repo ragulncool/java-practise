@@ -1,4 +1,8 @@
 
+DLL tree
+each levl  -2 pow 0
+
+
 
 1) Print Tree nodes (any traversal - pre / inorder/ post) -
   print only left view (LV  -first eleemnt in pre order)

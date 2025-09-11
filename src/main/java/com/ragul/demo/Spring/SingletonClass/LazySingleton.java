@@ -9,7 +9,7 @@ public class LazySingleton {
 
     private static volatile LazySingleton instance = null;
 
-    // private constructor
+    // private constructor - used to prevent instantiation from outside the class
     private LazySingleton() {
     }
 
