@@ -48,20 +48,20 @@ class PrintMatrixInSpiralOrder {
             right--;
 
             // Traverse from Right to Left
-            if (top <= bottom) {
+//            if (top <= bottom) {
                 for (int col = right; col >= left; col--) {
                     result.add(matrix[bottom][col]);
                 }
                 bottom--;
-            }
+//            }
 
             // Traverse from Bottom to Top
-            if (left <= right) {
+//            if (left <= right) {
                 for (int row = bottom; row >= top; row--) {
                     result.add(matrix[row][left]);
                 }
                 left++;
-            }
+//            }
         }
 
         return result;

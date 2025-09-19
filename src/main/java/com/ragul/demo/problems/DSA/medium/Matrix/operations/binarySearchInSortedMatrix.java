@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+//Type i - first row element > last element of prev row
 public class binarySearchInSortedMatrix {
     public static void main(String[] args) {
         int[][] matrix = {{3,4,7,9},{12,13,16,18},{20,21,23,29}};

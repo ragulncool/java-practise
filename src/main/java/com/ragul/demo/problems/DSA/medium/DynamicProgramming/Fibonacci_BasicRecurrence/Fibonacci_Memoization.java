@@ -1,11 +1,13 @@
-package com.ragul.demo.problems.Collections.DP;
+package com.ragul.demo.problems.DSA.medium.DynamicProgramming.Fibonacci_BasicRecurrence;
 
 import java.util.Arrays;
 
 //0 1 1 2 3 5 8
 //T 2^n
 //S n
-public class Fibonacci {
+
+
+public class Fibonacci_Memoization {
     public static void main(String[] args) {
         int num=40;
         int[] dp = new int[num+1];

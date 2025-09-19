@@ -1,7 +1,4 @@
-package com.ragul.demo.problems.DSA.medium.DynamicProgramming;
-
-import java.util.Arrays;
-import java.util.Comparator;
+package com.ragul.demo.problems.DSA.medium.DynamicProgramming.Fibonacci_BasicRecurrence;
 
 //You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
 //
@@ -28,11 +25,7 @@ public class HouseRobber {
     public static void main(String[] args) {
         Integer nums[] = {2,7,9,3,1};
         System.out.println(findByDPApproach(nums));
-        System.out.println(findByBrutalApproach(nums));
 
-        Integer nums1[] = {3,2,7,10};
-        System.out.println(findByDPApproach(nums1));
-        System.out.println(findByBrutalApproach(nums1));
     }
 
     //   2  7   9   3             1
@@ -41,6 +34,27 @@ public class HouseRobber {
     //   3 2 7 10
     //dp 3 3 10 13
     private static int findByDPApproach(Integer[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        if (nums.length == 1) {
+            return nums[0];
+        }
+
+        int n = nums.length;
+        int[] dp = new int[n+1];
+
+        dp[0] = 0;
+        dp[1] = nums[0];
+
+        for (int i = 2; i <= n; i++) {
+            dp[i] = Math.max(nums[i-1] + dp[i-2], dp[i-1]);
+        }
+
+        return dp[n];
+    }
+
+    private static int findByDPApproach_using0(Integer[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
         }

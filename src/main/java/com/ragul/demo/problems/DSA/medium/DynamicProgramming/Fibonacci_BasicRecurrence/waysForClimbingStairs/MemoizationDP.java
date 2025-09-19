@@ -1,4 +1,4 @@
-package com.ragul.demo.problems.DSA.medium.DynamicProgramming.waysForClimbingStairs;
+package com.ragul.demo.problems.DSA.medium.DynamicProgramming.Fibonacci_BasicRecurrence.waysForClimbingStairs;
 
 import java.util.Arrays;
 

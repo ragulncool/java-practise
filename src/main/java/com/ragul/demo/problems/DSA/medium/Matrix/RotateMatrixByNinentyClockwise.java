@@ -1,7 +1,7 @@
 package com.ragul.demo.problems.DSA.medium.Matrix;
 
 //rotate right side 90
-public class RotateMatrixByNinenty {
+public class RotateMatrixByNinentyClockwise {
     public static void main(String[] args) {
         int[][] matrix ={
                 {1,2,3,4,5},

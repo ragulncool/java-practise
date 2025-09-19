@@ -1,4 +1,4 @@
-package com.ragul.demo.problems.DSA.medium.DynamicProgramming.waysForClimbingStairs;
+package com.ragul.demo.problems.DSA.medium.DynamicProgramming.Fibonacci_BasicRecurrence.waysForClimbingStairs;
 
 //The person can climb either 1 stair or 2 stairs at a time
 

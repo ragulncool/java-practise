@@ -1,8 +1,4 @@
-package com.ragul.demo.problems.DSA.medium.DynamicProgramming;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+package com.ragul.demo.problems.DSA.medium.DynamicProgramming.Fibonacci_BasicRecurrence;
 
 //You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.
 //
@@ -25,7 +21,7 @@ import java.util.List;
 //
 //Input: coins = [1], amount = 0
 //Output: 0
-public class CoinChange {
+public class CoinChangeWithoutDP {
 
     public static void main(String[] args) {
         int[] coins = {1,2,5}; //means - these coins are present in unlimited numbers
