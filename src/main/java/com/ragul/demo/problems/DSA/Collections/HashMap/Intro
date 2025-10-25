@@ -1,0 +1,81 @@
+Importance of HashMap
+--------------------
+	Searching/Lookup Time complexity
+
+	Unsorted	O(n)
+	Sorted	O(log n)
+
+	HashMap	O(1)
+
+Working:
+-------
+	Eg:
+	Hashing- Book - Using topic name, we are getting page number
+	Similarly,	Using key, we are getting value
+
+
+Challenges:
+Map<String, Object>
+
+Hashmap internally uses array to store data. The index in the array is determined by a hash function that takes the key as input and produces an integer hash code.
+This hash code is then mapped to an index in the array using modulo operation with the size of the array.
+
+1. multiple objects mapping to same location - collision
+2. computing hash time
+3. unique distribution of keys (different index for different keys)
+
+Solutions for collision:
+--------------------
+1. Open Hashing / Separate Chaining- Use Linked List at each index
+
+    Pros: Simple to implement, handles collisions well
+    Cons: Can lead to increased memory usage since LL is used and slower lookups if many collisions occur
+
+2. Closed Hashing / Open Addressing - Linear Probing
+
+    All elements are stored inside the hash table itself — no external lists.
+    When a collision occurs, a new slot is found using a probing method.
+    index = (hash(key) + i) % table_size
+
+
+    Pros: More memory efficient since it doesn't use additional data structures for collisions
+    Cons: Can lead to clustering and performance degradation with high load factors
+
+3. Double Hashing
+Pros: Reduces clustering by using a second hash function to determine the probe step size
+Cons: More complex to implement and requires careful selection of hash functions
+4. Cuckoo Hashing
+Pros: Guarantees constant time lookups and handles collisions effectively
+Cons: More complex insertion process and may require rehashing of existing keys
+5. Robin Hood Hashing
+Pros: Balances the load across the hash table, leading to improved performance
+Cons: More complex insertion and deletion processes
+6. Hopscotch Hashing
+Pros: Maintains good cache performance and allows for efficient lookups
+Cons: More complex to implement and manage the neighborhood of entries
+--------------------
+HashMap Internal Working:
+--------------------
+1. Hash Function: Computes an index (hash code) for the key.
+2. Array of Buckets: The hash code determines the index in an array where the key
+    - value pair will be stored.
+3. Collision Handling: If two keys hash to the same index, a collision occurs.
+    - Separate Chaining: Each bucket contains a linked list of entries.
+    - Open Addressing: Probes for the next available slot in the array.
+4. Load Factor: A measure of how full the hash table is allowed to get before its
+    - capacity is automatically increased.
+5. Rehashing: When the load factor exceeds a certain threshold, the hash table
+    - is resized and all existing entries are rehashed to new positions.
+--------------------
+Java HashMap Implementation:
+--------------------
+1. Initial Capacity: Default is 16.
+2. Load Factor: Default is 0.75.
+3. Buckets: Array of linked lists (or trees for large buckets).
+4. Methods:
+    - put(key, value): Adds a key-value pair to the map.
+    - get(key): Retrieves the value associated with the key.
+    - remove(key): Removes the key-value pair from the map.
+    - containsKey(key): Checks if the map contains the specified key.
+    - size(): Returns the number of key-value pairs in the map.
+--------------------
