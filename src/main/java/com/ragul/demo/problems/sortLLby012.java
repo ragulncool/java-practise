@@ -1,9 +1,7 @@
 package com.ragul.demo.problems;
 
-import com.ragul.demo.LinkedList.SLLNode;
-import com.ragul.demo.LinkedList.SinglyLinkedList;
-
-import java.util.LinkedList;
+import com.ragul.demo.problems.DSA.DataStructures.LinkedList.SLL.Basics.SLLNode;
+import com.ragul.demo.problems.DSA.DataStructures.LinkedList.SLL.Basics.SinglyLinkedList;
 
 public class sortLLby012 {
     public static void main(String args[]){

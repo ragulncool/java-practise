@@ -15,13 +15,13 @@ public class ArrayAndCollectionsSorting {
         Arrays.sort(numbers);
         System.out.println("Sorted array: " + Arrays.toString(numbers));
 
-        char[] characters = {'o', 'i', 'e', 'u', 'a'}; //Character[] change to primitive typemfor using Collections.reverseOrder
+        char[] characters = {'o', 'i', 'e', 'u', 'a'}; //Character[] change to primitive typemfor using DataStructures.reverseOrder
         System.out.println("Original array: " + Arrays.toString(characters));
 
         Arrays.sort(characters);
         System.out.println("ASC Sorted array: " + Arrays.toString(characters));
 
-        // Arrays.sort(characters, Collections.reverseOrder()); -> COllections.reverseorder will work only for Primitive. hence chanhe chaar[] to CHaracter[]
+        // Arrays.sort(characters, DataStructures.reverseOrder()); -> COllections.reverseorder will work only for Primitive. hence chanhe chaar[] to CHaracter[]
         System.out.println("DESC Sorted array: " + Arrays.toString(characters));
 
 //desc
@@ -51,6 +51,6 @@ public class ArrayAndCollectionsSorting {
 
     //LIMITATION
 
-    //Java’s built-in sorting methods, such as Arrays.sort() and Collections.sort(),
+    //Java’s built-in sorting methods, such as Arrays.sort() and DataStructures.sort(),
     // are powerful and efficient for sorting primitive types and objects with natural ordering (like String),
     // they fall short when it comes to sort

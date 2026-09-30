@@ -7,12 +7,25 @@ import java.util.Optional;
 public class OptionalDemo {
 
     public static void main(String[] args) {
+        //SUMMARY
+
+        //PROVIDES SAFER WAY OF HANDLING NULL .
+        //Employee e= null  - returned from findById of repo
+        //WHILE SENDING: Optional opt = Optional.OfNullable(e)
+        //
+        //WHILE RECEIVING. opt.orElse("default")
+        //or opt.OrElseThrow()
+
+        //Optional is used to safely handle nullable values in Java and avoid NullPointerException by forcing explicit handling of missing values.
+
+        //--------------------------
 
         //NEED OF OPTIONAL
         // Optional is a container object which may or may not contain a non-null value.
         // It is used to avoid null checks and NullPointerExceptions in Java.
 
-        Employee employee = null;
+        //Employee employee = null;
+        Employee employee = new Employee(1,"ff","a");
 
         String e=employee.getName();
         //System.out.println(e); //NullPointerException - if employee is null
@@ -24,6 +37,7 @@ public class OptionalDemo {
 
         String s = "Demo";
         Optional<String> optStr = Optional.ofNullable(s);
+        System.out.println(optStr);
         System.out.println(optStr.isEmpty()); //checks value == null
         System.out.println(optStr.isPresent()); //checks value != null
         System.out.println(optStr.get());
@@ -32,6 +46,7 @@ public class OptionalDemo {
         String s1 = null;
         // Optional<String> optStr1 = Optional.of(s1); //If Nullable is not used, null cannot be assigned - Nullpointer
         Optional<String> optStr2 = Optional.ofNullable(s1); //or Optional.empty();
+        System.out.println(optStr2);
         System.out.println(optStr2.isEmpty());
         System.out.println(optStr2.isPresent());
         System.out.println(optStr2.get()); //NoSuchElementException: No value present

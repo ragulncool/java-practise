@@ -23,14 +23,14 @@ public class SortingObject {
         list.add(e2);
         System.out.println(list);
 
-       //Collections.sort(list)
+       //DataStructures.sort(list)
       //  If no compareTO method and class doesnt implement Comparable gives below COmpile error
                 //reason: no instance(s) of type variable(s) T exist so that Employee conforms to Comparable<? super T>
                 //else srots based on compareTo
         //LIMITATION: Defined inside method. hence only single sorting seq
 
       //  4 WAYS - USING CUSTOM COMPARATOR AND INBUILT COMPARATOR
-//        Collections.sort(list, new EmployeeIdComparator());
+//        DataStructures.sort(list, new EmployeeIdComparator());
 //        System.out.println(list);
 
 //        List<Employee> list1= list.stream().sorted(new EmployeeIdAscComparator()).collect(Collectors.toList());

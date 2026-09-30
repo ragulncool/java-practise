@@ -1,8 +1,6 @@
 package com.ragul.demo.problems;
 
-import com.ragul.demo.LinkedList.SLLDemo;
-import com.ragul.demo.LinkedList.SLLNode;
-import com.ragul.demo.LinkedList.SinglyLinkedList;
+import com.ragul.demo.problems.DSA.DataStructures.LinkedList.SLL.Basics.SinglyLinkedList;
 
 import java.util.Arrays;
 import java.util.Collections;

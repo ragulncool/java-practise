@@ -1,0 +1,6 @@
+Put object-creation logic in one place (a factory class) instead of scattering new everywhere.
+
+You want to centralize creation logic so it’s easier to change later.
+If you add a new class, e.g. WhatsappNotification,
+you only change the factory, not all places where notifications are used.
+

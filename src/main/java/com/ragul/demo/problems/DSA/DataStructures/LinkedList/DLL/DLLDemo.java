@@ -1,0 +1,30 @@
+package com.ragul.demo.problems.DSA.DataStructures.LinkedList.DLL;
+
+public class DLLDemo {
+    public static void main(String args[]){
+        DoublyLinkedList list = new DoublyLinkedList();
+        System.out.println("After Insertion in Head:");
+        list.insertAtHead(3);
+        list.insertAtHead(1);
+        list.insertAtHead(2);
+        System.out.println("Print from Head:");
+        list.printFromHead();
+
+        System.out.println("After Insertion in Tail:");
+        list.insertAtTail(9);
+        list.insertAtTail(8);
+        list.insertAtTail(9);
+        System.out.println("Print from Head:");
+        list.printFromHead();
+        System.out.println("Print from Tail:");
+        list.printFromTail();
+
+        System.out.println("After Reversing DLL:");
+        list.reverseDLL();
+        list.printFromHead();
+
+        System.out.println("Detect Loop in LL: "+list.detectLoop()+" "+list.detectLoopUsingHashMap());
+
+
+    }
+}

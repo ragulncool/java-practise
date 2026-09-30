@@ -50,8 +50,8 @@ public class HashMapVsConcurrentHashMapVsHashtable {
             }
         }
 
-        //Solution 4 - Use Collections.synchronizedMap() to wrap a HashMap - NOT WORKING - EXPECTED: EXCEPTION SHOULD NOT THROW BUT THROWN
-//        Map<Integer, Integer> synchronizedMap = Collections.synchronizedMap(new HashMap<>());
+        //Solution 4 - Use DataStructures.synchronizedMap() to wrap a HashMap - NOT WORKING - EXPECTED: EXCEPTION SHOULD NOT THROW BUT THROWN
+//        Map<Integer, Integer> synchronizedMap = DataStructures.synchronizedMap(new HashMap<>());
 //        synchronizedMap.put(11, 11);
 //        synchronizedMap.put(12, 12);
 //        synchronized (synchronizedMap) { //need to synchronize the block to avoid ConcurrentModificationException

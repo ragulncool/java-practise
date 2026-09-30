@@ -37,7 +37,7 @@ class TestPriorityQueue{
         System.out.println(pq.poll());
         pq.clear();
 
-        // Create a Max-Heap using Collections.reverseOrder()
+        // Create a Max-Heap using DataStructures.reverseOrder()
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 
         maxHeap.add(10);

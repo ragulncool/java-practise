@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
 
 //Time Complexity: O(NlogN) for sorting the list every time we find the median
 
-//abobe is time complexity for Collections.sort and no floop. hence it is the complexoty for entire program
+//abobe is time complexity for DataStructures.sort and no floop. hence it is the complexoty for entire program
 public class FindMedianInDataStream {
     List<Integer> list;
 

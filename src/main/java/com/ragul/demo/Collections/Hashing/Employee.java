@@ -4,6 +4,7 @@ import com.ragul.demo.springboot.files.Hibernate.Person;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -22,6 +23,8 @@ public class Employee implements Comparable<Employee> {
     private int id;
     private String name;
     private String address;
+    private BigDecimal salary;
+    private String department;
 
 //    @Override
 //    public boolean equals(Object o) {
@@ -32,30 +35,38 @@ public class Employee implements Comparable<Employee> {
 //    }
 
 
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        boolean result = Objects.equals(this.name, employee.name);
-        System.out.println("    equals result : " + result);
-        return result;
-    }
-
-    @Override
-    public int hashCode() {
-        int hashCode = Objects.hash(name);
-        System.out.println("    hashCode result : " + hashCode);
-        return hashCode;
-
-//        int hashcode = 0;
-//                System.out.println("hashCode result : "+hashcode);
-//        return hashcode;
-    }
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Employee employee = (Employee) o;
+//        boolean result = Objects.equals(this.name, employee.name);
+//        System.out.println("    equals result : " + result);
+//        return result;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        int hashCode = Objects.hash(name);
+//        System.out.println("    hashCode result : " + hashCode);
+//        return hashCode;
+//
+////        int hashcode = 0;
+////                System.out.println("hashCode result : "+hashcode);
+////        return hashcode;
+//    }
 
     public Employee(int id, String name, String address) {
         this.id = id;
         this.name = name;
         this.address = address;
+    }
+
+    public Employee(int id, String name, String address, BigDecimal salary, String department) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.salary=salary;
+        this.department=department;
     }
 
     @Override
@@ -64,9 +75,10 @@ public class Employee implements Comparable<Employee> {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
+                ", salary=" + salary +
+                ", department='" + department + '\'' +
                 '}';
     }
-
 
     @Override
     public int compareTo(Employee o) {
@@ -169,3 +181,6 @@ public class Employee implements Comparable<Employee> {
         }
     }
 }
+
+//key one  - x123 - 12 - add
+//key two - x123 (hash collision) - 12 -  equals (same- replace, diff - add to LL)
