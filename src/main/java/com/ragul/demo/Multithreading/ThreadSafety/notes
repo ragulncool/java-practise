@@ -1,0 +1,3 @@
+Thread safety means multiple threads can access shared data concurrently without causing incorrect results or data corruption.
+
+Atomic = indivisible operation that cannot be interrupted halfway by another thread.
